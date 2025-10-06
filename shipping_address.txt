@@ -1,0 +1,404 @@
+@extends('frontend.layouts.ecommercemaster')
+@section('title', 'Checkout')
+
+@section('content')
+@php
+    $me = Auth::user();
+    $dl = $me->locations()->first();
+    $cartTotal = $cart_total ?? $cartItems->sum(fn($item) => $item->price * $item->quantity);
+@endphp
+<div class="container py-5">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="mb-4">Checkout</h1>
+        </div>
+    </div>
+    @if($cartItems->isEmpty())
+        <p class="text-center text-muted py-5 fs-5">Your cart is empty 🛒</p>
+    @else 
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-body">
+
+                   {{-- @include('frontend.home.includes.new_checkout-delivery-form')--}}
+
+                    <!-- Flash Messages -->
+                    @if(session('success'))
+                        <div class="alert alert-success">{{ session('success') }}</div>
+                    @endif
+                    @if(session('error'))
+                        <div class="alert alert-danger">{{ session('error') }}</div>
+                    @endif
+                    <div class="row">
+                        <header class="bg-success py-2 px-3">
+                            <h2 class="text-white h5 d-flex align-items-center gap-2 mb-0">
+                                <i class="fas fa-shipping-fast"></i> Shipping Address
+                            </h2>
+                        </header>
+                        <div id="address-form" style="display: none;">
+                            <div class="row">
+                                <div class="col-md-6 mt-3">
+                                    <form>
+                                        <div class="mb-3">
+                                            <label for="billing-name" class="form-label">Name</label>
+                                            <!-- id="billing-name" -->
+                                            <input type="text" class="form-control" id="name" name="name" value="{{ $dl ? $dl->name : Auth::user()->name  }}" placeholder="Enter full name">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="billing-email" class="form-label">Email</label>
+                                            <!-- id="billing-email" -->
+                                            <input type="email" class="form-control" id="email" name="email" value="{{ $dl ? $dl->email : Auth::user()->email  }}">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="billing-phone" class="form-label">Phone</label>
+                                            <!-- id="billing-phone" -->
+                                            <input type="tel" class="form-control" id="mobile" name="mobile" value="{{ $dl ? $dl->mobile : Auth::user()->mobile  }}" placeholder="e.g. 01XXXXXXXXX">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="billing-address" class="form-label">Address</label>
+                                            <textarea class="form-control" id="billing-address" rows="3" placeholder="e.g. Home, Office, Mom’s House" value="{{ $dl ? $dl->address_title : old('address_title') }}">{{ $dl ? $dl->address_title : old('address_title') }}</textarea>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-6 mt-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="ship-to-different-address">
+                                        <label class="form-check-label" for="ship-to-different-address">
+                                            Ship to different address
+                                        </label>
+                                    </div>
+                                    <div id="shipping-details" style="display: none;">
+                                        <h5 class="mt-4">Shipping Details</h5>
+                                        <form>
+                                            <div class="mb-3">
+                                                <label for="shipping-name" class="form-label">Name</label>
+                                                <input type="text" class="form-control" id="shipping-name">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="shipping-email" class="form-label">Email</label>
+                                                <input type="email" class="form-control" id="shipping-email">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="shipping-phone" class="form-label">Phone</label>
+                                                <input type="tel" class="form-control" id="shipping-phone">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="shipping-address" class="form-label">Address</label>
+                                                <textarea class="form-control" id="shipping-address" rows="3"></textarea>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="mt-4">
+                                        <h5>Delivery Time</h5>
+                                        <p>Inside Dhaka: 5 days</p>
+                                        <p>Outside Dhaka: 10 days</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mt-3">
+                                <div class="mb-3">
+                                    <label for="district" class="form-label">District</label>
+                                    <select class="form-select" id="district">
+                                        <option selected disabled>Select a district</option>
+                                        @foreach($districts as $district)
+                                            <option value="{{ $district->id }}">{{ $district->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="thana" class="form-label">Thana</label>
+                                    <select class="form-select" id="thana">
+                                        <option selected disabled>Select a thana</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="zip" class="form-label">Zip Code</label>
+                                    <input type="text" class="form-control" id="zip">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <div id="shipping-options">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="shipping-option" id="free-shipping" value="0" checked>
+                                    <label class="form-check-label" for="free-shipping">
+                                        Free shipping
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="shipping-option" id="local-pickup-1" value="60">
+                                    <label class="form-check-label" for="local-pickup-1">
+                                        Local pickup (0-0.5 Kg, Inside Dhaka District): 60.00৳
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="shipping-option" id="local-pickup-2" value="70">
+                                    <label class="form-check-label" for="local-pickup-2">
+                                        Local pickup (0.5-1 Kg, Inside Dhaka District): 70.00৳
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="shipping-option" id="local-pickup-3" value="90">
+                                    <label class="form-check-label" for="local-pickup-3">
+                                        Local pickup (1-2 Kg, Inside Dhaka District): 90.00৳
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="shipping-option" id="local-pickup-4" value="110">
+                                    <label class="form-check-label" for="local-pickup-4">
+                                        Local pickup (0-0.5 Kg, Outside Dhaka District): 110.00৳
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="shipping-option" id="local-pickup-5" value="130">
+                                    <label class="form-check-label" for="local-pickup-5">
+                                        Local pickup (0.5-1 Kg, Outside Dhaka District): 130.00৳
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="shipping-option" id="local-pickup-6" value="170">
+                                    <label class="form-check-label" for="local-pickup-6">
+                                        Local pickup (1-2 Kg, Outside Dhaka District): 170.00৳
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="shipping-option" id="local-pickup-7" value="120">
+                                    <label class="form-check-label" for="local-pickup-7">
+                                        Local pickup same day (0-0.5 Kg, Inside Dhaka Metro City Only): 120.00৳
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="shipping-option" id="local-pickup-8" value="150">
+                                    <label class="form-check-label" for="local-pickup-8">
+                                        Local pickup same day (0.5-2 Kg, Inside Dhaka Metro City Only): 150.00৳
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <p id="selected-address"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-body">
+                    @include('frontend.home.includes.checkout-cart-items', ['cartItems' => $cartItems])
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Payment Method</h5>
+
+                    <!-- ✅ Form should wrap ALL payment methods -->
+                    <form id="checkoutForm" method="POST" action="">
+                        @csrf
+                        <div class="accordion" id="payment-accordion">
+
+                            <!-- Direct Cash -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="direct-cash-heading">
+                                    <button class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#direct-cash-collapse"
+                                        aria-expanded="false" aria-controls="direct-cash-collapse">
+                                        <div class="form-check">
+                                            <input class="form-check-input paymentMethodSelect" type="radio"
+                                                value="cod" name="payment-method" id="direct-cash-payment">
+                                            <label class="form-check-label" for="direct-cash-payment">
+                                                Direct Cash Payment
+                                            </label>
+                                        </div>
+                                    </button>
+                                </h2>
+                                <div id="direct-cash-collapse" class="accordion-collapse collapse"
+                                    aria-labelledby="direct-cash-heading" data-bs-parent="#payment-accordion">
+                                    <div class="accordion-body">
+                                        Pay with cash upon delivery.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Cash on Delivery -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="cash-on-delivery-heading">
+                                    <button class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#cash-on-delivery-collapse"
+                                        aria-expanded="false" aria-controls="cash-on-delivery-collapse">
+                                        <div class="form-check">
+                                            <input class="form-check-input paymentMethodSelect" type="radio"
+                                                value="online" name="payment-method" id="cash-on-delivery">
+                                            <label class="form-check-label" for="cash-on-delivery">
+                                                Online Payment
+                                            </label>
+                                        </div>
+                                    </button>
+                                </h2>
+                                <div id="cash-on-delivery-collapse" class="accordion-collapse collapse"
+                                    aria-labelledby="cash-on-delivery-heading" data-bs-parent="#payment-accordion">
+                                    <div class="accordion-body">
+                                        Make your payment directly into our bkash (personal) account with bkash charge and mention your bkash payment number and amount in the order notes box as the payment reference. Your order will not be shipped until the funds have not been cleared in our account.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Checkbox -->
+                    <div class="form-check mb-3 mt-2">
+                        <input class="form-check-input" type="checkbox" id="receive-emails">
+                        <label class="form-check-label" for="receive-emails">
+                            I would like to receive exclusive emails with discounts and product information
+                        </label>
+                        <label for="">
+                            Shipment will be made within 24 hours of order confirmation. However, if the product is not in stock, there may be a delay in shipment.
+                        </label>
+                    </div>
+
+                    <div class="mb-3">
+                        <p>By placing your order, you agree to our <a href="{{ route('terms') }}">Terms & Conditions</a>, <a href="{{ route('return-policy') }}">Return & Refund Policy</a> and <a href="{{ route('privacy-policy') }}">Privacy Policy</a>.</p>
+                    </div>
+
+                    <!-- Proceed Button -->
+                    <button class="btn btn-success w-100 mt-3" id="proceed-to-pay-button" disabled>
+                        Proceed to Pay
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    @endif
+</div>
+
+@push('js')
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const checkoutForm = document.getElementById('checkoutForm');
+    const paymentRadios = document.querySelectorAll('.paymentMethodSelect');
+    const emailCheckbox = document.getElementById('receive-emails');
+    const proceedBtn = document.getElementById('proceed-to-pay-button');
+    const shippingToggle = document.getElementById('ship-to-different-address');
+    const shippingDetails = document.getElementById('shipping-details');
+    const changeAddressLink = document.getElementById('change-address-link');
+    const addressForm = document.getElementById('address-form');
+    const districtSelect = document.getElementById('district');
+    const thanaSelect = document.getElementById('thana');
+    const zipInput = document.getElementById('zip');
+    const shippingOptions = document.getElementById('shipping-options');
+    const selectedAddress = document.getElementById('selected-address');
+    const subtotalElement = document.querySelector('.subtotal');
+    const payableElement = document.querySelector('.payable');
+
+    const codRoute = "{{ route('codOrderStore') }}";
+    const onlineRoute = "{{ url('order/store') }}";
+
+    // ✅ Enable/disable Proceed button based on conditions
+    function toggleProceedButton() {
+        const paymentSelected = document.querySelector('.paymentMethodSelect:checked');
+        const emailChecked = emailCheckbox.checked;
+        proceedBtn.disabled = !(paymentSelected && emailChecked);
+    }
+
+    // ✅ Payment method change
+    paymentRadios.forEach(radio => {
+        radio.addEventListener('change', toggleProceedButton);
+    });
+
+    // ✅ Email checkbox change
+    emailCheckbox.addEventListener('change', toggleProceedButton);
+
+    // ✅ Shipping toggle
+    if (shippingToggle) {
+        shippingToggle.addEventListener('change', function () {
+            shippingDetails.style.display = this.checked ? 'block' : 'none';
+        });
+    }
+
+    // ✅ Change address link click (using event delegation)
+    document.addEventListener('click', (e) => {
+        if (e.target && e.target.id === 'change-address-link') {
+            e.preventDefault();
+            addressForm.style.display = addressForm.style.display === 'none' ? 'block' : 'none';
+        }
+    });
+
+    // ✅ District change
+    districtSelect.addEventListener('change', () => {
+        const districtId = districtSelect.value;
+        if (districtId) {
+            fetch(`/get-upazilas/${districtId}`)
+                .then(response => response.json())
+                .then(data => {
+                    thanaSelect.innerHTML = '<option selected disabled>Select a thana</option>';
+                    data.forEach(upazila => {
+                        const option = document.createElement('option');
+                        option.value = upazila.id;
+                        option.textContent = upazila.name;
+                        thanaSelect.appendChild(option);
+                    });
+                });
+        }
+    });
+
+    // ✅ Shipping option change
+    shippingOptions.addEventListener('change', () => {
+        updateTotals();
+    });
+
+    // ✅ Update totals
+    function updateTotals() {
+        const subtotal = parseFloat(subtotalElement.textContent.replace(/[^0-9.-]+/g,""));
+        const shippingCost = parseFloat(document.querySelector('input[name="shipping-option"]:checked').value);
+        const grandTotal = subtotal + shippingCost;
+        payableElement.textContent = `Tk. ${grandTotal.toFixed(2)}`;
+    }
+
+    // ✅ Thana change
+    thanaSelect.addEventListener('change', () => {
+        const districtName = districtSelect.options[districtSelect.selectedIndex].text;
+        const thanaName = thanaSelect.options[thanaSelect.selectedIndex].text;
+        const zip = zipInput.value;
+        selectedAddress.textContent = `Shipping to ${thanaName}, ${districtName}, ${zip}.`;
+    });
+
+    // ✅ Proceed button click → confirm order
+    proceedBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const selected = document.querySelector('.paymentMethodSelect:checked');
+        if (!selected) {
+            Swal.fire('Error', 'Please select a payment method.', 'error');
+            return;
+        }
+
+        // Set form action dynamically
+        checkoutForm.action = selected.value === 'cod' ? codRoute : onlineRoute;
+
+        Swal.fire({
+            title: 'Confirm Order',
+            text: "Do you want to place this order?",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, place order',
+            cancelButtonText: 'Cancel'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                checkoutForm.submit();
+            }
+        });
+    });
+
+    // Run once on load
+    toggleProceedButton();
+    updateTotals();
+});
+</script>
+
+@endpush
+@endsection 
