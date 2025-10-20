@@ -29,7 +29,9 @@ class BlogPost extends Model
         return $this->feature_image ?: 'fi.jpg';
     }
 
-
-
+    public function comments()
+    {
+        return $this->hasMany(BlogComment::class, 'post_id')->whereNull('parent_id')->where('active', 1)->latest();
+    }
 
 }

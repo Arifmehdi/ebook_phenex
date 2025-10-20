@@ -108,15 +108,23 @@
                                     <div class="hfe-site-header-cart-li current-menu-item">
                                         <div
                                             class="hfe-menu-cart__toggle hfe-button-wrapper elementor-widget-button">
-                                            <a id="hfe-menu-cart__toggle_button" href="{{ route('cart') }}"
+                                            <a id="hfe-menu-cart__toggle_button" href="{{ route('new.checkout')}}"
                                                 class="elementor-button hfe-cart-container" aria-label="Cart">
                                                 <span class="elementor-button-text hfe-subtotal">
                                                     <span class="woocommerce-Price-amount amount">0.00<span
                                                             class="woocommerce-Price-currencySymbol">&#2547;&nbsp;</span></span>
                                                 </span>
-                                                <span class="elementor-button-icon" data-counter="0">
+                                                @php 
+                                                    $count_info = \App\Models\Cart::when(Auth::check(), fn($q) => $q->where('user_id', operator: Auth::id()))
+                                                                                    ->when(value: !Auth::check(), callback: fn($q) => $q->where('session_id', session('session_id')));
+                                                    $count_data = $count_info->count();
+                                                    $totalCartPrice = \App\Models\Cart::totalCartPrice();
+                                                @endphp
+                                                <span class="elementor-button-icon cartItemsCount" data-counter="{{ $count_data }}">
                                                     <i class="eicon" aria-hidden="true"></i>
+                                                    <span class="cartCountBadge">{{ $count_data }}</span>
                                                 </span>
+
                                             </a>
                                         </div>
 

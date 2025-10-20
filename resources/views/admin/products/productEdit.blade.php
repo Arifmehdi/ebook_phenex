@@ -169,10 +169,43 @@
                                 </div>
                             </div>
                         </div>
-
+                        <!-- pdf upload start here  -->
+                                             <div class="card card-primary card-outline">
+                        <div class="card-header">
+                            <h3 class="card-title">Add Book File</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group row">
+                                <label for="file_path" class="col-sm-4 col-form-label">Book PDF</label>
+                                <div class="col-sm-6">
+                                    <input type="file" class="form-control-file" id="file_path" name="file_path" value="{{ old('file_path') }}">
+                                </div>
+                                @if($product->file_path)
+                                    <a href="{{ asset('storage/product_files/' . $product->file_path) }}" target="_blank">View PDF</a>
+                                @endif
+                                @error('file_path')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="form-group row">
+                                <label for="preview_path" class="col-sm-4 col-form-label">Preview PDF</label>
+                                <div class="col-sm-6">
+                                    <input type="file" class="form-control-file" id="preview_path" name="preview_path" value="{{ old('preview_path') }}">
+                                </div>
+                                @if($product->preview_path)
+                                    <a href="{{ asset('storage/product_previews/' . $product->preview_path) }}" target="_blank">Preview PDF</a>
+                                @endif
+                                @error('preview_path')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                        <!-- pdf upload end here  -->
                         {{-- Media Container --}}
                          @includeIf('admin.media.mediaContainer')
                     </div>
+
                 </div>
 
                 {{-- Categories & Subcategories Section --}}

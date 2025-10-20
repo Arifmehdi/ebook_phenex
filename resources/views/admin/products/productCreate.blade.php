@@ -155,6 +155,33 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- pdf upload start  -->
+                                             <div class="card card-primary card-outline">
+                        <div class="card-header">
+                            <h3 class="card-title">Add Book File</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group row">
+                                <label for="file_path" class="col-sm-4 col-form-label">Book PDF</label>
+                                <div class="col-sm-6">
+                                    <input type="file" class="form-control-file" id="file_path" name="file_path" value="{{ old('file_path') }}">
+                                </div>
+                                @error('file_path')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="form-group row">
+                                <label for="preview_path" class="col-sm-4 col-form-label">Preview PDF</label>
+                                <div class="col-sm-6">
+                                    <input type="file" class="form-control-file" id="preview_path" name="preview_path" value="{{ old('preview_path') }}">
+                                </div>
+                                @error('preview_path')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                         <!-- pdf upload end  -->
 
                         {{-- Include media selection modal/component --}}
                         @includeIf('admin.media.mediaContainer')

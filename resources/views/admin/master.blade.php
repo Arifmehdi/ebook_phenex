@@ -271,7 +271,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item {{ session('lsbm') == 'hospitals'? ' menu-open ' : ''}}">
+                    {{--<li class="nav-item {{ session('lsbm') == 'hospitals'? ' menu-open ' : ''}}">
                         <a href="#" class="nav-link {{ session('lsbm') == 'hospitals'? ' active ' : ''}}">
                             <i class="nav-icon fas fa-passport"></i>
                             <p>
@@ -295,10 +295,6 @@
 
                         </ul>
                     </li>
-
-
-
-
                     <li class="nav-item {{ session('lsbm') == 'doctors'? ' menu-open ' : ''}}">
                         <a href="#" class="nav-link {{ session('lsbm') == 'doctors'? ' active ' : ''}}">
                             <i class="nav-icon fas fa-users"></i>
@@ -351,6 +347,49 @@
 
                         </ul>
                     </li>
+                    
+                    <li class="nav-item {{ session('lsbm') == 'ambulances'? ' menu-open ' : ''}}">
+                        <a href="#" class="nav-link {{ session('lsbm') == 'ambulances'? ' active ' : ''}}">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                Ambulance Services
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('ambulances.index')}}" class="nav-link {{ session('lsbsm') == 'allAmbulances' ? ' active ' : '' }}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>All Ambulance Services</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('ambulances.create')}}" class="nav-link {{ session('lsbsm') == 'createAmbulance' ? ' active ' : '' }}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Create Ambulance Service</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                                        <li class="nav-item {{ session('lsbm') == 'appointments'? ' menu-open ' : ''}}">
+                        <a href="#" class="nav-link {{ session('lsbm') == 'appointments'? ' active ' : ''}}">
+                            <i class="nav-icon fas fa-pager"></i>
+                            <p>
+                               Appointment List
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('allAppointments') }}" class="nav-link {{ session('lsbsm') == 'allAppointments'? ' active ' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>All Appointments</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>--}}
 
 
                     <li class="nav-item {{ session('lsbm') == 'mediaM'? ' menu-open ' : ''}}">
@@ -412,33 +451,6 @@
                         </ul>
                     </li>
 
-
-                    <li class="nav-item {{ session('lsbm') == 'ambulances'? ' menu-open ' : ''}}">
-                        <a href="#" class="nav-link {{ session('lsbm') == 'ambulances'? ' active ' : ''}}">
-                            <i class="nav-icon fas fa-users"></i>
-                            <p>
-                                Ambulance Services
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{route('ambulances.index')}}" class="nav-link {{ session('lsbsm') == 'allAmbulances' ? ' active ' : '' }}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>All Ambulance Services</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route('ambulances.create')}}" class="nav-link {{ session('lsbsm') == 'createAmbulance' ? ' active ' : '' }}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Create Ambulance Service</p>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </li>
-
-
                     <li class="nav-item {{ session('lsbm') == 'galleries' ? ' menu-open ' : '' }}">
                         <a href="#" class="nav-link {{ session('lsbm') == 'galleries' ? ' active ' : '' }}">
                             <i class="nav-icon fas fas fa-bell"></i>
@@ -460,25 +472,6 @@
                                     class="nav-link {{ session('lsbsm') == 'create_gallery' ? ' active ' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Create Gallery</p>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </li>
-
-                    <li class="nav-item {{ session('lsbm') == 'appointments'? ' menu-open ' : ''}}">
-                        <a href="#" class="nav-link {{ session('lsbm') == 'appointments'? ' active ' : ''}}">
-                            <i class="nav-icon fas fa-pager"></i>
-                            <p>
-                               Appointment List
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('allAppointments') }}" class="nav-link {{ session('lsbsm') == 'allAppointments'? ' active ' : ''}}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>All Appointments</p>
                                 </a>
                             </li>
 

@@ -282,6 +282,8 @@ class ProductController extends Controller
             'price'          => 'required|numeric',
             'slug'           => 'required|string',
             'featured_image' => 'nullable|image',
+            'file_path'      => 'nullable|mimes:pdf',
+            'preview_path'   => 'nullable|mimes:pdf',
         ]);
 
     
@@ -331,6 +333,38 @@ class ProductController extends Controller
 
             // Update product featured_image field and save
             $product->featured_image = $imageName;
+            $product->save();
+        }
+
+        // Handle book pdf upload
+        if ($request->hasFile('file_path')) {
+            $file = $request->file('file_path');
+            $ext = '.' . $file->getClientOriginalExtension();
+
+            // Filename using product ID and current timestamp
+            $fileName = $product->id . '_' . time() . $ext;
+
+            // Store file in 'public/product_files' disk
+            Storage::disk('public')->put('product_files/' . $fileName, File::get($file));
+
+            // Update product file_path field and save
+            $product->file_path = $fileName;
+            $product->save();
+        }
+
+        // Handle book preview pdf upload
+        if ($request->hasFile('preview_path')) {
+            $file = $request->file('preview_path');
+            $ext = '.' . $file->getClientOriginalExtension();
+
+            // Filename using product ID and current timestamp
+            $fileName = $product->id . '_' . time() . '_preview' . $ext;
+
+            // Store file in 'public/product_previews' disk
+            Storage::disk('public')->put('product_previews/' . $fileName, File::get($file));
+
+            // Update product preview_path field and save
+            $product->preview_path = $fileName;
             $product->save();
         }
 
@@ -408,6 +442,8 @@ class ProductController extends Controller
             // 'sku'   => 'required',
             'slug' => 'required|string',
             'featured_image' => 'nullable|image',
+            'file_path'      => 'nullable|mimes:pdf',
+            'preview_path'   => 'nullable|mimes:pdf',
         ]);
 
       
@@ -437,6 +473,32 @@ class ProductController extends Controller
             $imageName = $product->id . time() . $ext;
             Storage::disk('public')->put('product_images/' . $imageName, File::get($file));
             $product->featured_image = $imageName;
+        }
+
+        // Handle book pdf upload
+        if ($request->hasFile('file_path')) {
+            $old_file = 'product_files/' . $product->file_path;
+            if (Storage::disk('public')->exists($old_file)) {
+                Storage::disk('public')->delete($old_file);
+            }
+            $file = $request->file('file_path');
+            $ext = '.' . $file->getClientOriginalExtension();
+            $fileName = $product->id . '_' . time() . $ext;
+            Storage::disk('public')->put('product_files/' . $fileName, File::get($file));
+            $product->file_path = $fileName;
+        }
+
+        // Handle book preview pdf upload
+        if ($request->hasFile('preview_path')) {
+            $old_file = 'product_previews/' . $product->preview_path;
+            if (Storage::disk('public')->exists($old_file)) {
+                Storage::disk('public')->delete($old_file);
+            }
+            $file = $request->file('preview_path');
+            $ext = '.' . $file->getClientOriginalExtension();
+            $fileName = $product->id . '_' . time() . '_preview' . $ext;
+            Storage::disk('public')->put('product_previews/' . $fileName, File::get($file));
+            $product->preview_path = $fileName;
         }
 
         // Save updated product data to the database

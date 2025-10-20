@@ -215,7 +215,7 @@ $totalCartPrice = \App\Models\Cart::totalCartPrice();
 							</a>
 							<div class="other-icons">
 								<a href="{{ url('/') }}"><i class="fas fa-home"></i></a>
-								<a href="{{ url('/shasthoseba') }}""><i class="fas fa-th-large"></i></a>
+								<a href="{{ url('/books') }}"><i class="fas fa-th-large"></i></a>
 								<a href="#"><i class="fas fa-search"></i></a>
 							</div>
 						</div>
@@ -329,7 +329,7 @@ $totalCartPrice = \App\Models\Cart::totalCartPrice();
 
 							
 								if ($(".cart-item").length === 0) {
-									window.location.href = "/shasthoseba";
+									window.location.href = "/books";
 								}
 							} else {
 								// Update qty display & button data
@@ -406,7 +406,7 @@ $totalCartPrice = \App\Models\Cart::totalCartPrice();
 								`);
 
 								if ($(".cart-item").length === 0) {
-									window.location.href = "/shasthoseba";
+									window.location.href = "/books";
 								}
 							} else {
 								// Update qty display
@@ -473,7 +473,7 @@ $totalCartPrice = \App\Models\Cart::totalCartPrice();
 						$('.cart-item[data-cart="' + res.cart_id + '"]').remove();
 
 						if ($(".cart-item").length === 0) {
-							window.location.href = "/shasthoseba";
+							window.location.href = "/books";
 						}
 
 						$(".cartCount").text(res.cartCount);

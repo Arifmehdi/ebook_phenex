@@ -32,6 +32,8 @@ class Product extends Model
         'editor',
         'addedby_id',
         'editedby_id',
+        'file_path',
+        'preview_path',
     ];
 
 

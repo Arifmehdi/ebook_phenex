@@ -243,18 +243,18 @@
                                                 data-page-id="16" data-skin="grid_6" data-quick-view="yes">
                                                 <div class="premium-woo-products-inner premium-woo-product__hover-swap">
                                                     <ul class="products columns-5">
-
+                                                        @foreach($trendings as $trending)
                                                         <li
                                                             class=" post-169 product first instock shipping-taxable purchasable product-type-simple">
                                                             <div
                                                                 class="premium-woo-product-wrapper premium-con-lq__none">
-                                                                <div class="premium-woo-product-thumbnail"><a href="#"
+                                                                <div class="premium-woo-product-thumbnail"><a href="{{ route('productDetails', $trending->slug) }}"
                                                                         class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img
                                                                             decoding="async"
-                                                                            src="{{ asset('frontend/img/1d35e238-810d-4e61-b873-fd8fe499b72d_sm.jpg') }}"
+                                                                            src="{{ route('imagecache', ['template' => 'pnism', 'filename' => $trending->fi()]) }}"
                                                                             alt=""></a>
                                                                     <div class="premium-woo-qv-btn"
-                                                                        data-product-id="169">Quick
+                                                                        data-product-id="{{$trending->id}}">Quick
                                                                         View<i
                                                                             class="premium-woo-qv-icon fa fa-eye"></i>
                                                                     </div>
@@ -264,12 +264,14 @@
                                                                 <div class="premium-woo-products-details-wrap">
                                                                     <a href="#" class="premium-woo-product__link">
                                                                         <h2 class="woocommerce-loop-product__title">
-                                                                            চাঁদের বাড়ি</h2>
-                                                                    </a> <span class="premium-woo-product-category">
-                                                                        রোমান্স </span>
+                                                                            {{ $trending->name_en }}</h2>
+                                                                            @foreach($trending->categories as $category)
+                                                                            </a> <span class="premium-woo-product-category">
+                                                                                {{ $category->name_en }} </span>
+                                                                            @endforeach
                                                                     <div class="premium-woo-product-info">
                                                                         <span class="price"><span
-                                                                                class="woocommerce-Price-amount amount"><bdi>60.00<span
+                                                                                class="woocommerce-Price-amount amount"><bdi>{{$trending->price}}<span
                                                                                         class="woocommerce-Price-currencySymbol">&#2547;&nbsp;</span></bdi></span></span>
                                                                         <div class="review-rating">
                                                                             <div class="star-rating"><span
@@ -281,6 +283,7 @@
                                                                 </div>
                                                             </div>
                                                         </li>
+                                                        @endforeach
 
                                                         <li
                                                             class=" post-182 product  instock shipping-taxable purchasable product-type-simple">
@@ -3181,4 +3184,427 @@
     </div> <!-- ast-container -->
 </div><!-- #content -->
 
+
+<div id="quick-view-modal" class="quick-view-modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <div id="quick-view-content"></div>
+    </div>
+</div>
+<script src="{{ asset('frontend/js/quick-view.js') }}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Quick View Modal Elements
+    const quickViewModal = document.getElementById('quick-view-modal');
+    const quickViewContent = document.getElementById('quick-view-content');
+    const closeBtn = document.querySelector('.close-btn');
+    
+    // Add click event to all quick view buttons
+    document.querySelectorAll('.premium-woo-qv-btn').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const productId = this.getAttribute('data-product-id');
+            openQuickView(productId);
+        });
+    });
+    
+    // Close modal when clicking X
+    closeBtn.addEventListener('click', closeQuickView);
+    
+    // Close modal when clicking outside
+    quickViewModal.addEventListener('click', function(e) {
+        if (e.target === quickViewModal) {
+            closeQuickView();
+        }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && quickViewModal.style.display === 'block') {
+            closeQuickView();
+        }
+    });
+    
+    function openQuickView(productId) {
+        // Show loading state
+        quickViewContent.innerHTML = `
+            <div class="quick-view-loader" style="text-align: center; padding: 50px;">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="mt-2">Loading product details...</p>
+            </div>
+        `;
+        
+        // Show modal
+        quickViewModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        
+        // Fetch product data via AJAX
+        fetchQuickViewData(productId);
+    }
+    
+    function closeQuickView() {
+        if (quickViewModal) {
+            quickViewModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            if (quickViewContent) {
+                quickViewContent.innerHTML = '';
+            }
+        }
+    }
+    
+    function fetchQuickViewData(productId) {
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        
+        fetch(`/product/${productId}`, {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'Accept': 'application/json',
+                'X-CSRF-TOKEN': csrfToken
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                quickViewContent.innerHTML = data.html;
+                initializeQuickViewScripts();
+            } else {
+                showError('Error loading product details');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showError('Failed to load product. Please try again.');
+        });
+    }
+    
+    function showError(message) {
+        quickViewContent.innerHTML = `
+            <div style="text-align: center; padding: 50px;">
+                <h3>Error</h3>
+                <p>${message}</p>
+                <button class="btn btn-primary" onclick="closeQuickView()">Close</button>
+            </div>
+        `;
+    }
+    
+    function initializeQuickViewScripts() {
+        console.log('Initializing quick view scripts...');
+        
+        // Handle "Buy Now" button in quick view
+        const buyNowBtn = quickViewContent.querySelector('.buy-now-btn');
+        if (buyNowBtn) {
+            buyNowBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                handleBuyNow(this);
+            });
+        }
+        
+        // Handle regular "Add to Cart" button
+        const addToCartBtn = quickViewContent.querySelector('.add-to-cart-btn');
+        if (addToCartBtn) {
+            addToCartBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                handleAddToCart(this);
+            });
+        }
+        
+        // Handle "Remove from Cart" button
+        const removeFromCartBtn = quickViewContent.querySelector('.remove-from-cart-btn');
+        if (removeFromCartBtn) {
+            removeFromCartBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                handleRemoveFromCart(this);
+            });
+        }
+        
+        // Quantity selector functionality
+        initializeQuantitySelector();
+    }
+    
+    function initializeQuantitySelector() {
+        const quantityInput = quickViewContent.querySelector('.quantity-input');
+        const minusBtn = quickViewContent.querySelector('.quantity-minus');
+        const plusBtn = quickViewContent.querySelector('.quantity-plus');
+        
+        if (minusBtn && plusBtn && quantityInput) {
+            minusBtn.addEventListener('click', function() {
+                let currentVal = parseInt(quantityInput.value);
+                if (currentVal > 1) {
+                    quantityInput.value = currentVal - 1;
+                }
+            });
+            
+            plusBtn.addEventListener('click', function() {
+                let currentVal = parseInt(quantityInput.value);
+                quantityInput.value = currentVal + 1;
+            });
+        }
+    }
+    
+    function handleBuyNow(button) {
+        const productId = button.getAttribute('data-product-id');
+        const quantity = getQuantityFromQuickView();
+        
+        // Show loading state
+        const originalText = button.innerHTML;
+        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+        button.disabled = true;
+        
+        // Add to cart first
+        addToCart(productId, quantity, function(success, responseData) {
+            if (success) {
+                // Show success message
+                if (typeof toastr !== 'undefined') {
+                    toastr.success(responseData.message || 'Product added to cart! Redirecting to checkout...');
+                }
+                
+                // Close modal immediately
+                closeQuickView();
+                
+                // Redirect to checkout after a short delay
+                setTimeout(() => {
+                    window.location.href = '/checkout';
+                }, 1000);
+                
+            } else {
+                // Reset button on error
+                button.innerHTML = originalText;
+                button.disabled = false;
+                
+                if (typeof toastr !== 'undefined') {
+                    toastr.error('Failed to add product to cart. Please try again.');
+                }
+            }
+        });
+    }
+    
+    function handleAddToCart(button) {
+        const productId = button.getAttribute('data-product-id');
+        const quantity = getQuantityFromQuickView();
+        
+        // Show loading state
+        const originalText = button.innerHTML;
+        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Adding...';
+        button.disabled = true;
+        
+        addToCart(productId, quantity, function(success, responseData) {
+            if (success) {
+                button.innerHTML = '<i class="fas fa-check"></i> Added!';
+                
+                // Update button to show remove option if needed
+                updateCartButtonState(productId, true);
+                
+                // Re-enable button after 2 seconds
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                }, 2000);
+            } else {
+                button.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error';
+                
+                // Re-enable button after 2 seconds
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                }, 2000);
+            }
+        });
+    }
+    
+    function handleRemoveFromCart(button) {
+        const productId = button.getAttribute('data-product-id');
+        
+        // Show loading state
+        const originalText = button.innerHTML;
+        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Removing...';
+        button.disabled = true;
+        
+        removeFromCart(productId, function(success, responseData) {
+            if (success) {
+                button.innerHTML = '<i class="fas fa-check"></i> Removed!';
+                
+                // Update button to show add option
+                updateCartButtonState(productId, false);
+                
+                // Close modal after removal if needed
+                setTimeout(() => {
+                    closeQuickView();
+                }, 1000);
+                
+            } else {
+                button.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error';
+                
+                // Re-enable button after 2 seconds
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                }, 2000);
+            }
+        });
+    }
+    
+    function getQuantityFromQuickView() {
+        const quantityInput = quickViewContent.querySelector('.quantity-input');
+        return quantityInput ? parseInt(quantityInput.value) : 1;
+    }
+    
+    function addToCart(productId, quantity, callback) {
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        
+        fetch('/cart/add', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest',
+                'X-CSRF-TOKEN': csrfToken
+            },
+            body: JSON.stringify({
+                product_id: productId,
+                quantity: quantity
+            })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok: ' + response.status);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                // Update cart counter with data from response
+                updateCartCounter(data.cart_count);
+                callback(true, data);
+            } else {
+                callback(false, data);
+            }
+        })
+        .catch(error => {
+            console.error('Add to cart network error:', error);
+            callback(false, { message: 'Network error' });
+        });
+    }
+    
+    function removeFromCart(productId, callback) {
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        
+        fetch('/cart/remove', { // Your remove cart route
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest',
+                'X-CSRF-TOKEN': csrfToken
+            },
+            body: JSON.stringify({
+                product_id: productId
+            })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok: ' + response.status);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                // Show success message
+                if (typeof toastr !== 'undefined') {
+                    toastr.success(data.message || 'Product removed from cart!');
+                }
+                
+                // Update cart counter with data from response
+                updateCartCounter(data.cart_count);
+                callback(true, data);
+            } else {
+                if (typeof toastr !== 'undefined') {
+                    toastr.error(data.message || 'Failed to remove product from cart');
+                }
+                callback(false, data);
+            }
+        })
+        .catch(error => {
+            console.error('Remove from cart network error:', error);
+            if (typeof toastr !== 'undefined') {
+                toastr.error('Network error. Please try again.');
+            }
+            callback(false, { message: 'Network error' });
+        });
+    }
+    
+    function updateCartButtonState(productId, isInCart) {
+        // If you want to switch between Add/Remove buttons in the modal
+        const addToCartBtn = quickViewContent.querySelector('.add-to-cart-btn');
+        const removeFromCartBtn = quickViewContent.querySelector('.remove-from-cart-btn');
+        
+        if (isInCart) {
+            // Show remove button, hide add button
+            if (addToCartBtn) addToCartBtn.style.display = 'none';
+            if (removeFromCartBtn) removeFromCartBtn.style.display = 'block';
+        } else {
+            // Show add button, hide remove button
+            if (addToCartBtn) addToCartBtn.style.display = 'block';
+            if (removeFromCartBtn) removeFromCartBtn.style.display = 'none';
+        }
+    }
+    
+    function updateCartCounter(cartCount = null) {
+        // Try different selectors for cart counter
+        const cartCounter = document.querySelector('.cart-count, .cart-item-count, .header-cart-count, .cart-count-number');
+        
+        if (cartCounter) {
+            if (cartCount !== null) {
+                // Use the count from server response
+                cartCounter.textContent = cartCount;
+            } else {
+                // Fallback: increment/decrement locally
+                const currentCount = parseInt(cartCounter.textContent) || 0;
+                // We don't know if we're adding or removing, so use server count
+                cartCounter.textContent = currentCount;
+            }
+            
+            // Add animation
+            cartCounter.classList.add('pulse');
+            setTimeout(() => {
+                cartCounter.classList.remove('pulse');
+            }, 600);
+        }
+        
+        // Also try to update mini-cart if it exists
+        updateMiniCart();
+    }
+    
+    function updateMiniCart() {
+        // If you have a mini-cart that needs refreshing
+        const miniCart = document.querySelector('.mini-cart, .cart-dropdown');
+        if (miniCart) {
+            // Trigger custom event for mini-cart update
+            const event = new CustomEvent('cartUpdated');
+            document.dispatchEvent(event);
+        }
+    }
+});
+
+// Make closeQuickView available globally
+function closeQuickView() {
+    const modal = document.getElementById('quick-view-modal');
+    const content = document.getElementById('quick-view-content');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        if (content) {
+            content.innerHTML = '';
+        }
+    }
+}
+</script>
 @endsection

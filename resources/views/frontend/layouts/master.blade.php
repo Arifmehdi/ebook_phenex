@@ -16,6 +16,9 @@
         contain-intrinsic-size: 3000px 1500px
     }
     </style>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
     <link rel="alternate" type="application/rss+xml" title="eBook &raquo; Feed" href="feed/index.html" />
     <link rel="alternate" type="application/rss+xml" title="eBook &raquo; Comments Feed"
         href="comments/feed/index.html" />
@@ -4983,22 +4986,7 @@
         media='all' />
     <link rel='stylesheet' id='wpr-addons-css-css'
         href='wp-content/plugins/royal-elementor-addons/assets/css/frontend.min75d8.css?ver=1.7.1031' media='all' />
-    <!-- <link rel='stylesheet' id='elementor-gf-local-roboto-css'
-        href='wp-content/uploads/elementor/google-fonts/css/robotoca2c.css?ver=1754981363' media='all' /> -->
-    <!-- <link rel='stylesheet' id='elementor-gf-local-robotoslab-css'
-        href='wp-content/uploads/elementor/google-fonts/css/robotoslabeb0f.css?ver=1754982358' media='all' /> -->
-    <!-- <link rel='stylesheet' id='elementor-gf-local-marcellus-css'
-        href='wp-content/uploads/elementor/google-fonts/css/marcellus4db1.css?ver=1754996991' media='all' /> -->
-    <!-- <link rel='stylesheet' id='elementor-gf-local-robotocondensed-css'
-        href='wp-content/uploads/elementor/google-fonts/css/robotocondensedece1.css?ver=1754997231' media='all' /> -->
-    <!-- <link rel='stylesheet' id='elementor-gf-local-marcellussc-css'
-        href='wp-content/uploads/elementor/google-fonts/css/marcellussc072a.css?ver=1754982821' media='all' /> -->
-    <!--[if IE]>
-<script src="https://ebook.bdwheelchaircricket.com/wp-content/themes/astra/assets/js/minified/flexibility.min.js?ver=4.11.9" id="astra-flexibility-js"></script>
-<script id="astra-flexibility-js-after">
-flexibility(document.documentElement);
-</script>
-<![endif]-->
+
     <script data-cfasync="false" src="wp-includes/js/jquery/jquery.minf43b.js?ver=3.7.1" id="jquery-core-js"></script>
     <script data-cfasync="false" src="wp-includes/js/jquery/jquery-migrate.min5589.js?ver=3.4.1" id="jquery-migrate-js">
     </script>
@@ -5038,36 +5026,11 @@ flexibility(document.documentElement);
         id="usp_cookie-js"></script>
     <script src="wp-content/plugins/user-submitted-posts/resources/jquery.parsley.min195d.js?ver=20250329"
         id="usp_parsley-js"></script>
-    <!-- <script id="usp_core-js-before">
-    var usp_custom_field = "usp_custom_field";
-    var usp_custom_field_2 = "usp_custom_field_2";
-    var usp_custom_checkbox = "usp_custom_checkbox";
-    var usp_case_sensitivity = "false";
-    var usp_min_images = 0;
-    var usp_max_images = 1;
-    var usp_parsley_error = "Incorrect response.";
-    var usp_multiple_cats = 1;
-    var usp_existing_tags = 0;
-    var usp_recaptcha_disp = "hide";
-    var usp_recaptcha_vers = "2";
-    var usp_recaptcha_key = "";
-    var challenge_nonce = "28720b71b3";
-    // var ajax_url = "index.html\/\/ebook.bdwheelchaircricket.com\/wp-admin\/admin-ajax.php";
-    </script> -->
+
     <script src="wp-content/plugins/user-submitted-posts/resources/jquery.usp.core195d.js?ver=20250329"
         id="usp_core-js"></script>
     <script src="wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.mina876.js?ver=2.7.0-wc.10.1.2"
-        id="jquery-blockui-js" defer data-wp-strategy="defer"></script>
-    <!-- <script id="wc-add-to-cart-js-extra">
-    var wc_add_to_cart_params = {
-        "ajax_url": "\/wp-admin\/admin-ajax.php",
-        "wc_ajax_url": "\/?wc-ajax=%%endpoint%%",
-        "i18n_view_cart": "View cart",
-        // "cart_url": "https:\/\/ebook.bdwheelchaircricket.com\/34-2\/",
-        "is_cart": "",
-        "cart_redirect_after_add": "no"
-    };
-    </script> -->
+        id="jquery-blockui-js" defer data-wp-strategy="defer"></script
     <script src="wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min523e.js?ver=10.1.2"
         id="wc-add-to-cart-js" defer data-wp-strategy="defer"></script>
     <script src="wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min2d4a.js?ver=2.1.4-wc.10.1.2"
@@ -5093,10 +5056,7 @@ flexibility(document.documentElement);
     <meta name="generator" content="WooCommerce 10.1.2" />
     <link rel="canonical" href="index.html" />
     <link rel='shortlink' href='index.html' />
-    <!-- <link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed"
-        href="wp-json/oembed/1.0/embed8cd4.json?url=https%3A%2F%2Febook.bdwheelchaircricket.com%2F" /> -->
-    <!-- <link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed"
-        href="wp-json/oembed/1.0/embedf34b?url=https%3A%2F%2Febook.bdwheelchaircricket.com%2F&amp;format=xml" /> -->
+
 
     <script type="text/javascript">
     var ajaxurl = 'wp-admin/admin-ajax.html';
@@ -5233,7 +5193,87 @@ flexibility(document.documentElement);
         opacity: 1;
     }
     </style>
+
+<style>
+    .quick-view-modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 800px;
+        position: relative;
+    }
+
+    .close-btn {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close-btn:hover,
+    .close-btn:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .product {
+        display: flex;
+    }
+
+    .product-image {
+        flex: 1;
+    }
+
+    .product-image img {
+        width: 100%;
+    }
+
+    .product-details {
+        flex: 1;
+        padding-left: 20px;
+    }
+
+    .cartItemsCount {
+    position: relative;
+    display: inline-block;
+}
+
+
+/* cart item show  */
+.cartCountBadge {
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    background-color: red;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+</style>
+
 </head>
+
 
 <body itemtype='https://schema.org/WebPage' itemscope='itemscope'
     class="home-page bp-nouveau home wp-singular page-template-default page page-id-16 wp-theme-astra theme-astra user-registration-page woocommerce-no-js ehf-header ehf-template-astra ehf-stylesheet-astra ast-desktop ast-page-builder-template ast-no-sidebar astra-4.11.9 ast-single-post ast-inherit-site-logo-transparent ast-hfb-header elementor-default elementor-kit-6 elementor-page elementor-page-16">
@@ -5247,11 +5287,8 @@ flexibility(document.documentElement);
         @yield('content')
 
         @include('frontend.layouts.footer')
-    </div><!-- #page -->
-    <script type="speculationrules">
-        {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"\/*"},{"not":{"href_matches":["\/wp-*.php","\/wp-admin\/*","\/wp-content\/uploads\/*","\/wp-content\/*","\/wp-content\/plugins\/*","\/wp-content\/themes\/astra\/*","\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
-</script>
-
+    </div>
+    
     <div id="ast-scroll-top" tabindex="0" class="ast-scroll-top-icon ast-scroll-to-top-right" data-on-devices="both">
         <span class="ast-icon icon-arrow"><svg class="ast-arrow-svg" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="26px" height="16.043px"
@@ -5311,28 +5348,6 @@ flexibility(document.documentElement);
     <link rel='stylesheet' id='elementor-icons-ekiticons-css'
         href='wp-content/plugins/elementskit-lite/modules/elementskit-icon-pack/assets/css/ekiticonsa7a0.css?ver=3.6.1'
         media='all' />
-    <!-- <script id="essential-blocks-blocks-localize-js-extra">
-    var eb_conditional_localize = [];
-    // var EssentialBlocksLocalize = {
-    //     "eb_plugins_url": "https:\/\/ebook.bdwheelchaircricket.com\/wp-content\/plugins\/essential-blocks\/",
-    //     "image_url": "https:\/\/ebook.bdwheelchaircricket.com\/wp-content\/plugins\/essential-blocks\/assets\/images",
-    //     "eb_wp_version": "6.8",
-    //     "eb_version": "5.6.2",
-    //     "eb_admin_url": "https:\/\/ebook.bdwheelchaircricket.com\/wp-admin\/",
-    //     "rest_rootURL": "https:\/\/ebook.bdwheelchaircricket.com\/wp-json\/",
-    //     "ajax_url": "https:\/\/ebook.bdwheelchaircricket.com\/wp-admin\/admin-ajax.php",
-    //     "nft_nonce": "6d83a89057",
-    //     "post_grid_pagination_nonce": "b5353c93f5",
-    //     "placeholder_image": "https:\/\/ebook.bdwheelchaircricket.com\/wp-content\/plugins\/essential-blocks\/assets\/images\/placeholder.png",
-    //     "is_pro_active": "false",
-    //     "upgrade_pro_url": "https:\/\/essential-blocks.com\/upgrade",
-    //     "responsiveBreakpoints": {
-    //         "tablet": 1024,
-    //         "mobile": 767
-    //     },
-    //     "wc_currency_symbol": "\u09f3\u00a0"
-    // };
-    </script> -->
     <script src="wp-content/plugins/essential-blocks/assets/js/eb-blocks-localized363.js?ver=31d6cfe0d16ae931b73c"
         id="essential-blocks-blocks-localize-js"></script>
     <script id="astra-theme-js-js-extra">
@@ -5353,134 +5368,128 @@ flexibility(document.documentElement);
     <script src="wp-content/plugins/elementor/assets/js/frontend-modules.min94b7.js?ver=3.31.3"
         id="elementor-frontend-modules-js"></script>
     <script src="wp-includes/js/jquery/ui/core.minb37e.js?ver=1.13.3" id="jquery-ui-core-js"></script>
-    <!-- <script id="elementor-frontend-js-before">
-    var elementorFrontendConfig = {
-        "environmentMode": {
-            "edit": false,
-            "wpPreview": false,
-            "isScriptDebug": false
-        },
-        "i18n": {
-            "shareOnFacebook": "Share on Facebook",
-            "shareOnTwitter": "Share on Twitter",
-            "pinIt": "Pin it",
-            "download": "Download",
-            "downloadImage": "Download image",
-            "fullscreen": "Fullscreen",
-            "zoom": "Zoom",
-            "share": "Share",
-            "playVideo": "Play Video",
-            "previous": "Previous",
-            "next": "Next",
-            "close": "Close",
-            "a11yCarouselPrevSlideMessage": "Previous slide",
-            "a11yCarouselNextSlideMessage": "Next slide",
-            "a11yCarouselFirstSlideMessage": "This is the first slide",
-            "a11yCarouselLastSlideMessage": "This is the last slide",
-            "a11yCarouselPaginationBulletMessage": "Go to slide"
-        },
-        "is_rtl": false,
-        "breakpoints": {
-            "xs": 0,
-            "sm": 480,
-            "md": 768,
-            "lg": 1025,
-            "xl": 1440,
-            "xxl": 1600
-        },
-        "responsive": {
-            "breakpoints": {
-                "mobile": {
-                    "label": "Mobile Portrait",
-                    "value": 767,
-                    "default_value": 767,
-                    "direction": "max",
-                    "is_enabled": true
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @yield('js')
+<script>
+    $.ajaxSetup({
+    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+});
+
+$(document).ready(function () {
+    function showAlert(icon, title, position = 'top-end', timer = 2000) {
+        if (typeof Swal !== 'undefined') {
+            Swal.fire({
+                toast: true,
+                icon: icon,
+                title: title,
+                position: position,
+                timer: timer,
+                timerProgressBar: true,
+                showConfirmButton: false,
+                didOpen: () => {
+                    // Hide vertical scroll when toast appears
+                    document.body.style.overflowY = 'hidden';
                 },
-                "mobile_extra": {
-                    "label": "Mobile Landscape",
-                    "value": 880,
-                    "default_value": 880,
-                    "direction": "max",
-                    "is_enabled": false
-                },
-                "tablet": {
-                    "label": "Tablet Portrait",
-                    "value": 1024,
-                    "default_value": 1024,
-                    "direction": "max",
-                    "is_enabled": true
-                },
-                "tablet_extra": {
-                    "label": "Tablet Landscape",
-                    "value": 1200,
-                    "default_value": 1200,
-                    "direction": "max",
-                    "is_enabled": false
-                },
-                "laptop": {
-                    "label": "Laptop",
-                    "value": 1366,
-                    "default_value": 1366,
-                    "direction": "max",
-                    "is_enabled": false
-                },
-                "widescreen": {
-                    "label": "Widescreen",
-                    "value": 2400,
-                    "default_value": 2400,
-                    "direction": "min",
-                    "is_enabled": false
+                didClose: () => {
+                    // Restore scroll when toast closes
+                    document.body.style.overflowY = '';
                 }
-            },
-            "hasCustomBreakpoints": false
-        },
-        "version": "3.31.3",
-        "is_static": false,
-        "experimentalFeatures": {
-            "e_font_icon_svg": true,
-            "additional_custom_breakpoints": true,
-            "container": true,
-            "e_optimized_markup": true,
-            "nested-elements": true,
-            "e_element_cache": true,
-            "home_screen": true,
-            "global_classes_should_enforce_capabilities": true,
-            "e_variables": true,
-            "cloud-library": true,
-            "e_opt_in_v4_page": true
-        },
-        // "urls": {
-        //     "assets": "https:\/\/ebook.bdwheelchaircricket.com\/wp-content\/plugins\/elementor\/assets\/",
-        //     "ajaxurl": "https:\/\/ebook.bdwheelchaircricket.com\/wp-admin\/admin-ajax.php",
-        //     "uploadUrl": "https:\/\/ebook.bdwheelchaircricket.com\/wp-content\/uploads"
-        // },
-        "nonces": {
-            "floatingButtonsClickTracking": "0fa439ff71"
-        },
-        "swiperClass": "swiper",
-        "settings": {
-            "page": [],
-            "editorPreferences": []
-        },
-        "kit": {
-            "active_breakpoints": ["viewport_mobile", "viewport_tablet"],
-            "global_image_lightbox": "yes",
-            "lightbox_enable_counter": "yes",
-            "lightbox_enable_fullscreen": "yes",
-            "lightbox_enable_zoom": "yes",
-            "lightbox_enable_share": "yes",
-            "lightbox_title_src": "title",
-            "lightbox_description_src": "description"
-        },
-        "post": {
-            "id": 16,
-            "title": "eBook%20%E2%80%93%20Best%20Online%20Book%20Shop",
-            "excerpt": "",
-            "featuredImage": false
+            });
+        } else {
+            alert(title);
         }
-    };
-    </script> -->
+    }
+
+
+    // Add to Cart for digital items
+    $(document).on("click", ".addToCart", function () {
+        let btn = $(this);
+        let url = btn.data("url");
+        let product_id = btn.data("product");
+        let originalText = btn.text();
+        btn.text("Adding...").prop("disabled", true);
+
+        $.post(url, { product: product_id, qty: 1 }, function (res) {
+            if (res.status) {
+                btn.closest(".cart-action-wrapper").html(res.productCartItem);
+                $('.quick-view-modal').fadeOut(300);
+                $(".cartCount").text(res.cartCount);
+                $(".cartCountBadge").text(res.cartItemsCount);
+                $(".cartTotalPrice").text(res.cartTotal.toFixed(2) + " tk");
+                $(".mobileCartTotalPrice").text('৳' + res.cartTotal.toFixed(2));
+                showAlert("success", res.message);
+            } else {
+                btn.text(originalText).prop("disabled", false);
+                showAlert("error", res.message);
+            }
+        }).fail(() => {
+            btn.text(originalText).prop("disabled", false);
+            showAlert("error", "Could not add to cart.");
+        });
+    });
+
+    // Delete Cart Item
+    $(document).on("click", ".deleteCartItem", function () {
+        let btn = $(this);
+        let cartId = btn.data("cart");
+        let productId = btn.closest(".cart-action-wrapper").data("product");
+
+        $.post(btn.data("url"), { cart: cartId }, function (res) {
+            if (res.status) {
+                let wrapper = btn.closest(".cart-action-wrapper");
+                wrapper.html(`
+                    <input type="hidden" name="product_qty" value="1" class="product_qty">
+                    <button class="btn btn-outline-primary w-100 btn-sm addToCart"
+                        data-url="${res.add_to_cart_url || '/add-to-cart'}"
+                        data-product="${productId}">
+                        Buy Now
+                    </button>
+                `);
+                $(".cartCount").text(res.cartCount);
+                $(".cartItemsCount").text(res.cartItemsCount);
+                $(".cartTotalPrice").text(res.cartTotal.toFixed(2) + " tk");
+                $(".mobileCartTotalPrice").text('৳' + res.cartTotal.toFixed(2));
+                if ($(".cart-item").length === 0 && $(".cart-page").length) {
+                    window.location.href = "/books";
+                }
+                showAlert("success", res.message);
+            }
+        }).fail(() => {
+            showAlert("error", "Cart item could not be removed.");
+        });
+    });
+});
+
+</script>
+<style>
+/* Fix toast top-right position */
+.swal2-container.swal2-top-end {
+    position: fixed !important;
+    top: 15px !important;
+    right: 15px !important;
+    bottom: auto !important;
+    left: auto !important;
+    z-index: 99999 !important;
+    padding: 0 !important;
+}
+
+/* Make sure the toast itself does not shift */
+.swal2-toast {
+    margin: 0 !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+/* Hide vertical scroll when toast is visible */
+html.swal2-toast-shown,
+body.swal2-toast-shown {
+    overflow: hidden !important;
+}
+
+
+</style>
+
+
     <script src="wp-content/plugins/elementor/assets/js/frontend.min94b7.js?ver=3.31.3" id="elementor-frontend-js">
     </script>
     <script src="wp-content/plugins/premium-addons-for-elementor/assets/frontend/min-js/isotope.mine952.js?ver=4.11.30"
@@ -5488,85 +5497,10 @@ flexibility(document.documentElement);
     <script src="wp-content/plugins/premium-addons-for-elementor/assets/frontend/min-js/slick.mine952.js?ver=4.11.30"
         id="pa-slick-js"></script>
     <script src="wp-includes/js/imagesloaded.minbb93.js?ver=5.0.0" id="imagesloaded-js"></script>
-    <!-- <script id="premium-woocommerce-js-extra">
-    // var PAWooProductsSettings = {
-    //     "ajaxurl": "https:\/\/ebook.bdwheelchaircricket.com\/wp-admin\/admin-ajax.php",
-    //     "products_nonce": "9fe16b701d",
-    //     "qv_nonce": "0620d21339",
-    //     "cta_nonce": "b104ff86b2",
-    //     "woo_cart_url": "https:\/\/ebook.bdwheelchaircricket.com\/34-2\/",
-    //     "view_cart": "View cart",
-    //     "mini_cart_nonce": "f58c432c6c"
-    // };
-    </script> -->
+
     <script
         src="wp-content/plugins/premium-addons-for-elementor/assets/frontend/min-js/premium-woo-products.mine952.js?ver=4.11.30"
         id="premium-woocommerce-js"></script>
-    <!-- <script id="eael-general-js-extra">
-    // var localize = {
-    //     "ajaxurl": "https:\/\/ebook.bdwheelchaircricket.com\/wp-admin\/admin-ajax.php",
-    //     "nonce": "7d90e452ca",
-    //     "i18n": {
-    //         "added": "Added ",
-    //         "compare": "Compare",
-    //         "loading": "Loading..."
-    //     },
-    //     "eael_translate_text": {
-    //         "required_text": "is a required field",
-    //         "invalid_text": "Invalid",
-    //         "billing_text": "Billing",
-    //         "shipping_text": "Shipping",
-    //         "fg_mfp_counter_text": "of"
-    //     },
-    //     "page_permalink": "https:\/\/ebook.bdwheelchaircricket.com\/",
-    //     "cart_redirectition": "no",
-    //     "cart_page_url": "https:\/\/ebook.bdwheelchaircricket.com\/34-2\/",
-    //     "el_breakpoints": {
-    //         "mobile": {
-    //             "label": "Mobile Portrait",
-    //             "value": 767,
-    //             "default_value": 767,
-    //             "direction": "max",
-    //             "is_enabled": true
-    //         },
-    //         "mobile_extra": {
-    //             "label": "Mobile Landscape",
-    //             "value": 880,
-    //             "default_value": 880,
-    //             "direction": "max",
-    //             "is_enabled": false
-    //         },
-    //         "tablet": {
-    //             "label": "Tablet Portrait",
-    //             "value": 1024,
-    //             "default_value": 1024,
-    //             "direction": "max",
-    //             "is_enabled": true
-    //         },
-    //         "tablet_extra": {
-    //             "label": "Tablet Landscape",
-    //             "value": 1200,
-    //             "default_value": 1200,
-    //             "direction": "max",
-    //             "is_enabled": false
-    //         },
-    //         "laptop": {
-    //             "label": "Laptop",
-    //             "value": 1366,
-    //             "default_value": 1366,
-    //             "direction": "max",
-    //             "is_enabled": false
-    //         },
-    //         "widescreen": {
-    //             "label": "Widescreen",
-    //             "value": 2400,
-    //             "default_value": 2400,
-    //             "direction": "min",
-    //             "is_enabled": false
-    //         }
-    //     }
-    // };
-    // </script> -->
     <script
         src="wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/js/view/general.mina086.js?ver=6.3.0"
         id="eael-general-js"></script>
@@ -5579,45 +5513,11 @@ flexibility(document.documentElement);
         id="wpr-parallax-hover-js"></script>
     <script src="wp-content/plugins/elementskit-lite/libs/framework/assets/js/frontend-scripta7a0.js?ver=3.6.1"
         id="elementskit-framework-js-frontend-js"></script>
-    <!-- <script id="elementskit-framework-js-frontend-js-after">
-    var elementskit = {
-        resturl: 'https://ebook.bdwheelchaircricket.com/wp-json/elementskit/v1/',
-    }
-    </script> -->
     <script src="wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scriptsa7a0.js?ver=3.6.1"
         id="ekit-widget-scripts-js"></script>
     <script src="wp-content/plugins/woocommerce/assets/js/sourcebuster/sourcebuster.min523e.js?ver=10.1.2"
         id="sourcebuster-js-js"></script>
-    <!-- <script id="wc-order-attribution-js-extra">
-    var wc_order_attribution = {
-        "params": {
-            "lifetime": 1.0000000000000000818030539140313095458623138256371021270751953125e-5,
-            "session": 30,
-            "base64": false,
-            "ajaxurl": "https:\/\/ebook.bdwheelchaircricket.com\/wp-admin\/admin-ajax.php",
-            "prefix": "wc_order_attribution_",
-            "allowTracking": true
-        },
-        "fields": {
-            "source_type": "current.typ",
-            "referrer": "current_add.rf",
-            "utm_campaign": "current.cmp",
-            "utm_source": "current.src",
-            "utm_medium": "current.mdm",
-            "utm_content": "current.cnt",
-            "utm_id": "current.id",
-            "utm_term": "current.trm",
-            "utm_source_platform": "current.plt",
-            "utm_creative_format": "current.fmt",
-            "utm_marketing_tactic": "current.tct",
-            "session_entry": "current_add.ep",
-            "session_start_time": "current_add.fd",
-            "session_pages": "session.pgs",
-            "session_count": "udata.vst",
-            "user_agent": "udata.uag"
-        }
-    };
-    </script> -->
+
     <script src="wp-content/plugins/woocommerce/assets/js/frontend/order-attribution.min523e.js?ver=10.1.2"
         id="wc-order-attribution-js"></script>
     <script src="wp-content/plugins/header-footer-elementor/inc/js/frontend8dff.js?ver=2.4.9" id="hfe-frontend-js-js">
@@ -5647,41 +5547,9 @@ flexibility(document.documentElement);
         id="wc-add-to-cart-variation-js" defer data-wp-strategy="defer"></script>
     <script src="wp-content/plugins/elementskit-lite/widgets/init/assets/js/animate-circle.mina7a0.js?ver=3.6.1"
         id="animate-circle-js"></script>
-    <!-- <script id="elementskit-elementor-js-extra">
-    var ekit_config = {
-        "ajaxurl": "https:\/\/ebook.bdwheelchaircricket.com\/wp-admin\/admin-ajax.php",
-        "nonce": "44645d0c25"
-    };
-    </script> -->
+
     <script src="wp-content/plugins/elementskit-lite/widgets/init/assets/js/elementora7a0.js?ver=3.6.1"
         id="elementskit-elementor-js"></script>
-    <!-- <script src="../cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min7c45.js?ver=3.0.6" id="dompurify-js">
-    </script> -->
-    <!-- <script id="wpr-addons-js-js-extra">
-    var WprConfig = {
-        "ajaxurl": "https:\/\/ebook.bdwheelchaircricket.com\/wp-admin\/admin-ajax.php",
-        "resturl": "https:\/\/ebook.bdwheelchaircricket.com\/wp-json\/wpraddons\/v1",
-        "nonce": "9dcd595d2b",
-        "addedToCartText": "was added to cart",
-        "viewCart": "View Cart",
-        "comparePageID": "",
-        "comparePageURL": "https:\/\/ebook.bdwheelchaircricket.com\/",
-        "wishlistPageID": "",
-        "wishlistPageURL": "https:\/\/ebook.bdwheelchaircricket.com\/",
-        "chooseQuantityText": "Please select the required number of items.",
-        "site_key": "",
-        "is_admin": "",
-        "input_empty": "Please fill out this field",
-        "select_empty": "Nothing selected",
-        "file_empty": "Please upload a file",
-        "recaptcha_error": "Recaptcha Error",
-        "woo_shop_ppp": "9",
-        "woo_shop_cat_ppp": "9",
-        "woo_shop_tag_ppp": "9",
-        "is_product_category": "",
-        "is_product_tag": ""
-    };
-    </script> -->
     <script data-cfasync="false"
         src="wp-content/plugins/royal-elementor-addons/assets/js/frontend.min75d8.js?ver=1.7.1031"
         id="wpr-addons-js-js"></script>
@@ -5696,7 +5564,5 @@ flexibility(document.documentElement);
         }, !1);
     </script>
 </body>
-
-<!-- Mirrored from ebook.bdwheelchaircricket.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Sep 2025 05:30:54 GMT -->
 
 </html>

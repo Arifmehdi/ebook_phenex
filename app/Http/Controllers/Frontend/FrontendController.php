@@ -26,6 +26,7 @@ use App\Models\Doctor;
 use App\Models\FrontSlider;
 use App\Models\Hospital;
 use App\Models\User;
+use App\Models\BlogComment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -47,14 +48,14 @@ class FrontendController extends Controller
     public function index()
     {
         // $data['doctors'] = Doctor::whereActive(true)->paginate(12);
-        // $data['hospitals'] = Hospital::latest()->whereActive(true)->get();
+        $data['trendings'] = Product::with('categories')->latest()->whereActive(true)->limit(4)->get();
         // $data['sliders'] = FrontSlider::whereActive(true)->get();
         // $data['departments'] = BisesoggoCategory::whereActive(true)->limit(6)->get();
         // $data['newses'] = BlogPost::whereActive(true)->limit(3)->get();
         // $data['ambulances'] = AmbulanceService::whereActive(true)->get();
-        // return view('frontend.home.index', $data);  
+        return view('frontend.home.index', $data);  
 
-        return view('frontend.home.index');  
+        // return view('frontend.home.index');  
 
     }
 
@@ -118,7 +119,8 @@ class FrontendController extends Controller
 
     public function blog()
     {
-        return view('website.blog');
+        $data['blogs'] = BlogPost::whereActive(true)->whereStatus('published')->latest()->paginate(12);
+        return view('website.blog', $data);
     }
 
     public function blogDetails()
@@ -338,22 +340,67 @@ class FrontendController extends Controller
     }
 
 
-    public function singleNews($id)
+    public function singleblog($id)
     {
 
-        $news = BlogPost::where('id', $id)->firstOrFail();
+        $news = BlogPost::with(['comments.replies'])->where('id', $id)->firstOrFail();
         if (!$news) {
             abort(404);
         }
         $news->increment('view_count');
-
         $data['relatedPosts'] = BlogPost::where('category_id', $news->category_id)->get();
         $data['news'] = $news;
 
         $data['popular_posts'] = BlogPost::orderBy('view_count', 'DESC')->whereActive(true)->whereStatus('published')->take(6)->get();
-
-        return view('frontend.home.singleNews', $data);
+        
+        return view('website.blog-details', $data);
     }
+
+    public function storeComment(Request $request, $postId)
+    {
+        $request->validate([
+            'comment' => 'required|string|max:5000',
+            'email'   => 'nullable|email|max:255',
+            'parent_id' => 'nullable|integer',
+            'name'    => $request->parent_id ? 'nullable|string|max:255' : 'required|string|max:255',
+        ]);
+
+        BlogComment::create([
+            'post_id' => $postId,
+            'parent_id' => $request->parent_id,
+            'name' => $request->name,
+            'email' => $request->email,
+            'comment' => $request->comment,
+        ]);
+
+        return back()->with('success', 'Comment added successfully.');
+    }
+
+    public function likePost($id)
+    {
+        $post = BlogPost::findOrFail($id);
+        $post->increment('likes_count');
+        return response()->json(['likes' => $post->likes_count]);
+    }
+
+
+
+    // public function singleNews($id)
+    // {
+
+    //     $news = BlogPost::where('id', $id)->firstOrFail();
+    //     if (!$news) {
+    //         abort(404);
+    //     }
+    //     $news->increment('view_count');
+
+    //     $data['relatedPosts'] = BlogPost::where('category_id', $news->category_id)->get();
+    //     $data['news'] = $news;
+
+    //     $data['popular_posts'] = BlogPost::orderBy('view_count', 'DESC')->whereActive(true)->whereStatus('published')->take(6)->get();
+
+    //     return view('frontend.home.singleNews', $data);
+    // }
 
 
 
@@ -898,8 +945,53 @@ class FrontendController extends Controller
         return view('user.order.orderChalan', compact('order', 'items'));
     }
 
-    public function testidcard(){
-          $user = User::findOrFail(136);
-          return view('idcard',compact('user'));
+    // public function quickView(Request $request, $id)
+    // {
+    //     $product = Product::with('categories')->findOrFail($id);
+    //     dd($product);
+    //     return response()->json([
+    //         'id' => $product->id,
+    //         'name' => $product->name,
+    //         'image' => asset('storage/product_images/' . $product->image),
+    //         'category' => $product->categories->first()->name,
+    //     ]);
+    // }
+
+
+        public function quickView($id)
+        {
+            try {
+                // Log the request
+                // \Log::info('Quick view request for product ID: ' . $id);
+                
+                $product = Product::with('categories')->find($id);
+                // dd($product);
+                if (!$product) {
+                    return response()->json([
+                        'success' => false,
+                        'message' => 'Product not found'
+                    ], 404);
+                }
+
+                $html = view('frontend.layouts.quick-view', compact('product'))->render();
+
+                return response()->json([
+                    'success' => true,
+                    'html' => $html
+                ]);
+                
+            } catch (\Exception $e) {
+                \Log::error('Quick view error: ' . $e->getMessage());
+                
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Server error'
+                ], 500);
+            }
+        }
+
+        public function testidcard(){
+            $user = User::findOrFail(136);
+            return view('idcard',compact('user'));
+        }
     }
-}

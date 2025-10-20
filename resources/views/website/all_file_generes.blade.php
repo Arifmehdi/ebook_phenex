@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
 
-<!-- Mirrored from ebook.bdwheelchaircricket.com/membership-registration/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Sep 2025 05:34:45 GMT -->
+<!-- Mirrored from ebook.bdwheelchaircricket.com/generes/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Sep 2025 05:31:26 GMT -->
 <!-- Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
-    <title>Membership Registration &#8211; eBook</title>
+    <title>Generes &#8211; eBook</title>
     <meta name='robots' content='max-image-preview:large' />
     <style>
     img:is([sizes="auto"i], [sizes^="auto,"i]) {
@@ -67,7 +67,7 @@
                         n(e, "\ud83c\udde8\ud83c\uddf6", "\ud83c\udde8\u200b\ud83c\uddf6") && !n(e,
                             "\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f",
                             "\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f"
-                            );
+                        );
                 case "emoji":
                     return !a(e, "\ud83e\udedf")
             }
@@ -144,7 +144,6 @@
     </script>
     <link rel='stylesheet' id='astra-theme-css-css'
         href='../wp-content/themes/astra/assets/css/minified/main.mine060.css?ver=4.11.9' media='all' />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <style id='astra-theme-css-inline-css'>
     :root {
         --ast-post-nav-space: 0;
@@ -622,6 +621,81 @@
         .ast-desktop .ast-container--narrow {
             max-width: var(--ast-narrow-container-width);
             margin: 0 auto;
+        }
+    }
+
+    .ast-page-builder-template .hentry {
+        margin: 0;
+    }
+
+    .ast-page-builder-template .site-content>.ast-container {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .ast-page-builder-template .site .site-content #primary {
+        padding: 0;
+        margin: 0;
+    }
+
+    .ast-page-builder-template .no-results {
+        text-align: center;
+        margin: 4em auto;
+    }
+
+    .ast-page-builder-template .ast-pagination {
+        padding: 2em;
+    }
+
+    .ast-page-builder-template .entry-header.ast-no-title.ast-no-thumbnail {
+        margin-top: 0;
+    }
+
+    .ast-page-builder-template .entry-header.ast-header-without-markup {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .ast-page-builder-template .entry-header.ast-no-title.ast-no-meta {
+        margin-bottom: 0;
+    }
+
+    .ast-page-builder-template.single .post-navigation {
+        padding-bottom: 2em;
+    }
+
+    .ast-page-builder-template.single-post .site-content>.ast-container {
+        max-width: 100%;
+    }
+
+    .ast-page-builder-template .entry-header {
+        margin-top: 2em;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .ast-page-builder-template .ast-archive-description {
+        margin: 2em auto 0;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .ast-page-builder-template .ast-row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .single.ast-page-builder-template .entry-header+.entry-content,
+    .single.ast-page-builder-template .ast-single-entry-banner+.site-content article .entry-content {
+        margin-bottom: 2em;
+    }
+
+    @media(min-width: 921px) {
+
+        .ast-page-builder-template.archive.ast-right-sidebar .ast-row article,
+        .ast-page-builder-template.archive.ast-left-sidebar .ast-row article {
+            padding-left: 0;
+            padding-right: 0;
         }
     }
 
@@ -4573,12 +4647,6 @@
     }
 
     @media (min-width:922px) {
-        .ast-woo-shop-archive .site-content>.ast-container {
-            max-width: 1240px;
-        }
-    }
-
-    @media (min-width:922px) {
 
         .woocommerce #content .ast-woocommerce-container div.product div.images,
         .woocommerce .ast-woocommerce-container div.product div.images,
@@ -4862,13 +4930,19 @@
         href='../wp-content/uploads/elementor/css/post-62859.css?ver=1758601933' media='all' />
     <link rel='stylesheet' id='widget-heading-css'
         href='../wp-content/plugins/elementor/assets/css/widget-heading.min94b7.css?ver=3.31.3' media='all' />
-    <link rel='stylesheet' id='elementor-post-458-css'
-        href='../wp-content/uploads/elementor/css/post-45886ca.css?ver=1758605575' media='all' />
+    <link rel='stylesheet' id='pa-glass-css'
+        href='../wp-content/plugins/premium-addons-for-elementor/assets/frontend/min-css/liquid-glass.mine952.css?ver=4.11.30'
+        media='all' />
+    <link rel='stylesheet' id='pa-slick-css'
+        href='../wp-content/plugins/premium-addons-for-elementor/assets/frontend/min-css/slick.mine952.css?ver=4.11.30'
+        media='all' />
+    <link rel='stylesheet' id='elementor-post-26-css'
+        href='../wp-content/uploads/elementor/css/post-262041.css?ver=1758605416' media='all' />
     <link rel='stylesheet' id='eael-general-css'
         href='../wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/css/view/general.mina086.css?ver=6.3.0'
         media='all' />
     <link rel='stylesheet' id='eael-9-css'
-        href='../wp-content/uploads/essential-addons-elementor/eael-97769.css?ver=1755598504' media='all' />
+        href='../wp-content/uploads/essential-addons-elementor/eael-95575.css?ver=1755070645' media='all' />
     <link rel='stylesheet' id='elementor-post-9-css'
         href='../wp-content/uploads/elementor/css/post-9b83c.css?ver=1758601938' media='all' />
     <link rel='stylesheet' id='brands-styles-css'
@@ -4904,6 +4978,8 @@
         href='../wp-content/uploads/elementor/google-fonts/css/robotoca2c.css?ver=1754981363' media='all' />
     <link rel='stylesheet' id='elementor-gf-local-robotoslab-css'
         href='../wp-content/uploads/elementor/google-fonts/css/robotoslabeb0f.css?ver=1754982358' media='all' />
+    <link rel='stylesheet' id='elementor-gf-local-marcellus-css'
+        href='../wp-content/uploads/elementor/google-fonts/css/marcellus4db1.css?ver=1754996991' media='all' />
     <link rel='stylesheet' id='elementor-gf-local-marcellussc-css'
         href='../wp-content/uploads/elementor/google-fonts/css/marcellussc072a.css?ver=1754982821' media='all' />
     <!--[if IE]>
@@ -5000,16 +5076,16 @@ flexibility(document.documentElement);
     <script src="../wp-content/plugins/bangladeshi-payment-gateways/assets/public/js/bdpg-public459e.js?ver=3.0.4"
         id="bdpg-frontend-js"></script>
     <link rel="https://api.w.org/" href="../wp-json/index.html" />
-    <link rel="alternate" title="JSON" type="application/json" href="../wp-json/wp/v2/pages/458.json" />
+    <link rel="alternate" title="JSON" type="application/json" href="../wp-json/wp/v2/pages/26.json" />
     <link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc0db0.php?rsd" />
     <meta name="generator" content="WordPress 6.8.2" />
     <meta name="generator" content="WooCommerce 10.1.2" />
     <link rel="canonical" href="index.html" />
-    <link rel='shortlink' href='../indexf7f8.html?p=458' />
+    <link rel='shortlink' href='../index88b9.html?p=26' />
     <link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed"
-        href="../wp-json/oembed/1.0/embed77e4.json?url=https%3A%2F%2Febook.bdwheelchaircricket.com%2Fmembership-registration%2F" />
+        href="../wp-json/oembed/1.0/embed619c.json?url=https%3A%2F%2Febook.bdwheelchaircricket.com%2Fgeneres%2F" />
     <link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed"
-        href="../wp-json/oembed/1.0/embed693f?url=https%3A%2F%2Febook.bdwheelchaircricket.com%2Fmembership-registration%2F&amp;format=xml" />
+        href="../wp-json/oembed/1.0/embedb7ed?url=https%3A%2F%2Febook.bdwheelchaircricket.com%2Fgeneres%2F&amp;format=xml" />
 
     <script type="text/javascript">
     var ajaxurl = '../wp-admin/admin-ajax.html';
@@ -5149,7 +5225,7 @@ flexibility(document.documentElement);
 </head>
 
 <body itemtype='https://schema.org/WebPage' itemscope='itemscope'
-    class="bp-nouveau wp-singular page-template-default page page-id-458 wp-theme-astra theme-astra user-registration-page woocommerce-no-js ehf-header ehf-template-astra ehf-stylesheet-astra ast-desktop ast-plain-container ast-no-sidebar astra-4.11.9 ast-single-post ast-inherit-site-logo-transparent ast-hfb-header elementor-default elementor-kit-6 elementor-page elementor-page-458">
+    class="bp-nouveau wp-singular page-template-default page page-id-26 wp-theme-astra theme-astra user-registration-page woocommerce-no-js ehf-header ehf-template-astra ehf-stylesheet-astra ast-desktop ast-page-builder-template ast-no-sidebar astra-4.11.9 ast-single-post ast-inherit-site-logo-transparent ast-hfb-header elementor-default elementor-kit-6 elementor-page elementor-page-26">
 
     <a class="skip-link screen-reader-text" href="#content" title="Skip to content">
         Skip to content</a>
@@ -5159,357 +5235,82 @@ flexibility(document.documentElement);
 
         <div id="content" class="site-content">
             <div class="ast-container">
-
-
                 <div id="primary" class="content-area primary">
-
-
                     <main id="main" class="site-main">
-                        <article class="post-458 page type-page status-publish ast-article-single" id="post-458"
+                        <article class="post-26 page type-page status-publish ast-article-single" id="post-26"
                             itemtype="https://schema.org/CreativeWork" itemscope="itemscope">
-
                             <header class="entry-header ast-no-thumbnail ast-no-title ast-header-without-markup">
                             </header> <!-- .entry-header -->
-
                             <div class="entry-content clear" itemprop="text">
-
-
-                                <div data-elementor-type="wp-page" data-elementor-id="458"
-                                    class="elementor elementor-458">
-                                    <div class="elementor-element elementor-element-745315b e-flex e-con-boxed wpr-particle-no wpr-jarallax-no wpr-parallax-no wpr-sticky-section-no e-con e-parent"
-                                        data-id="745315b" data-element_type="container">
+                                <div data-elementor-type="wp-page" data-elementor-id="26"
+                                    class="elementor elementor-26">
+                                    <div class="elementor-element elementor-element-caf2033 e-flex e-con-boxed wpr-particle-no wpr-jarallax-no wpr-parallax-no wpr-sticky-section-no e-con e-parent"
+                                        data-id="caf2033" data-element_type="container">
                                         <div class="e-con-inner">
-                                            <div class="elementor-element elementor-element-5d9b411 elementor-widget elementor-widget-heading"
-                                                data-id="5d9b411" data-element_type="widget"
+                                            <div class="elementor-element elementor-element-43307ae elementor-widget elementor-widget-heading"
+                                                data-id="43307ae" data-element_type="widget"
                                                 data-widget_type="heading.default">
-                                                <h2 class="elementor-heading-title elementor-size-default">SignUp</h2>
+                                                <h2 class="elementor-heading-title elementor-size-default">Genres</h2>
+                                            </div>
+                                            <div class="elementor-element elementor-element-5569b45 elementor-widget elementor-widget-text-editor"
+                                                data-id="5569b45" data-element_type="widget"
+                                                data-widget_type="text-editor.default">
+                                                <p>Choose Your Book from our large number of  Category and read book 
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="elementor-element elementor-element-639e1fa e-flex e-con-boxed wpr-particle-no wpr-jarallax-no wpr-parallax-no wpr-sticky-section-no e-con e-parent"
-                                        data-id="639e1fa" data-element_type="container">
+                                    <div class="elementor-element elementor-element-55095fa1 e-flex e-con-boxed wpr-particle-no wpr-jarallax-no wpr-parallax-no wpr-sticky-section-no e-con e-parent"
+                                        data-id="55095fa1" data-element_type="container">
                                         <div class="e-con-inner">
-                                            <div class="elementor-element elementor-element-5c56f22 elementor-widget elementor-widget-shortcode"
-                                                data-id="5c56f22" data-element_type="widget"
-                                                data-widget_type="shortcode.default">
-                                                <div class="elementor-shortcode">
-                                                    <div class='user-registration ur-frontend-form   '
-                                                        id='user-registration-form-456'>
-                                                        <form action="{{ route('main.register') }}" method="POST" class='register'>
-                                                            @csrf
-                                                            @if(request()->has('ref'))
-                                                                <input type="hidden" name="referred_by" value="{{ request()->query('ref') }}">
-                                                            @endif
-                                                            <input type="hidden" name="referred_by" value="{{ request('ref') }}">
-                                                            <div class="ur-form-row" data-row-id="0">
-                                                                <div class="ur-form-grid ur-grid-1" style="width:48%">
-                                                                    <div data-field-id="user_login"
-                                                                        class="ur-field-item field-user_login "
-                                                                        data-ref-id="user_login"
-                                                                        data-field-pattern-enabled="0"
-                                                                        data-field-pattern-value=" "
-                                                                        data-field-pattern-message=" ">
-                                                                        <div class="form-row validate-required"
-                                                                            id="user_login_field" data-priority="">
-                                                                            <label for="name"
-                                                                                class="ur-label">Username <abbr
-                                                                                    class="required"
-                                                                                    title="required">*</abbr></label>
-                                                                            <span class="input-wrapper"> <input
-                                                                                    data-rules="" data-id="name"
-                                                                                    type="text"
-                                                                                    class="input-text   input-text ur-frontend-field  "
-                                                                                    id="name" name="name"  placeholder="Enter Name" value="{{ old('name') }}" required
-                                                                                    data-username-character="1" />
-                                                                                @error('name')
-                                                                                    <span class="text-danger small">{{ $message }}</span>
-                                                                                @enderror
-                                                                            </span> </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="ur-form-grid ur-grid-2" style="width:48%">
-                                                                    <div data-field-id="user_email"
-                                                                        class="ur-field-item field-user_email "
-                                                                        data-ref-id="user_email"
-                                                                        data-field-pattern-enabled="0"
-                                                                        data-field-pattern-value=" "
-                                                                        data-field-pattern-message=" ">
-                                                                        <div class="form-row validate-required"
-                                                                            id="user_email_field" data-priority="">
-                                                                            <label for="email"
-                                                                                class="ur-label">User Email <abbr
-                                                                                    class="required"
-                                                                                    title="required">*</abbr></label>
-                                                                            <span class="input-wrapper"> <input
-                                                                                    data-rules="" data-id="email"
-                                                                                    type="email"
-                                                                                    class="input-text   input-email ur-frontend-field  "
-                                                                                    id="email" name="email" placeholder="Enter Email" value="{{ old('email') }}" 
-                                                                                    data-label="User Email" /> 
-                                                                                    @error('email')
-                                                                                        <span class="text-danger small">{{ $message }}</span>
-                                                                                    @enderror
-                                                                                </span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="ur-form-row" data-row-id="1">
-                                                                <div class="ur-form-grid ur-grid-1" style="width:48%">
-                                                                    <div data-field-id="user_pass"
-                                                                        class="ur-field-item field-user_pass "
-                                                                        data-ref-id="user_pass"
-                                                                        data-field-pattern-enabled="0"
-                                                                        data-field-pattern-value=" "
-                                                                        data-field-pattern-message=" ">
-                                                                        <div class="form-row validate-required hide_show_password"
-                                                                            id="user_pass_field" data-priority=""><label
-                                                                                for="password" class="ur-label">User
-                                                                                Password <abbr class="required"
-                                                                                    title="required">*</abbr></label>
-                                                                            <span class="input-wrapper"> <span
-                                                                                    class="password-input-group input-form-field-icons"><input
-                                                                                        data-rules=""
-                                                                                        data-id="password"
-                                                                                        type="password"
-                                                                                        class="input-text  input-password ur-frontend-field  "
-                                                                                        id="password" name="password" placeholder="Enter password"
-                                                                                        data-label="User Password" />
-                                                                                        @error('password')
-                                                                                            <span class="text-danger small">{{ $message }}</span>
-                                                                                        @enderror
-                                                                                    </span>
-                                                                            </span> </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="ur-form-grid ur-grid-2" style="width:48%">
-                                                                    <div data-field-id="user_confirm_password"
-                                                                        class="ur-field-item field-user_confirm_password "
-                                                                        data-ref-id="user_confirm_password"
-                                                                        data-field-pattern-enabled="0"
-                                                                        data-field-pattern-value=" "
-                                                                        data-field-pattern-message=" ">
-                                                                        <div class="form-row validate-required hide_show_password"
-                                                                            id="user_confirm_password_field"
-                                                                            data-priority=""><label
-                                                                                for="user_confirm_password"
-                                                                                class="ur-label">Confirm Password <abbr
-                                                                                    class="required"
-                                                                                    title="required">*</abbr></label>
-                                                                            <span class="input-wrapper"> <span
-                                                                                    class="password-input-group input-form-field-icons"><input
-                                                                                        data-rules=""
-                                                                                        data-id="user_confirm_password"
-                                                                                        type="password"
-                                                                                        class="input-text  input-password ur-frontend-field  "
-                                                                                        id="password_confirmation" name="password_confirmation" placeholder="Re-enter password"
-                                                                                        data-label="Confirm Password" />
-                                                                                        @error('password_confirmation')
-                                                                                            <span class="text-danger small">{{ $message }}</span>
-                                                                                        @enderror
-                                                                                    </span>
-                                                                            </span> </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="ur-form-row" data-row-id="2">
-                                                                <div class="ur-form-grid ur-grid-1" style="width:48%">
-                                                                    <div data-field-id="number_box_1755579092"
-                                                                        class="ur-field-item field-number "
-                                                                        data-ref-id="number_box_1755579092"
-                                                                        data-field-pattern-enabled="0"
-                                                                        data-field-pattern-value=" "
-                                                                        data-field-pattern-message=" ">
-                                                                        <div class="form-row validate-required"
-                                                                            id="number_box_1755579092_field"
-                                                                            data-priority=""><label
-                                                                                for="number_box_1755579092"
-                                                                                class="ur-label">Phone Number <abbr
-                                                                                    class="required"
-                                                                                    title="required">*</abbr></label>
-                                                                            <span class="input-wrapper"> <input
-                                                                                    data-rules=""
-                                                                                    data-id="number_box_1755579092"
-                                                                                    type="number"
-                                                                                    class="input-text   input-number ur-frontend-field  "
-                                                                                    name="number_box_1755579092"
-                                                                                    id="number_box_1755579092"
-                                                                                    placeholder="" value=""
-                                                                                    required="required"
-                                                                                    data-label="Phone Number"
-                                                                                    step="1" /> </span> </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="ur-form-grid ur-grid-2" style="width:48%">
-                                                                    <div data-field-id="membership_field_1755577792"
-                                                                        class="ur-field-item field-membership "
-                                                                        data-ref-id="membership_field_1755577792"
-                                                                        data-field-pattern-enabled="0"
-                                                                        data-field-pattern-value=" "
-                                                                        data-field-pattern-message=" ">
-                                                                        <div class="notice-container">
-                                                                            <div class="notice_red">
-                                                                                <span class="notice_message"></span>
-                                                                                <span
-                                                                                    class="close_notice">&times;</span>
-                                                                            </div>
-                                                                        </div>
-                                                                        <!--user registration section-->
-                                                                        <div id="ur-membership-registration"
-                                                                            class="ur_membership_registration_container ur-form-container">
+                                            <div class="elementor-element elementor-element-45bae6f2 premium-woo-cats__even premium-woo-cats__content-below premium-woo-cats__img-zoomin elementor-widget elementor-widget-premium-woo-categories"
+                                                data-id="45bae6f2" data-element_type="widget"
+                                                data-settings="{&quot;layout&quot;:&quot;even&quot;,&quot;columns&quot;:&quot;16.667%&quot;,&quot;columns_tablet&quot;:&quot;50%&quot;,&quot;columns_mobile&quot;:&quot;100%&quot;}"
+                                                data-widget_type="premium-woo-categories.default">
+                                                <div class="elementor-widget-container">
 
-                                                                            <!--	membership-->
-                                                                            <div id="urm-membership-list"
-                                                                                class="ur_membership_frontend_input_container radio">
+                                                    <div class="premium-woo-cats__container">
 
-                                                                                <label
-                                                                                    class="ur-label ur_membership_input_label required">Membership
-                                                                                    Field <abbr class="required"
-                                                                                        title="required">*</abbr>
-                                                                                </label>
+                                                        <div class="premium-woo-cats__list-wrap">
 
-                                                                                @foreach($categories as $category)
-                                                                                <label
-                                                                                    class="ur_membership_input_label ur-label"
-                                                                                    for="membership_category_id_{{ $category->id }}">
-                                                                                        <input
-                                                                                            class="ur_membership_input_class ur_membership_radio_input ur-frontend-field"
-                                                                                            data-key-name="ur-membership-id"
-                                                                                            id="membership_category_id_{{ $category->id }}"
-                                                                                            type="radio"
-                                                                                            name="membership_category_id"
-                                                                                            required="required"
-                                                                                            value="{{ $category->id }}"
-                                                                                            data-value="{{ $category->subscription_fee }}"
-                                                                                            @if($referred_category_id)
-                                                                                                {{ $category->id == $referred_category_id ? 'checked' : '' }}
-                                                                                                {{ $category->id != $referred_category_id ? 'disabled' : '' }}
-                                                                                            @endif
-                                                                                        >
-
-                                                                                    <span class="ur-membership-duration"> {{ $category->name }}</span>
-                                                                                </label>
-                                                                                @endforeach 
-
-
-
-
-                                                                                <!-- foiysduif uisdfufu uwu sufsdfghasdf hsdgfh hsghfgasfhgshf ahfg dhfgadhfghsagd  -->
-                                                                                <span id="membership-input-notice">
-                                                                                </span>
-                                                                            </div>
-                                                                            <!--	coupon container-->
-
-                                                                            <!--	total container-->
-                                                                            <div id="urm-total_container"
-                                                                                class="ur_membership_frontend_input_container urm-d-none urm_hidden_payment_container" style="display: none;">
-                                                                                <label
-                                                                                    class="ur_membership_input_label ur-label"
-                                                                                    for="ur-membership-total">Total</label>
-                                                                                <input class="ur_membership_input_class total-amount-input"
-                                                                                        id="ur-membership-total"
-                                                                                        data-key-name="Total"
-                                                                                        name="urm_total" value="0" style="display: block;">                                                                                <span id="total-input-notice">
-                                                                                </span>
-                                                                            </div>
-
-                                                                            <!--	payment gateway container -->
-                                                                            <div
-                                                                                class="ur_membership_frontend_input_container urm_hidden_payment_container ur_payment_gateway_container" style="display: none;">
-                                                                                <hr class="ur_membership_divider">
-                                                                                <span
-                                                                                    class="ur_membership_input_label ur-label required">Select
-                                                                                    Payment Gateway </span>
-                                                                                <div id="payment-gateway-body"
-                                                                                    class="ur_membership_frontend_input_container">
-                                                                                    <label
-                                                                                        class="ur_membership_input_label ur-label"
-                                                                                        for="ur-membership-paypal">
-                                                                                        <input
-                                                                                            class="ur_membership_input_class pg-list"
-                                                                                            data-key-name="ur-payment-method"
-                                                                                            id="ur-membership-paypal"
-                                                                                            type="radio"
-                                                                                            name="urm_payment_method"
-                                                                                            required value="paypal">
-                                                                                        <span
-                                                                                            class="ur-membership-duration">
-                                                                                            Paypal </span>
-                                                                                    </label>
-                                                                                    <label
-                                                                                        class="ur_membership_input_label ur-label"
-                                                                                        for="ur-membership-stripe">
-                                                                                        <input
-                                                                                            class="ur_membership_input_class pg-list"
-                                                                                            data-key-name="ur-payment-method"
-                                                                                            id="ur-membership-stripe"
-                                                                                            type="radio"
-                                                                                            name="urm_payment_method"
-                                                                                            required value="stripe">
-                                                                                        <span
-                                                                                            class="ur-membership-duration">
-                                                                                            Stripe </span>
-                                                                                    </label>
-                                                                                    <label
-                                                                                        class="ur_membership_input_label ur-label"
-                                                                                        for="ur-membership-bank">
-                                                                                        <input
-                                                                                            class="ur_membership_input_class pg-list"
-                                                                                            data-key-name="ur-payment-method"
-                                                                                            id="ur-membership-bank"
-                                                                                            type="radio"
-                                                                                            name="urm_payment_method"
-                                                                                            required value="bank">
-                                                                                        <span
-                                                                                            class="ur-membership-duration">
-                                                                                            Bank </span>
-                                                                                    </label>
-                                                                                    <span id="payment-gateway-notice"
-                                                                                        class="notice_red"></span>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div
-                                                                                class="ur_membership_frontend_input_container">
+                                                            <ul class="products columns-">
+                                                                @foreach( $categories as $category)
+                                                                <li class="product-category product first">
+                                                                    <a href="{{ route('slug.generes', $category->slug) }}"
+                                                                        target="_blank">
+                                                                        <div class="premium-woo-cats__category">
+                                                                            <div class="premium-woo-cats__img-wrap"><img
+                                                                                    fetchpriority="high"
+                                                                                    decoding="async" width="240"
+                                                                                    height="240"
+                                                                                    src="{{ asset('storage/product_categories_images/' . $category->image) }} "
+                                                                                    class="attachment-medium size-medium wp-image-373"
+                                                                                    alt=""
+                                                                                    srcset="{{ asset('storage/product_categories_images/' . $category->image) }}"
+                                                                                    sizes="(max-width: 240px) 100vw, 240px" />
                                                                                 <div
-                                                                                    class="stripe-container urm-d-none">
-                                                                                    <button type="button"
-                                                                                        class="stripe-card-indicator ur-stripe-element-selected"
-                                                                                        id="credit_card">Credit
-                                                                                        Card</button>
-                                                                                    <div class="stripe-input-container">
-                                                                                        <div id="card-element">
-                                                                                        </div>
-                                                                                    </div>
+                                                                                    class="premium-woo-cats__img-overlay">
                                                                                 </div>
                                                                             </div>
+                                                                            <div
+                                                                                class="premium-woo-cats__content-wrap premium-con-lq__glass2">
+                                                                                <h1
+                                                                                    class="woocommerce-loop-category__title">
+                                                                                    <span>{{ $category->name_en }} </span>
+                                                                                </h1>
 
-                                                                            <span class="description">
-                                                                            </span>
+                                                                                <p class="premium-woo-cats__count">{{ $category->products()->count() }}
+                                                                                    Product</p>
 
+                                                                            </div>
                                                                         </div>
-                                                                        <!--user order successful section-->
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="ur-button-container ">
-                                                                <button type="submit"
-                                                                    class="btn button button-primary ur-submit-button " >
-                                                                    <span></span>
-                                                                    Submit </button>
-                                                            </div>
+                                                                    </a>
+                                                                </li>
+                                                                @endforeach
+                                                            </ul>
 
-                                                            <div style="clear:both"></div>
-                                                            <input type="hidden" name="ur-registration-language"
-                                                                value="en-US" />
-                                                            <input type="hidden" name="ur-user-form-id" value="456" />
-                                                            <input type="hidden" name="ur-redirect-url"
-                                                                value="../login-2/index.html" />
-                                                            <input type="hidden" id="ur_frontend_form_nonce"
-                                                                name="ur_frontend_form_nonce" value="43711d7ff8" />
+                                                        </div>
 
-                                                        </form>
-
-                                                        <div style="clear:both"></div>
                                                     </div>
 
                                                 </div>
@@ -5517,21 +5318,10 @@ flexibility(document.documentElement);
                                         </div>
                                     </div>
                                 </div>
-
-
-
                             </div><!-- .entry-content .clear -->
-
-
-
                         </article><!-- #post-## -->
-
                     </main><!-- #main -->
-
-
                 </div><!-- #primary -->
-
-
             </div> <!-- ast-container -->
         </div><!-- #content -->
         <footer class="site-footer" id="colophon" itemtype="https://schema.org/WPFooter" itemscope="itemscope"
@@ -5605,15 +5395,6 @@ flexibility(document.documentElement);
         href='../wp-content/plugins/woocommerce/assets/client/blocks/wc-blocksde44.css?ver=wc-10.1.2' media='all' />
     <link rel='stylesheet' id='elementor-icons-css'
         href='../wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min2778.css?ver=5.43.0'
-        media='all' />
-    <link rel='stylesheet' id='sweetalert2-css'
-        href='../wp-content/plugins/user-registration/assets/css/sweetalert2/sweetalert2.min629a.css?ver=10.16.7'
-        media='all' />
-    <link rel='stylesheet' id='ur-frontend-small-screen-css'
-        href='../wp-content/plugins/user-registration/assets/css/user-registration-smallscreen474a.css?ver=4.4.0'
-        media='all' />
-    <link rel='stylesheet' id='user-registration-membership-frontend-style-css'
-        href='../wp-content/plugins/user-registration/assets/css/modules/membership/user-registration-membership-frontend20b9.css?ver=1.0.2'
         media='all' />
     <link rel='stylesheet' id='elementor-icons-ekiticons-css'
         href='../wp-content/plugins/elementskit-lite/modules/elementskit-icon-pack/assets/css/ekiticonsa7a0.css?ver=3.6.1'
@@ -5781,8 +5562,8 @@ flexibility(document.documentElement);
             "lightbox_description_src": "description"
         },
         "post": {
-            "id": 458,
-            "title": "Membership%20Registration%20%E2%80%93%20eBook",
+            "id": 26,
+            "title": "Generes%20%E2%80%93%20eBook",
             "excerpt": "",
             "featuredImage": false
         }
@@ -5790,6 +5571,15 @@ flexibility(document.documentElement);
     </script>
     <script src="../wp-content/plugins/elementor/assets/js/frontend.min94b7.js?ver=3.31.3" id="elementor-frontend-js">
     </script>
+    <script
+        src="../wp-content/plugins/premium-addons-for-elementor/assets/frontend/min-js/isotope.mine952.js?ver=4.11.30"
+        id="isotope-js-js"></script>
+    <script src="../wp-content/plugins/premium-addons-for-elementor/assets/frontend/min-js/slick.mine952.js?ver=4.11.30"
+        id="pa-slick-js"></script>
+    <script src="../wp-includes/js/imagesloaded.minbb93.js?ver=5.0.0" id="imagesloaded-js"></script>
+    <script
+        src="../wp-content/plugins/premium-addons-for-elementor/assets/frontend/min-js/premium-woo-categories.mine952.js?ver=4.11.30"
+        id="premium-woo-cats-js"></script>
     <script id="eael-general-js-extra">
     var localize = {
         "ajaxurl": "https:\/\/ebook.bdwheelchaircricket.com\/wp-admin\/admin-ajax.php",
@@ -5806,7 +5596,7 @@ flexibility(document.documentElement);
             "shipping_text": "Shipping",
             "fg_mfp_counter_text": "of"
         },
-        "page_permalink": "https:\/\/ebook.bdwheelchaircricket.com\/membership-registration\/",
+        "page_permalink": "https:\/\/ebook.bdwheelchaircricket.com\/generes\/",
         "cart_redirectition": "no",
         "cart_page_url": "https:\/\/ebook.bdwheelchaircricket.com\/34-2\/",
         "el_breakpoints": {
@@ -5858,7 +5648,7 @@ flexibility(document.documentElement);
     <script
         src="../wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/js/view/general.mina086.js?ver=6.3.0"
         id="eael-general-js"></script>
-    <script src="../wp-content/uploads/essential-addons-elementor/eael-97769.js?ver=1755598504" id="eael-9-js"></script>
+    <script src="../wp-content/uploads/essential-addons-elementor/eael-95575.js?ver=1755070645" id="eael-9-js"></script>
     <script src="../wp-content/plugins/royal-elementor-addons/assets/js/lib/particles/particles7c45.js?ver=3.0.6"
         id="wpr-particles-js"></script>
     <script src="../wp-content/plugins/royal-elementor-addons/assets/js/lib/jarallax/jarallax.minf184.js?ver=1.12.7"
@@ -5913,7 +5703,6 @@ flexibility(document.documentElement);
     <script
         src="../wp-content/plugins/royal-elementor-addons/assets/js/lib/perfect-scrollbar/perfect-scrollbar.min70b1.js?ver=0.4.9"
         id="wpr-perfect-scroll-js-js"></script>
-
     <script src="../wp-content/plugins/elementskit-lite/widgets/init/assets/js/animate-circle.mina7a0.js?ver=3.6.1"
         id="animate-circle-js"></script>
     <script id="elementskit-elementor-js-extra">
@@ -5934,9 +5723,9 @@ flexibility(document.documentElement);
         "addedToCartText": "was added to cart",
         "viewCart": "View Cart",
         "comparePageID": "",
-        "comparePageURL": "https:\/\/ebook.bdwheelchaircricket.com\/membership-registration\/",
+        "comparePageURL": "https:\/\/ebook.bdwheelchaircricket.com\/generes\/",
         "wishlistPageID": "",
-        "wishlistPageURL": "https:\/\/ebook.bdwheelchaircricket.com\/membership-registration\/",
+        "wishlistPageURL": "https:\/\/ebook.bdwheelchaircricket.com\/generes\/",
         "chooseQuantityText": "Please select the required number of items.",
         "site_key": "",
         "is_admin": "",
@@ -5964,112 +5753,6 @@ flexibility(document.documentElement);
                 .test(t.tagName) || (t.tabIndex = -1), t.focus())
         }, !1);
     </script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const membershipRadios = document.querySelectorAll('input[name="membership_category_id"]');
-    const totalContainer = document.getElementById('urm-total_container');
-    const paymentGatewayContainer = document.querySelector('.ur_payment_gateway_container');
-    const totalInput = document.getElementById('ur-membership-total');
-    const stripeContainer = document.querySelector('.stripe-container');
-    const stripeRadio = document.getElementById('ur-membership-stripe');
-
-    // Handle membership radio selection
-    function handleMembershipChange() {
-        const selectedRadio = document.querySelector('input[name="membership_category_id"]:checked');
-        
-        if (selectedRadio) {
-            // Show total and payment gateway containers
-            totalContainer.classList.remove('urm-d-none', 'urm_hidden_payment_container');
-            totalContainer.style.display = 'block';
-            
-            paymentGatewayContainer.classList.remove('urm_hidden_payment_container');
-            paymentGatewayContainer.style.display = 'block';
-            
-            // Set total input from data attribute
-            const amount = selectedRadio.dataset.urmPgCalculatedAmount || selectedRadio.dataset.value || 0;
-            totalInput.value = amount;
-            totalInput.style.display = 'block';
-        } else {
-            // Hide all if no membership selected
-            totalContainer.style.display = 'none';
-            paymentGatewayContainer.style.display = 'none';
-            stripeContainer.style.display = 'none';
-            totalInput.value = '0';
-        }
-    }
-
-    // Handle payment method selection (Stripe show/hide)
-    function handlePaymentMethodChange() {
-        const selectedPayment = document.querySelector('input[name="urm_payment_method"]:checked');
-        if (selectedPayment && selectedPayment.value === 'stripe') {
-            stripeContainer.classList.remove('urm-d-none');
-            stripeContainer.style.display = 'block';
-        } else {
-            stripeContainer.classList.add('urm-d-none');
-            stripeContainer.style.display = 'none';
-        }
-    }
-
-    // Event listeners
-    membershipRadios.forEach(function(radio) {
-        radio.addEventListener('change', handleMembershipChange);
-    });
-
-    document.querySelectorAll('input[name="urm_payment_method"]').forEach(function(pgRadio) {
-        pgRadio.addEventListener('change', handlePaymentMethodChange);
-    });
-
-    // Initialize state on page load
-    handleMembershipChange();
-    handlePaymentMethodChange();
-});
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('form.register');
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const formData = new FormData(form);
-        const url = form.action;
-
-        fetch(url, {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest',
-                'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Clear previous errors
-            document.querySelectorAll('.text-danger').forEach(function(el) {
-                el.remove();
-            });
-
-            if (data.errors) {
-                for (const field in data.errors) {
-                    const input = document.querySelector(`[name="${field}"]`);
-                    const error = data.errors[field][0];
-                    const errorElement = document.createElement('span');
-                    errorElement.classList.add('text-danger', 'small');
-                    errorElement.textContent = error;
-                    input.parentNode.insertBefore(errorElement, input.nextSibling);
-                }
-            } else if (data.success) {
-                window.location.href = "{{ route('user.dashboard') }}";
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-    });
-});
-</script>
 </body>
-
-<!-- Mirrored from ebook.bdwheelchaircricket.com/membership-registration/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Sep 2025 05:34:52 GMT -->
 
 </html>

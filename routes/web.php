@@ -22,6 +22,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Frontend\FrontendController;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\SslCommerzPaymentController;
+use App\Http\Controllers\LibraryController;
+use App\Http\Controllers\WithdrawalController;
 
 // Route::get('/',[AuthController::class,'index'])->name('login');
 
@@ -94,6 +96,7 @@ Route::get('/website/compliance',[FrontendController::class, 'websiteCompliance'
 Route::get('hospital-details/{id}',[FrontendController::class,'HospitalDetails'])->name('hospital-details');
 
 Route::get('/',[FrontendController::class, 'index'])->name('ebook.home');
+Route::get('/product/{id}', [FrontendController::class, 'quickView'])->name('quickView');
 
 Route::get('book',[FrontendController::class, 'books'])->name('books');
 Route::get('generes',[FrontendController::class, 'allGeneres'])->name('generes');
@@ -102,6 +105,11 @@ Route::get('authors',[FrontendController::class, 'authors'])->name('authors');
 Route::get('publisher',[FrontendController::class, 'publisher'])->name('publisher');
 Route::get('pricing',[FrontendController::class, 'pricing'])->name('pricing');
 Route::get('blog',[FrontendController::class, 'blog'])->name('blog');
+Route::get('blog/{id}',[FrontendController::class, 'singleblog'])->name('single.blog');
+
+Route::post('/blog/{id}/like', [FrontendController::class, 'likePost'])->name('blog.like');
+Route::post('/blog/{post}/comment', [FrontendController::class, 'storeComment'])->name('blog.comment.store');
+
 Route::get('blog-details',[FrontendController::class, 'blogDetails'])->name('blog-details');
 Route::get('cart',[FrontendController::class, 'cart'])->name('cart');
 // Route::get('login',[FrontendController::class, 'login'])->name('login');
@@ -258,6 +266,22 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'mypanel'], function 
     Route::get('invoice/print/{order}', [FrontendController::class, 'orderPrint'])->name('user.orderPrint');
 
     Route::get('chalan/print/{order}', [FrontendController::class, 'orderChalan'])->name('user.orderChalan');
+
+    Route::get('library/favorite-books', [LibraryController::class, 'favoriteBooks'])->name('user.library.favorite_books');
+    Route::get('library/purchased-books', [LibraryController::class, 'purchasedBooks'])->name('user.library.purchased_books');
+    Route::get('library/last-read-book', [LibraryController::class, 'lastReadBook'])->name('user.library.last_read_book');
+
+    // Book Upload Routes
+    Route::get('library/upload', [LibraryController::class, 'createBook'])->name('user.library.create_book');
+    Route::post('library/upload', [LibraryController::class, 'storeBook'])->name('user.library.store_book');
+
+    // Invite Link Route
+    Route::get('invite', [LibraryController::class, 'showInvitePage'])->name('user.invite');
+
+    // Withdrawal Routes
+    Route::get('withdrawals', [WithdrawalController::class, 'index'])->name('user.withdrawals.index');
+    Route::get('withdrawals/create', [WithdrawalController::class, 'create'])->name('user.withdrawals.create');
+    Route::post('withdrawals', [WithdrawalController::class, 'store'])->name('user.withdrawals.store');
 
 });
 

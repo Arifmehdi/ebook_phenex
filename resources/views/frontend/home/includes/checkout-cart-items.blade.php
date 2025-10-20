@@ -23,6 +23,7 @@
                 </thead>
                 <tbody>
                     @foreach ($cartItems as $cart)
+
                         <tr class="cart-item" data-cart="{{ $cart->id }}">
                             <td class="text-center align-middle">
                                 <button title="Remove Product"

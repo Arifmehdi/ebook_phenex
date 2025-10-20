@@ -8,26 +8,17 @@
 <div class="cart-action-wrapper" 
     data-product="{{ $product->id }}"
     @if($cart) data-cart="{{ $cart->id }}" @endif>
-    
     @if($cart)
-        <!-- Quantity Control -->
-        <div class="d-flex justify-content-between align-items-center gap-2 p-0 border rounded-pill bg-primary-subtle border-primary shadow-sm">
-            
+        <!-- Simple display for digital items in cart (no quantity controls) -->
+        <div class="text-center">
+            <span class="badge bg-success me-2">✓ Added</span>
             <button
-                class="minus btn btn-sm btn-primary rounded-circle px-2 py-0 updateCartItem"
-                data-url="{{ route('cartUpdateQty') }}"
+                class="btn btn-danger btn-sm deleteCartItem"
+                data-url="{{ route('cartRemoveItem', $cart->id ) }}"
                 data-cart="{{ $cart->id }}"
-                data-qty="{{ $cart->quantity }}"
-            >−</button>
-
-            <span class="fw-semibold px-3 cartQtyDisplay text-dark">{{ $cart->quantity }}</span>
-
-            <button
-                class="plus btn btn-sm btn-primary rounded-circle px-2 py-0 updateCartItem"
-                data-url="{{ route('cartUpdateQty') }}"
-                data-cart="{{ $cart->id }}"
-                data-qty="{{ $cart->quantity }}"
-            >+</button>
+            >
+                Remove
+            </button>
         </div>
     @else
         <!-- Add to Cart Button -->

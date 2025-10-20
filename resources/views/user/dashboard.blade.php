@@ -13,64 +13,7 @@
       @endif
     <div class="row">
 
-      {{-- Sidebar --}}
-      <aside class="col-lg-3 mb-4">
-        <div class="card text-center">
-          <div class="card-body">
-            <img id="profilePreview"
-                 src="{{ route('imagecache', ['template' => 'pfimd', 'filename' => $user->fi()]) }}"
-                 alt="Profile"
-                 class="rounded-circle border border-success mb-2"
-                 style="width:80px; height:80px; object-fit:cover; cursor:pointer;">
-            <input type="file" id="profileImageInput" accept="image/*" class="d-none">
-
-            <h5 class="card-title">{{ $user->name }}</h5>
-            <p class="text-muted">{{ $user->email }}</p>
-          </div>
-
-          <ul class="list-group list-group-flush text-start">
-            <li class="list-group-item">
-              <a href="{{route('user.dashboard')}}" 
-                 class="tab-link {{ $activeTab=='dashboard'?'text-success fw-bold':'' }}">
-                 Dashboard
-              </a>
-            </li>
-            <li class="list-group-item">
-              <a href="{{route('user.orders', ['type' => 'all'])}}" 
-                 class="tab-link {{ $activeTab=='order'?'text-success fw-bold':'' }}">
-                 Orders
-              </a>
-            </li>
-            <li class="list-group-item">
-              <a href="{{ route('user.editMyInformation')}}" 
-                 class="tab-link {{ $activeTab=='edit'?'text-success fw-bold':'' }}">
-                 Personal Info
-              </a>
-            </li>
-
-              @if (isset($user) && $user->idcard)
-
-                {{--<li class="list-group-item">
-                    <a href="{{ asset('storage/'.$user->idcard->file_name) }}" target="_blank"
-                        class="tab-link">
-                          Health Card
-                    </a>
-                </li>--}}
-              @if ($user->email == 'admin@gmail.com')
-                <li class="list-group-item">
-                    <a href="{{ route('user.idcard')  }}" class="tab-link">
-                         Health Card
-                    </a>
-                </li>
-              @endif
-              @endif
-
-            <li class="list-group-item">
-              <a href="{{ route('logout') }}" class="text-danger">Logout</a>
-            </li>
-          </ul>
-        </div>
-      </aside>
+    @include('mypanel.library.user_header')
 
       {{-- Main Content --}}
       <div class="col-lg-9">
@@ -132,6 +75,26 @@
                   </div>
                 </a>
               </div>
+
+              {{-- Cancelled Orders --}}
+              <div class="col-md-4">
+                <a href="{{ route('user.orders', ['type' => 'cancelled']) }}" class="text-decoration-none">
+                  <div class="card border-danger shadow-sm">
+                    <div class="card-body d-flex align-items-center gap-3">
+                      <div class="bg-danger text-white d-flex justify-content-center align-items-center rounded-circle" 
+                           style="width:50px; height:50px; font-size:20px;">
+                          <i class="fa-solid fa-dollar-sign"></i> <!-- $ -->
+                      </div>
+                      <div>
+                        <h4 class="text-danger mb-0">{{ auth()->user()->balance }}</h4>
+                        <small>Current Balance </small>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+
             </div>
           </div>
 
@@ -294,6 +257,74 @@
             </div>
           </div>
 
+          {{-- upload book Tab --}}
+          <div class="tab-pane fade {{ $activeTab=='upload'?'show active':'' }}" id="upload">
+            <div class="card">
+              <div class="card-header bg-success text-white">Upload Book</div>
+              <div class="card-body">
+                <form action="{{ route('user.library.store_book') }}" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
+                  @csrf
+
+                  {{-- Book Name --}}
+                  <div class="row g-3 mb-3">
+                    <div class="col-md-12">
+                      <label for="name_en" class="form-label">Book Title <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" id="name_en" name="name_en" value="{{ old('name_en') }}" placeholder="Book Title" required>
+                      @error('name_en')<span class="text-danger">{{ $message }}</span>@enderror
+                    </div>
+                    
+                    {{-- Description --}}
+                    <div class="col-md-12">
+                      <label for="description_en" class="form-label">Description <span class="text-danger">*</span></label>
+                      <textarea class="form-control" id="description_en" name="description_en" rows="3" placeholder="Book Description">{{ old('description_en') }}</textarea>
+                      @error('description_en')<span class="text-danger">{{ $message }}</span>@enderror
+                    </div>
+                  </div>
+
+                  {{-- Price --}}
+                  <div class="row">
+                    <div class="mb-3 col-md-6">
+                      <label for="price" class="form-label">Price <span class="text-danger">*</span></label>
+                      <input type="number" class="form-control" id="price" name="price" value="{{ old('price', '0.00') }}" step="0.01" required>
+                      @error('price')<span class="text-danger">{{ $message }}</span>@enderror
+                    </div>
+
+                    {{--Categories --}}
+                    <div class="mb-3 col-md-6">
+                      <label for="categories" class="form-label">Category <span class="text-danger">*</span></label>
+
+                      <select multiple class="form-control" id="categories" name="categories[]">
+                          @foreach($categories as $category)
+                              <option value="{{ $category->id }}">{{ $category->name_en }}</option>
+                          @endforeach
+                      </select>
+                      <small class="form-text text-muted">Hold Ctrl or Cmd to select multiple categories.</small>
+                      @error('categories')<span class="text-danger">{{ $message }}</span>@enderror
+                    </div>
+                  </div>
+                  {{-- Cover Image --}}
+                  <div class="mb-3">
+                    <label for="featured_image" class="form-label">Cover Image <span class="text-danger">*</span></label>
+                    <input type="file" class="form-control" id="featured_image" name="featured_image" accept="image/*" required>
+                    @error('featured_image')<span class="text-danger">{{ $message }}</span>@enderror
+                  </div>
+
+                  {{-- Book File --}}
+                  <div class="mb-3">
+                    <label for="file_path" class="form-label">Book File (PDF only) <span class="text-danger">*</span></label>
+                    <input type="file" class="form-control" id="file_path" name="file_path" accept=".pdf" required>
+                    @error('file_path')<span class="text-danger">{{ $message }}</span>@enderror
+                  </div>
+
+                  <div class="mt-3">
+                    <button type="submit" class="btn btn-success">Save Changes</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- content ends here  -->
         </div>
       </div>
 

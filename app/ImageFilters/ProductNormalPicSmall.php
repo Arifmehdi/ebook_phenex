@@ -9,7 +9,9 @@ class ProductNormalPicSmall implements FilterInterface
 {
     public function applyFilter(Image $image)
     {
-        return $image->resize(210, 210);
+        // return $image->resize(210, 210);
+        return $image->resize(200, 320);
+
     }
 }
 

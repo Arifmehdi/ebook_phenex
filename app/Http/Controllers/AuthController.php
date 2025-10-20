@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\IdCard;
+use App\Models\UserBook;
+use App\Models\ProductCategory;
 use App\Models\Role;
 use App\Models\User;
+use App\Models\MembershipCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -13,6 +16,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use PDF; 
+use DB;
 
 use Session;
 class AuthController extends Controller
@@ -26,8 +30,6 @@ class AuthController extends Controller
         }
         return view('auth.login');
     }
-
-
 
    
      /**
@@ -71,27 +73,6 @@ class AuthController extends Controller
                     ->with('error', 'Login details are not valid');
     }
 
-
-
-    public function registerPage(){
-        if(Auth::check()){
-            return redirect()->route('user.dashboard');;
-        }
-        else{
-            return view('auth.login');
-        }
-
-    }
-
-    public function registration(){ 
-
-        if(Auth::check()){
-            return redirect()->route('user.dashboard');;
-        }
-        else{
-            return view('auth.main-register');
-        }
-    }
 
     public function healthCard(){ 
         return view('auth.health-register');
@@ -194,6 +175,34 @@ class AuthController extends Controller
     //                     ->with('success', 'Registration successful! Welcome, ' . $user->name);
     // }
 
+    
+    public function registration(Request $request)
+    { 
+
+        if(Auth::check()){
+            return redirect()->route('user.dashboard');;
+        }
+        else{
+            $categories = MembershipCategory::get();
+
+            // if ref come from url than run this logic 
+            $referred_category_id = null;
+
+            $ref = $request->query('ref'); // Always fetch directly
+
+            if (!empty($ref)) {
+                $referrer = User::find($ref);
+
+                if ($referrer) {
+                    $referred_category_id = $referrer->membership_category_id;
+                }
+            }
+
+            return view('auth.main-register', compact('categories', 'referred_category_id'));
+        }
+    }
+
+
     public function register(Request $request)
     {
         $request->validate([
@@ -291,55 +300,195 @@ class AuthController extends Controller
                         ->with('success', 'Registration successful! Welcome, ' . $user->name);
     }
 
-    public function mainRegister(Request $request)
+
+    public function registerPage()
     {
-        if ($request->ajax()) {
-            $validator = Validator::make($request->all(), [
-                'name'     => 'required|string|max:255',
-                'email'    => 'required|email|unique:users,email',
-                'password' => 'required|string|min:8|confirmed',
-            ]);
+        if(Auth::check()){
+            return redirect()->route('user.dashboard');;
+        }
+        else{
+            return view('auth.login');
+        }
+
+    }
+
+
+    // it register corectly  without share refferal bonus 
+    // public function mainRegister(Request $request)
+    // {
+
+    //     if ($request->ajax()) {
+    //         $validator = Validator::make($request->all(), [
+    //             'name'     => 'required|string|max:255',
+    //             'email'    => 'required|email|unique:users,email',
+    //             'password' => 'required|string|min:8|confirmed',
+    //             'membership_category_id' => 'required|exists:membership_categories,id',
+    //         ]);
+
+    //         if ($validator->fails()) {
+    //             return response()->json(['errors' => $validator->errors()], 422);
+    //         }
+    //         $membership = MembershipCategory::find($request->membership_category_id);
+
+    //         $user = User::create([
+    //             'name'     => $request->name,
+    //             'email'    => $request->email,
+    //             'password' => Hash::make($request->password),
+    //             'mobile' => $request->number_box_1755579092,
+    //             'membership_category_id' => $membership->id,
+    //             'referred_by' => $request->referred_by,
+    //             'balance' => $request->urm_total,
+    //         ]);
     
-            if ($validator->fails()) {
-                return response()->json(['errors' => $validator->errors()], 422);
-            }
+    //         Auth::login($user);
     
+    //         $this->cartSessionToUser();
+    
+    //         return response()->json(['success' => 'Registration successful! Welcome, ' . $user->name]);
+    //     }
+
+    //     $request->validate([
+    //         'name'               => 'required|string|max:255',
+    //         'email'              => 'required|email|unique:users,email',
+    //         'password'           =>  'required|string|min:8|confirmed',
+    //         // 'password'           => 'required|string|min:8',
+    //     ]);
+        
+    //     $user = User::create([
+    //         'name'     => $request->name,
+    //         'email'    => $request->email,
+    //         'password' => Hash::make($request->password),
+    //     ]);
+
+    //     // Auto login
+    //     Auth::login($user);
+
+    //     // Merge session cart
+    //     $this->cartSessionToUser();
+
+    //     // Redirect
+    //     return redirect()->route('user.dashboard')
+    //                     ->with('success', 'Registration successful! Welcome, ' . $user->name);
+    // }
+
+public function mainRegister(Request $request)
+{
+    // Validation rules
+    $rules = [
+        'name'     => 'required|string|max:255',
+        'email'    => 'required|email|unique:users,email',
+        'password' => 'required|string|min:8|confirmed',
+        'membership_category_id' => 'required|exists:membership_categories,id',
+    ];
+
+    // AJAX request
+    if ($request->ajax()) {
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
+        DB::transaction(function() use ($request) {
+            $membership = MembershipCategory::find($request->membership_category_id);
+
+            // Determine balance based on referral
+            $userBalance = $request->referred_by ? $membership->subscription_fee * 0.5 : $membership->subscription_fee;
+
+            // Create user
             $user = User::create([
                 'name'     => $request->name,
                 'email'    => $request->email,
                 'password' => Hash::make($request->password),
+                'mobile' => $request->number_box_1755579092 ?? null,
+                'membership_category_id' => $membership->id,
+                'referred_by' => $request->referred_by ?? null,
+                'balance' => $userBalance,
             ]);
-    
-            Auth::login($user);
-    
-            $this->cartSessionToUser();
-    
-            return response()->json(['success' => 'Registration successful! Welcome, ' . $user->name]);
-        }
 
-        $request->validate([
-            'name'               => 'required|string|max:255',
-            'email'              => 'required|email|unique:users,email',
-            'password'           =>  'required|string|min:8|confirmed',
-            // 'password'           => 'required|string|min:8',
-        ]);
-        
+            // Distribute referral bonus if referred_by exists
+            if ($user->referred_by) {
+                $this->distributeReferralBonus($user->id, $membership->subscription_fee);
+            }
+
+            // Auto login
+            Auth::login($user);
+
+            // Merge session cart
+            $this->cartSessionToUser();
+        });
+
+        return response()->json(['success' => 'Registration successful! Welcome, ' . $request->name]);
+    }
+
+    // Normal form request
+    $request->validate($rules);
+
+    DB::transaction(function() use ($request) {
+        $membership = MembershipCategory::find($request->membership_category_id);
+
+        $userBalance = $request->referred_by ? $membership->subscription_fee * 0.5 : $membership->subscription_fee;
+
         $user = User::create([
             'name'     => $request->name,
             'email'    => $request->email,
             'password' => Hash::make($request->password),
+            'membership_category_id' => $membership->id,
+            'referred_by' => $request->referred_by ?? null,
+            'balance' => $userBalance,
         ]);
 
-        // Auto login
+        if ($user->referred_by) {
+            $this->distributeReferralBonus($user->id, $membership->subscription_fee);
+        }
+
         Auth::login($user);
 
-        // Merge session cart
         $this->cartSessionToUser();
+    });
 
-        // Redirect
-        return redirect()->route('user.dashboard')
-                        ->with('success', 'Registration successful! Welcome, ' . $user->name);
+    return redirect()->route('user.dashboard')
+                    ->with('success', 'Registration successful! Welcome, ' . $request->name);
+}
+
+/**
+ * Distribute referral bonus up to 10 layers
+ */
+protected function distributeReferralBonus($newUserId, $fee, $maxLayer = 10)
+{
+    $currentUserId = $newUserId;
+    $level = 1;
+
+    while ($level <= $maxLayer) {
+        // Get the referrer of the current user
+        $currentUser = User::find($currentUserId);
+        if (!$currentUser || !$currentUser->referred_by) {
+            break; // no more referrer, stop
+        }
+
+        $referrer = $currentUser->referrer; // assuming User::referrer() relation
+        if (!$referrer) break;
+
+        // Give 50% of subscription fee to this referrer
+        $bonus = $fee * 0.5;
+        $referrer->balance += $bonus;
+        $referrer->save();
+
+        // Record the transaction with the correct level
+        DB::table('referral_transactions')->insert([
+            'user_id' => $referrer->id,       // who gets the bonus
+            'from_user_id' => $newUserId,     // the new member
+            'level' => $level,                // relative layer
+            'amount' => $bonus,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        // Move up the chain
+        $currentUserId = $referrer->id;
+        $level++; // increment layer relative to the new user
     }
+}
 
 
 
@@ -364,10 +513,10 @@ class AuthController extends Controller
         $todayOrdersCount = $user->orders()->whereDate('created_at', now()->toDateString())->count();
         $cancelOrdersCount = $user->orders()->where('order_status', 'cancelled')->count();
         $orders = $user->orders()->latest()->paginate(30);
-
+        $categories = ProductCategory::latest()->get();
         $activeTab = 'dashboard'; 
 
-        return view('user.dashboard', compact('user', 'todayOrdersCount', 'cancelOrdersCount', 'orders', 'activeTab'));
+        return view('user.dashboard', compact('user', 'todayOrdersCount', 'cancelOrdersCount', 'orders', 'activeTab','categories'));
     }
 
     public function orders(Request $request)
@@ -388,10 +537,10 @@ class AuthController extends Controller
         $orders = $query->latest()->paginate(30);
         $todayOrdersCount = $user->orders()->whereDate('created_at', now()->toDateString())->count();
         $cancelOrdersCount = $user->orders()->where('order_status', 'cancelled')->count();
-
+        $categories = ProductCategory::latest()->get();
         $activeTab = 'order'; 
 
-        return view('user.dashboard', compact('user', 'todayOrdersCount', 'cancelOrdersCount', 'orders', 'activeTab', 'type'));
+        return view('user.dashboard', compact('user', 'todayOrdersCount', 'cancelOrdersCount', 'orders', 'activeTab', 'type', 'categories'));
     }
 
     public function editMyInformation()
@@ -402,8 +551,8 @@ class AuthController extends Controller
         $orders = $user->orders()->latest()->paginate(30);
 
         $activeTab = 'edit'; 
-
-        return view('user.dashboard', compact('user', 'todayOrdersCount', 'cancelOrdersCount', 'orders', 'activeTab'));
+        $categories = ProductCategory::latest()->get();
+        return view('user.dashboard', compact('user', 'todayOrdersCount', 'cancelOrdersCount', 'orders', 'activeTab', 'categories'));
     }
 
     public function idcard()

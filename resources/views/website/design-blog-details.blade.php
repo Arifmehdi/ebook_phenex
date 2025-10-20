@@ -394,24 +394,24 @@
                         <ol class="breadcrumb justify-content-center">
                             <li class="breadcrumb-item"><a href="{{ url('/') }}" class="text-white">Home</a></li>
                             <li class="breadcrumb-item"><a href="#" class="text-white">Blog</a></li>
-                            {{--<li class="breadcrumb-item"><a href="#" class="text-white">Technology</a></li>
-                            <li class="breadcrumb-item active text-white" aria-current="page">Current Post</li>--}}
+                            <li class="breadcrumb-item"><a href="#" class="text-white">Technology</a></li>
+                            <li class="breadcrumb-item active text-white" aria-current="page">Current Post</li>
                         </ol>
                     </nav>
-                    <h1 class="display-4 fw-bold mb-3">{{ $news->title }}</h1>
-                    <!-- <p class="lead mb-4">Exploring the latest trends and technologies shaping the future of web development</p> -->
+                    <h1 class="display-4 fw-bold mb-3">The Future of Web Development in 2024</h1>
+                    <p class="lead mb-4">Exploring the latest trends and technologies shaping the future of web development</p>
                     <div class="d-flex justify-content-center align-items-center gap-4">
                         <div class="d-flex align-items-center gap-2">
                             <i class="far fa-calendar"></i>
-                            <span>{{ $news->created_at->format('F d, Y') }}</span>
+                            <span>September 23, 2025</span>
                         </div>
-                        {{--<div class="d-flex align-items-center gap-2">
+                        <div class="d-flex align-items-center gap-2">
                             <i class="far fa-clock"></i>
                             <span>5 min read</span>
-                        </div>--}}
+                        </div>
                         <div class="d-flex align-items-center gap-2">
                             <i class="far fa-eye"></i>
-                            <span>{{ $news->view_count }}</span>
+                            <span>1.2K views</span>
                         </div>
                     </div>
                 </div>
@@ -426,20 +426,19 @@
                 <!-- Blog Content -->
                 <article class="blog-content">
                     <div class="blog-meta">
-                        <img src="{{ asset('frontend/img/user.png') }}" alt="Author" class="author-img">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="Author" class="author-img">
                         <div>
-                            <h6 class="mb-1">{{ $news->addedBy->name ?? 'User' }}</h6>
-                            <p class="text-muted mb-0">{{ 'Writer' }}</p>
+                            <h6 class="mb-1">John Doe</h6>
+                            <p class="text-muted mb-0">Senior Web Developer</p>
                         </div>
                     </div>
 
                     <div class="blog-image mb-4">
-                        <img src="{{ asset('uslive/cpmd/' . $news->fi()) }}" alt="Blog Image" class="img-fluid rounded-3">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop" alt="Blog Image" class="img-fluid rounded-3">
                     </div>
 
                     <div class="blog-text">
-                        {!! $news->description !!}
-                        {{--<p class="lead">The landscape of web development is constantly evolving, with new technologies and frameworks emerging at a rapid pace. In this comprehensive guide, we'll explore the key trends that are shaping the future of web development in 2024.</p>
+                        <p class="lead">The landscape of web development is constantly evolving, with new technologies and frameworks emerging at a rapid pace. In this comprehensive guide, we'll explore the key trends that are shaping the future of web development in 2024.</p>
                         
                         <h3>The Rise of AI-Powered Development</h3>
                         <p>Artificial Intelligence is revolutionizing how we build websites and applications. From automated code generation to intelligent testing, AI tools are becoming indispensable for modern developers.</p>
@@ -450,20 +449,19 @@
                         <h3>Serverless Architecture</h3>
                         <p>The shift towards serverless computing allows developers to focus on writing code without worrying about infrastructure management. This approach offers scalability and cost-efficiency.</p>
                         
-                        <p>As we move forward, staying updated with these trends will be crucial for any web developer looking to stay relevant in the industry.</p>--}}
+                        <p>As we move forward, staying updated with these trends will be crucial for any web developer looking to stay relevant in the industry.</p>
                     </div>
 
                     <!-- Blog Actions -->
                     <div class="blog-actions">
-                        <button class="action-btn" id="likeBtn" data-post-id="{{ $news->id }}">
+                        <button class="action-btn" id="likeBtn">
                             <i class="far fa-heart"></i>
-                            <span class="like-count">{{ $news->likes_count }}</span> Likes
+                            <span class="like-count">42</span> Likes
                         </button>
                         <button class="action-btn">
                             <i class="far fa-comment"></i>
-                            <span class="comment-count">{{ $news->comments->count() }}</span> Comments
+                            <span class="comment-count">15</span> Comments
                         </button>
-
                         <button class="action-btn">
                             <i class="fas fa-share-alt"></i> Share
                         </button>
@@ -503,33 +501,30 @@
                 <section class="comments-section">
                     <h3 class="mb-4">
                         <i class="far fa-comments me-2"></i>
-                        Comments (<span class="comment-count">{{ $news->comments->count() }}</span>)
+                        Comments (<span class="comment-count">15</span>)
                     </h3>
 
                     <!-- Comment Form -->
                     <div class="comment-form">
                         <h5 class="mb-3">Leave a Comment</h5>
-                             {{-- Comment Form --}}
-                        <form action="{{ route('blog.comment.store', $news->id) }}" method="POST">
-                            @csrf
+                        <form id="commentForm">
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                                    <input type="text" class="form-control" placeholder="Your Name" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <input type="email" name="email" class="form-control" placeholder="Your Email" >
+                                    <input type="email" class="form-control" placeholder="Your Email" required>
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <textarea name="comment" class="form-control" rows="5" placeholder="Your Comment" required></textarea>
+                                <textarea class="form-control" rows="5" placeholder="Your Comment" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Post Comment</button>
                         </form>
-
                     </div>
 
                     <!-- Comments List -->
-                    {{--<div class="comments-list">
+                    <div class="comments-list">
                         <!-- Comment 1 -->
                         <div class="comment">
                             <div class="d-flex justify-content-between align-items-start mb-2">
@@ -590,65 +585,7 @@
                             </div>
                             <p class="mb-0">The section on serverless architecture was particularly insightful. We've been migrating our infrastructure to serverless, and the cost savings have been substantial.</p>
                         </div>
-                    </div>--}}
-
-<!-- sdjhjsdhf jshfjhsa jfhsjf hjasdfhjdashfjsdhafjajsd  -->
-
-<div class="comments-list mt-4">
-    @foreach($news->comments as $comment)
-        <div class="comment mb-4">
-            <!-- Comment header -->
-            <div class="d-flex justify-content-between align-items-start mb-2">
-                <div class="d-flex align-items-center gap-3">
-                    <img src="{{ asset('frontend/img/user.png') }}" 
-                         alt="User" class="author-img rounded-circle" width="50" height="50">
-                    <div>
-                        <h6 class="mb-1">{{ $comment->name }}</h6>
-                        <small class="text-muted">{{ $comment->created_at->diffForHumans() }}</small>
                     </div>
-                </div>
-                <button type="button" class="action-btn reply-trigger btn btn-sm btn-light">
-                    <i class="fas fa-reply"></i> Reply
-                </button>
-            </div>
-
-            <!-- Comment body -->
-            <p class="mb-0">{{ $comment->comment }}</p>
-
-            <!-- Replies -->
-            @foreach($comment->replies as $reply)
-                <div class="comment reply ms-5 mt-3 border-start ps-3">
-                    <div class="d-flex align-items-center gap-3 mb-1">
-                        <img src="{{ asset('frontend/img/user.png') }}" 
-                             alt="User" class="author-img rounded-circle" width="45" height="45">
-                        <div>
-                            <h6 class="mb-1">{{ $reply->name }}</h6>
-                            <small class="text-muted">{{ $reply->created_at->diffForHumans() }}</small>
-                        </div>
-                    </div>
-                    <p class="mb-0">{{ $reply->comment }}</p>
-                </div>
-            @endforeach
-
-            <!-- Reply Form (hidden by default) -->
-            <div class="reply-form mt-3" style="display: none;">
-                <form action="{{ route('blog.comment.store', $news->id) }}" method="POST" class="reply-form-inner">
-                    @csrf
-                    <input type="hidden" name="parent_id" value="{{ $comment->id }}">
-                    <div class="mb-3">
-                        <textarea name="comment" class="form-control" rows="3" placeholder="Write a reply..."></textarea>
-                    </div>
-                    <div class="d-flex gap-2">
-                        <button type="submit" class="btn btn-primary btn-sm">Post Reply</button>
-                        <button type="button" class="btn btn-secondary btn-sm cancel-reply">Cancel</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    @endforeach
-</div>
-
-                    <!-- msdhfjsdhfj hsjfhjksd hfjshfjsdhafjhdasjfhjsdfha   -->
                 </section>
             </div>
 
@@ -657,9 +594,9 @@
                 <!-- About Author -->
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-body text-center">
-                        <img src="{{ asset('frontend/img/user.png') }}" alt="Author" class="rounded-circle mb-3" style="width: 100px; height: 100px; object-fit: cover;">
-                        <h5>{{ $news->addedBy->name ?? 'User' }}</h5>
-                        <p class="text-muted">{{ $news->short_bio ?? 'I am exciting to work and make content ' }}</p>
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&h=120&fit=crop&crop=face" alt="Author" class="rounded-circle mb-3" style="width: 100px; height: 100px; object-fit: cover;">
+                        <h5>John Doe</h5>
+                        <p class="text-muted">Senior Web Developer with 8+ years of experience. Passionate about cutting-edge technologies and mentoring aspiring developers.</p>
                         <div class="d-flex justify-content-center gap-3">
                             <a href="#" class="text-primary"><i class="fab fa-twitter"></i></a>
                             <a href="#" class="text-primary"><i class="fab fa-linkedin-in"></i></a>
@@ -674,15 +611,27 @@
                         <h5 class="mb-0">Related Posts</h5>
                     </div>
                     <div class="card-body">
-                        @foreach($relatedPosts as $related)
                         <div class="d-flex gap-3 mb-3">
-                            <img src="{{ asset('uslive/cpmd/' . $related->fi()) }}" alt="{{ $related->title }}" class="rounded" style="width: 80px; height: 80px; object-fit: cover;">
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=80&h=80&fit=crop" alt="Related" class="rounded" style="width: 80px; height: 80px; object-fit: cover;">
                             <div>
-                                <h6 class="mb-1">{{ $related->title }}</h6>
-                                <small class="text-muted">{{ $related->created_at->format('M d, Y') }}</small>
+                                <h6 class="mb-1">React 18 Features You Should Know</h6>
+                                <small class="text-muted">Sep 20, 2025</small>
                             </div>
                         </div>
-                        @endforeach
+                        <div class="d-flex gap-3 mb-3">
+                            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=80&h=80&fit=crop" alt="Related" class="rounded" style="width: 80px; height: 80px; object-fit: cover;">
+                            <div>
+                                <h6 class="mb-1">Building Scalable APIs with GraphQL</h6>
+                                <small class="text-muted">Sep 18, 2025</small>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-3">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=80&h=80&fit=crop" alt="Related" class="rounded" style="width: 80px; height: 80px; object-fit: cover;">
+                            <div>
+                                <h6 class="mb-1">Machine Learning for Web Developers</h6>
+                                <small class="text-muted">Sep 15, 2025</small>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -690,20 +639,77 @@
     </div>
 
     <!-- Main Footer -->
-<footer class="site-footer" id="colophon" itemtype="https://schema.org/WPFooter" itemscope="itemscope" itemid="#colophon"
-    style="background-color: #0a0a23; color: #fff; padding: 15px 0; text-align: center;">
-    <div class="site-below-footer-wrap ast-builder-grid-row-container site-footer-focus-item"
-        data-section="section-below-footer-builder">
-        <div class="ast-footer-copyright" style="font-size: 14px;">
-            <p style="margin: 0;">
-                Copyright © 2025 | Powered by eBook | Developed by 
-                <a href="http://phenexsoft.com/" style="color: #00bfff; text-decoration: none;">Phenexsoft</a>
-            </p>
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-logo">
+                        <i class="fas fa-book me-2"></i>eBook
+                    </div>
+                    <p class="mb-3">Your go-to platform for quality educational content, tutorials, and resources. Join our community of learners and experts.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Quick Links</h5>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Courses</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Categories</h5>
+                        <ul>
+                            <li><a href="#">Web Development</a></li>
+                            <li><a href="#">Mobile Apps</a></li>
+                            <li><a href="#">Data Science</a></li>
+                            <li><a href="#">Design</a></li>
+                            <li><a href="#">Marketing</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-links">
+                        <h5>Newsletter</h5>
+                        <p>Subscribe to our newsletter to get updates on new articles and resources.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Your email address" required>
+                            <button type="submit">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy; 2025 eBook. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <a href="#" class="text-muted me-3">Privacy Policy</a>
+                        <a href="#" class="text-muted me-3">Terms of Service</a>
+                        <a href="#" class="text-muted">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</footer>
-
-        <!-- #colophon -->
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -763,22 +769,5 @@
             });
         });
     </script>
-    <script>
-    document.getElementById('likeBtn').addEventListener('click', function() {
-        const postId = this.getAttribute('data-post-id');
-        fetch(`/blog/${postId}/like`, {
-            method: 'POST',
-            headers: {
-                'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                'Accept': 'application/json',
-            },
-        })
-        .then(res => res.json())
-        .then(data => {
-            this.querySelector('.like-count').innerText = data.likes;
-        });
-    });
-    </script>
-
 </body>
 </html>

@@ -36,6 +36,9 @@ class User extends Authenticatable
         'ssc_registration',
         'blood_group',
         'image',
+        'membership_category_id',
+        'balance',
+        'referred_by'
     ];
 
     /**
@@ -132,5 +135,51 @@ class User extends Authenticatable
     }
     
  
+    // ebook orm start here 
+    public function userBooks()
+    {
+        return $this->hasMany(UserBook::class);
+    }
 
+    // For convenience: different filtered lists
+    public function readingBooks()
+    {
+        return $this->hasMany(UserBook::class)->where('status', 'reading');
+    }
+
+    public function purchasedBooks()
+    {
+        return $this->hasMany(UserBook::class)->where('status', 'purchased');
+    }
+
+    public function favoriteBooks()
+    {
+        return $this->hasMany(UserBook::class)->where('status', 'favorite');
+    }
+
+    public function completedBooks()
+    {
+        return $this->hasMany(UserBook::class)->where('status', 'completed');
+    }
+
+    public function membershipCategory()
+    {
+        return $this->belongsTo(MembershipCategory::class, 'membership_category_id');
+        // return $this->belongsTo(MembershipCategory::class);
+    }
+
+    public function referrer()
+    {
+        return $this->belongsTo(User::class, 'referred_by');
+    }
+
+    public function referrals()
+    {
+        return $this->hasMany(User::class, 'referred_by');
+    }
+
+    public function withdrawals()
+    {
+        return $this->hasMany(Withdrawal::class);
+    }
 }
