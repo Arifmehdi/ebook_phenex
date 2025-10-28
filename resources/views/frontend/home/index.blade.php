@@ -612,10 +612,10 @@
 
                                         <div class="box-product-image position-relative">
                                             <!-- Wishlist / Favorite Heart Icon -->
-<div class="wishlist-icon {{ auth()->check() && $trending->isFavoritedBy(auth()->user()) ? 'active' : '' }}" 
-     data-id="{{ $trending->id }}">
-    <i class="fa fa-heart"></i>
-</div>
+                                            <div class="wishlist-icon {{ auth()->check() && $trending->isFavoritedBy(auth()->user()) ? 'active' : '' }}" 
+                                                data-id="{{ $trending->id }}">
+                                                <i class="fa fa-heart"></i>
+                                            </div>
 
                                             <a href="{{ route('productDetails', $trending->slug) }}">
                                                 <img src="{{ route('imagecache', ['template' => 'pnism', 'filename' => $trending->fi()]) }}"
@@ -797,7 +797,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 body: JSON.stringify({ product_id: productId })
             })
             .then(async res => {
-                let text = await res.text();
+                const text = await res.text();
                 try {
                     return JSON.parse(text);
                 } catch (e) {
@@ -819,11 +819,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     toastr.error('Something went wrong');
                 }
             })
-            .catch(err => console.error(err));
+            .catch(err => console.error('Error:', err));
         });
     });
 });
 </script>
+
 
 
 

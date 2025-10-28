@@ -168,8 +168,9 @@
         {{-- ✅ Description Tab --}}
         <div class="tab-pane fade show active" id="description" role="tabpanel"
             aria-labelledby="description-tab">
-            {!! $product->description !!}
+            {!! $product->description_en !!}
         </div>
+        
 
         {{-- ✅ Reviews Tab --}}
         {{-- <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">

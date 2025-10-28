@@ -43,8 +43,15 @@
                     @endif
                 </div>
 
+                @php
+                function html_limit($html, $limit = 100) {
+                    $text = strip_tags($html);
+                    return strlen($text) > $limit ? substr($text, 0, $limit) . '...' : $text;
+                }
+                @endphp
+
                 <div class="quick-view-description mb-3">
-                    {!! $product->description_en !!}
+                    {!! html_limit($product->description_en, 100) !!}
                 </div>
 
                 <div class="quick-view-meta mb-3">

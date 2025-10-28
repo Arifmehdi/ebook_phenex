@@ -77,6 +77,23 @@ class Product extends Model
         return $this->reviews()->avg('rating') ?? 0;
     }
 
+
+
+    // favorite logic 
+    public function userBooks()
+    {
+        return $this->hasMany(UserBook::class, 'product_id');
+    }
+
+    public function isFavoritedBy($user)
+    {
+        if (!$user) return false;
+        return $this->userBooks()
+                    ->where('user_id', $user->id)
+                    ->where('status', 'favorite')
+                    ->exists();
+    }
+
  
 
    

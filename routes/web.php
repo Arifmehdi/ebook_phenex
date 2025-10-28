@@ -271,6 +271,8 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'mypanel'], function 
     Route::get('library/purchased-books', [LibraryController::class, 'purchasedBooks'])->name('user.library.purchased_books');
     Route::get('library/last-read-book', [LibraryController::class, 'lastReadBook'])->name('user.library.last_read_book');
 
+    Route::post('/wishlist/toggle', [LibraryController::class, 'toggleFavorite'])->name('wishlist.toggle');
+
     // Book Upload Routes
     Route::get('library/upload', [LibraryController::class, 'createBook'])->name('user.library.create_book');
     Route::post('library/upload', [LibraryController::class, 'storeBook'])->name('user.library.store_book');

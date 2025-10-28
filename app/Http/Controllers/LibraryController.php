@@ -42,6 +42,69 @@ class LibraryController extends Controller
         return view('mypanel.library.favorite_books', compact('activeTab', 'user' ,'books'));
     }
 
+
+public function toggleFavorite(Request $request)
+{
+    if (!Auth::check()) {
+        return response()->json([
+            'success' => false,
+            'auth' => false,
+            'message' => 'Please log in to add favorites.'
+        ]);
+    }
+
+    $userId = Auth::id();
+    $productId = $request->product_id;
+
+    $favorite = UserBook::where('user_id', $userId)
+        ->where('product_id', $productId)
+        ->where('status', 'favorite')
+        ->first();
+
+    if ($favorite) {
+        $favorite->delete();
+        return response()->json(['success' => true, 'favorited' => false]);
+    } else {
+        UserBook::create([
+            'user_id' => $userId,
+            'product_id' => $productId,
+            'status' => 'favorite'
+        ]);
+        return response()->json(['success' => true, 'favorited' => true]);
+    }
+}
+    // public function toggleFavorite(Request $request)
+    // {
+    //     if (!Auth::check()) {
+    //         return response()->json([
+    //             'success' => false,
+    //             'message' => 'Please log in to add favorites.',
+    //             'auth' => false
+    //         ]);
+    //     }
+
+    //     $user = Auth::user();
+    //     $productId = $request->product_id;
+
+    //     // Check if already exists
+    //     $userBook = UserBook::where('user_id', $user->id)
+    //                         ->where('product_id', $productId)
+    //                         ->first();
+
+    //     if ($userBook && $userBook->status === 'favorite') {
+    //         // Remove from favorite
+    //         $userBook->delete();
+    //         return response()->json(['success' => true, 'favorited' => false]);
+    //     } else {
+    //         // Add to favorite
+    //         UserBook::updateOrCreate(
+    //             ['user_id' => $user->id, 'product_id' => $productId],
+    //             ['status' => 'favorite']
+    //         );
+    //         return response()->json(['success' => true, 'favorited' => true]);
+    //     }
+    // }
+
     public function lastReadBook()
     {
         $user = Auth::user();
