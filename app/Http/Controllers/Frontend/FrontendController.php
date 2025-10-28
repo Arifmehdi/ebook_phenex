@@ -138,13 +138,25 @@ class FrontendController extends Controller
         return view('frontend.login');
     }
 
-
-
     public function page($slug)
     {
-        $data['page'] = Page::whereActive('slug', $slug)->first();
+        $data['page'] = Page::with('pageItems')->where('active', 1)
+                        ->where('slug', $slug)
+                        ->first();
+        $data['contactUsPage'] = Page::where('type', 'contact_us')->first();
+        $data['websiteParameter'] = WebsiteParameter::first();
+
+        if(!$data['page']){
+            abort(404);
+        }
         return view('frontend.home.page_content', $data);
     }
+
+    // public function page($slug)
+    // {
+    //     $data['page'] = Page::whereActive('slug', $slug)->first();
+    //     return view('frontend.home.page_content', $data);
+    // }
 
     public function websiteCompliance()
     {

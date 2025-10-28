@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Details - eBook</title>
+@extends('frontend.layouts.ecommercemaster')
+@section('title', "All Publishers - Ebook")
+
+@section('content')
+<main id="main" class="site-main">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -334,56 +333,6 @@
             cursor: pointer;
         }
     </style>
-</head>
-<body>
-    <!-- Main Header -->
-    <header class="main-header">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <i class="fas fa-book me-2"></i>eBook
-                </a>
-                
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="{{ route('shop.shasthoseba') }}">Books</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('generes') }}">Generes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('authors') }}">Authors</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('publisher') }}">Publisher</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('pricing') }}">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('blog') }}">Blog</a>
-                        </li>
-                    </ul>
-                    
-                    <div class="header-actions">
-                        <div class="search-box">
-                            <input type="text" placeholder="Search...">
-                            <i class="fas fa-search"></i>
-                        </div>
-                        <div class="auth-buttons">
-                            <a href="#" class="btn btn-outline-primary me-2">Login</a>
-                            <a href="#" class="btn btn-primary">Sign Up</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
 
     <!-- Blog Header -->
     <section class="blog-header">
@@ -689,20 +638,6 @@
         </div>
     </div>
 
-    <!-- Main Footer -->
-<footer class="site-footer" id="colophon" itemtype="https://schema.org/WPFooter" itemscope="itemscope" itemid="#colophon"
-    style="background-color: #0a0a23; color: #fff; padding: 15px 0; text-align: center;">
-    <div class="site-below-footer-wrap ast-builder-grid-row-container site-footer-focus-item"
-        data-section="section-below-footer-builder">
-        <div class="ast-footer-copyright" style="font-size: 14px;">
-            <p style="margin: 0;">
-                Copyright © 2025 | Powered by eBook | Developed by 
-                <a href="http://phenexsoft.com/" style="color: #00bfff; text-decoration: none;">Phenexsoft</a>
-            </p>
-        </div>
-    </div>
-</footer>
-
         <!-- #colophon -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -780,5 +715,8 @@
     });
     </script>
 
-</body>
-</html>
+</main>
+
+@endsection
+
+

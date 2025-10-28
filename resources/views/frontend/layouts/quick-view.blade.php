@@ -62,7 +62,9 @@
                 </div>
 
                 <div class="quick-view-actions">
-                    @include('frontend.home.includes.productCartItem')
+                    <div class="productCartItem">
+                        @include('frontend.home.includes.productCartItem')
+                    </div>
 
                     <a href="{{ route('productDetails', $product->slug) }}" class="btn btn-outline-primary btn-lg w-100 mt-2">
                         View Full Details

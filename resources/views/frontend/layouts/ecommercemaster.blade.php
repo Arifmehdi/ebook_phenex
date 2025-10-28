@@ -106,19 +106,20 @@
 
 		</style>
 <style>
-/* Default: hidden */
+/* Default: hidden and not affecting layout */
 .mobile-bottom-bar {
     display: none;
+    position: static;
+    height: 0;
+    overflow: hidden;
 }
 
 /* Show only on mobile */
 @media (max-width: 768px) {
-    /* Hide floating cart icon on mobile */
     .envato-buy-redirect {
         display: none !important;
     }
 
-    /* Show bottom bar */
     .mobile-bottom-bar {
         display: flex !important;
         position: fixed;
@@ -134,14 +135,12 @@
         z-index: 9999;
     }
 
-    /* Checkout button */
     .checkout-btn {
         position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
-        /* background: #18443F; */
-		background: #2D529F;
+        background: #2D529F;
         color: #fff;
         font-weight: bold;
         padding: 5px 36px;
@@ -167,7 +166,6 @@
         border-radius: 50%;
     }
 
-    /* Other icons */
     .other-icons {
         display: flex;
         gap: 20px;
@@ -176,15 +174,13 @@
     }
 
     .other-icons a {
-        /* color: #18443F; */
-		color: #2D529F;
+        color: #2D529F;
         font-size: 28px;
         display: flex;
         align-items: center;
         justify-content: center;
     }
 }
-
 </style>
 
 	</head>
@@ -195,7 +191,7 @@ $count_info = \App\Models\Cart::when(Auth::check(), fn($q) => $q->where('user_id
 $count_data = $count_info->count();
 $totalCartPrice = \App\Models\Cart::totalCartPrice();
 @endphp
-		<div class="body">
+		<div class="body" style="background-color: #F4F4F4;">
 			@include('frontend.layouts.ecommerceheader')
 				<div role="main" class="main">
 

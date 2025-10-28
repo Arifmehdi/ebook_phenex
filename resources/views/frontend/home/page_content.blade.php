@@ -1,4 +1,4 @@
-@extends('frontend.layouts.pageMaster')
+@extends('frontend.layouts.ecommercemaster')
 @section('content')
 @if ($contactUsPage->id == $page->id)
  <section>
