@@ -70,35 +70,40 @@ class FrontendController extends Controller
         return view('website.generes', compact('categories'));
     }
 
-    public function generes(Request $request, $slug)
-    {
-        $category = ProductCategory::where('slug', $slug)
-            ->whereActive(true)
-            ->firstOrFail();
-        $query = Product::whereHas('categories', function ($q) use ($slug) {
-            $q->where('slug', $slug);
-        })->whereActive(true);
+public function generes(Request $request, $slug)
+{
+    $category = ProductCategory::where('slug', $slug)
+        ->where('active', 1)
+        ->firstOrFail();
 
-        // Sorting
-        if ($request->get('sort') == 1) {
+    $query = Product::whereHas('categories', function ($q) use ($slug) {
+        $q->where('slug', $slug);
+    })->where('active', 1);
+
+    // Sorting
+    switch ($request->get('sort')) {
+        case 1:
             $query->latest();
-        } elseif ($request->get('sort') == 2) {
+            break;
+        case 2:
             $query->oldest();
-        } elseif ($request->get('sort') == 3) {
+            break;
+        case 3:
             $query->orderBy('final_price', 'desc');
-        } elseif ($request->get('sort') == 4) {
+            break;
+        case 4:
             $query->orderBy('final_price', 'asc');
-        } else {
+            break;
+        default:
             $query->latest();
-        }
-
-        $products = $query->paginate(12)->appends($request->all());
-
-        $categories = ProductCategory::whereActive(true)->latest()->get();
-        $total_products = Product::whereActive(true)->count();
-
-        return view('website.product_category', compact('categories', 'slug', 'products'));
     }
+
+    $products = $query->paginate(12)->appends($request->all());
+    $categories = ProductCategory::where('active', 1)->latest()->get();
+
+    return view('website.product_category', compact('categories', 'slug', 'products'));
+}
+
 
 
     public function authors()

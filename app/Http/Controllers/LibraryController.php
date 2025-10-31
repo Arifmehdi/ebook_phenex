@@ -42,37 +42,68 @@ class LibraryController extends Controller
         return view('mypanel.library.favorite_books', compact('activeTab', 'user' ,'books'));
     }
 
+    public function trackAndRead($productId)
+    {
+        $user = auth()->user();
 
-public function toggleFavorite(Request $request)
-{
-    if (!Auth::check()) {
-        return response()->json([
-            'success' => false,
-            'auth' => false,
-            'message' => 'Please log in to add favorites.'
-        ]);
-    }
+        $product = Product::findOrFail($productId);
 
-    $userId = Auth::id();
-    $productId = $request->product_id;
+        // Create or update user_books record
+        // $userBook = UserBook::updateOrCreate(
+        //     [
+        //         'user_id' => $user->id,
+        //         'product_id' => $productId,
+        //     ],
+        //     [
+        //         'status' => 'reading',
+        //         'last_read_at' => now(),
+        //     ]
+        // );
 
-    $favorite = UserBook::where('user_id', $userId)
-        ->where('product_id', $productId)
-        ->where('status', 'favorite')
-        ->first();
-
-    if ($favorite) {
-        $favorite->delete();
-        return response()->json(['success' => true, 'favorited' => false]);
-    } else {
         UserBook::create([
-            'user_id' => $userId,
+            'user_id' => $user->id,
             'product_id' => $productId,
-            'status' => 'favorite'
+            'status' => 'reading',
+            'last_read_at' => now(),
         ]);
-        return response()->json(['success' => true, 'favorited' => true]);
+
+        // Redirect directly to the PDF file
+        return redirect(asset('storage/product_files/' . $product->file_path));
     }
-}
+
+
+
+
+    public function toggleFavorite(Request $request)
+    {
+        if (!Auth::check()) {
+            return response()->json([
+                'success' => false,
+                'auth' => false,
+                'message' => 'Please log in to add favorites.'
+            ]);
+        }
+
+        $userId = Auth::id();
+        $productId = $request->product_id;
+
+        $favorite = UserBook::where('user_id', $userId)
+            ->where('product_id', $productId)
+            ->where('status', 'favorite')
+            ->first();
+
+        if ($favorite) {
+            $favorite->delete();
+            return response()->json(['success' => true, 'favorited' => false]);
+        } else {
+            UserBook::create([
+                'user_id' => $userId,
+                'product_id' => $productId,
+                'status' => 'favorite'
+            ]);
+            return response()->json(['success' => true, 'favorited' => true]);
+        }
+    }
     // public function toggleFavorite(Request $request)
     // {
     //     if (!Auth::check()) {

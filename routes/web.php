@@ -268,8 +268,11 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'mypanel'], function 
     Route::get('chalan/print/{order}', [FrontendController::class, 'orderChalan'])->name('user.orderChalan');
 
     Route::get('library/favorite-books', [LibraryController::class, 'favoriteBooks'])->name('user.library.favorite_books');
+    Route::get('library/read/{product}', [LibraryController::class, 'trackAndRead'])->name('user.read.book');
+
     Route::get('library/purchased-books', [LibraryController::class, 'purchasedBooks'])->name('user.library.purchased_books');
     Route::get('library/last-read-book', [LibraryController::class, 'lastReadBook'])->name('user.library.last_read_book');
+
 
     Route::post('/wishlist/toggle', [LibraryController::class, 'toggleFavorite'])->name('wishlist.toggle');
 

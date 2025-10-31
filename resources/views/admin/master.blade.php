@@ -250,7 +250,7 @@
                         <a href="#" class="nav-link {{ session('lsbm') == 'departments'? ' active ' : ''}}">
                             <i class="nav-icon fas fa-passport"></i>
                             <p>
-                                Departments
+                                Publisher
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
@@ -258,13 +258,13 @@
                             <li class="nav-item">
                                 <a href="{{route('departments.index')}}" class="nav-link {{ session('lsbsm') == 'alldepartments' ? ' active ' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>All Departments</p>
+                                    <p>All Publishers</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{route('departments.create')}}" class="nav-link {{ session('lsbsm') == 'createdepartments' ? ' active ' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Create Departments</p>
+                                    <p>Create Publisher</p>
                                 </a>
                             </li>
 

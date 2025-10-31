@@ -371,124 +371,145 @@ class AuthController extends Controller
     //                     ->with('success', 'Registration successful! Welcome, ' . $user->name);
     // }
 
-public function mainRegister(Request $request)
-{
-    // Validation rules
-    $rules = [
-        'name'     => 'required|string|max:255',
-        'email'    => 'required|email|unique:users,email',
-        'password' => 'required|string|min:8|confirmed',
-        'membership_category_id' => 'required|exists:membership_categories,id',
-    ];
+    public function mainRegister(Request $request)
+    {
+        // Validation rules
+        $rules = [
+            'name'     => 'required|string|max:255',
+            'email'    => 'required|email|unique:users,email',
+            'password' => 'required|string|min:8|confirmed',
+            'membership_category_id' => 'required|exists:membership_categories,id',
+        ];
 
-    // AJAX request
-    if ($request->ajax()) {
-        $validator = Validator::make($request->all(), $rules);
+        // AJAX request
+        if ($request->ajax()) {
+            $validator = Validator::make($request->all(), $rules);
 
-        if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()], 422);
+            if ($validator->fails()) {
+                return response()->json(['errors' => $validator->errors()], 422);
+            }
+
+            DB::transaction(function() use ($request) {
+                $membership = MembershipCategory::find($request->membership_category_id);
+
+                // Determine balance based on referral
+                $userBalance = $request->referred_by ? $membership->subscription_fee * 0.5 : $membership->subscription_fee;
+
+                // Create user
+                $user = User::create([
+                    'name'     => $request->name,
+                    'email'    => $request->email,
+                    'password' => Hash::make($request->password),
+                    'mobile' => $request->number_box_1755579092 ?? null,
+                    'membership_category_id' => $membership->id,
+                    'referred_by' => $request->referred_by ?? null,
+                    'balance' => $userBalance,
+                ]);
+
+                // Distribute referral bonus if referred_by exists
+                if ($user->referred_by) {
+                    $this->distributeReferralBonus($user->id, $membership->subscription_fee);
+                }
+
+                // Auto login
+                Auth::login($user);
+
+                // Merge session cart
+                $this->cartSessionToUser();
+                // return $user;
+            });
+
+            return response()->json(['success' => 'Registration successful! Welcome, ' . $request->name]);
         }
+
+        // Normal form request
+        $request->validate($rules);
 
         DB::transaction(function() use ($request) {
             $membership = MembershipCategory::find($request->membership_category_id);
 
-            // Determine balance based on referral
             $userBalance = $request->referred_by ? $membership->subscription_fee * 0.5 : $membership->subscription_fee;
 
-            // Create user
             $user = User::create([
                 'name'     => $request->name,
                 'email'    => $request->email,
                 'password' => Hash::make($request->password),
-                'mobile' => $request->number_box_1755579092 ?? null,
                 'membership_category_id' => $membership->id,
                 'referred_by' => $request->referred_by ?? null,
                 'balance' => $userBalance,
             ]);
 
-            // Distribute referral bonus if referred_by exists
             if ($user->referred_by) {
                 $this->distributeReferralBonus($user->id, $membership->subscription_fee);
             }
 
-            // Auto login
             Auth::login($user);
 
-            // Merge session cart
             $this->cartSessionToUser();
+            // return $user;
         });
 
-        return response()->json(['success' => 'Registration successful! Welcome, ' . $request->name]);
+        return redirect()->route('user.dashboard')
+                        ->with('success', 'Registration successful! Welcome, ' . $request->name);
     }
 
-    // Normal form request
-    $request->validate($rules);
+    /**
+     * Distribute referral bonus up to 10 layers
+     */
+    protected function distributeReferralBonus($newUserId, $fee, $maxLayer = 10)
+    {
+        $currentUserId = $newUserId;
+        $level = 1;
 
-    DB::transaction(function() use ($request) {
-        $membership = MembershipCategory::find($request->membership_category_id);
+        while ($level <= $maxLayer) {
+            // Get the referrer of the current user
+            $currentUser = User::find($currentUserId);
+            if (!$currentUser || !$currentUser->referred_by) {
+                break; // no more referrer, stop
+            }
 
-        $userBalance = $request->referred_by ? $membership->subscription_fee * 0.5 : $membership->subscription_fee;
+            $referrer = $currentUser->referrer; // assuming User::referrer() relation
+            if (!$referrer) break;
 
-        $user = User::create([
-            'name'     => $request->name,
-            'email'    => $request->email,
-            'password' => Hash::make($request->password),
-            'membership_category_id' => $membership->id,
-            'referred_by' => $request->referred_by ?? null,
-            'balance' => $userBalance,
-        ]);
+            // $referrer = User::find($currentUser->referred_by);
+            // if (!$referrer) break;
 
-        if ($user->referred_by) {
-            $this->distributeReferralBonus($user->id, $membership->subscription_fee);
+            // Give 50% of subscription fee to this referrer
+            $bonus = $fee * 0.5;
+            $referrer->balance += $bonus;
+            $referrer->save();
+
+            // Record the transaction with the correct level
+            DB::table('referral_transactions')->insert([
+                'user_id' => $referrer->id,       // who gets the bonus
+                'from_user_id' => $newUserId,     // the new member
+                'level' => $level,                // relative layer
+                'amount' => $bonus,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+
+            // ✅ After inserting, check if user completed 8 layers
+            $this->checkUploadEligibility($referrer->id);
+
+            // Move up the chain
+            $currentUserId = $referrer->id;
+            $level++; // increment layer relative to the new user
         }
-
-        Auth::login($user);
-
-        $this->cartSessionToUser();
-    });
-
-    return redirect()->route('user.dashboard')
-                    ->with('success', 'Registration successful! Welcome, ' . $request->name);
-}
-
-/**
- * Distribute referral bonus up to 10 layers
- */
-protected function distributeReferralBonus($newUserId, $fee, $maxLayer = 10)
-{
-    $currentUserId = $newUserId;
-    $level = 1;
-
-    while ($level <= $maxLayer) {
-        // Get the referrer of the current user
-        $currentUser = User::find($currentUserId);
-        if (!$currentUser || !$currentUser->referred_by) {
-            break; // no more referrer, stop
-        }
-
-        $referrer = $currentUser->referrer; // assuming User::referrer() relation
-        if (!$referrer) break;
-
-        // Give 50% of subscription fee to this referrer
-        $bonus = $fee * 0.5;
-        $referrer->balance += $bonus;
-        $referrer->save();
-
-        // Record the transaction with the correct level
-        DB::table('referral_transactions')->insert([
-            'user_id' => $referrer->id,       // who gets the bonus
-            'from_user_id' => $newUserId,     // the new member
-            'level' => $level,                // relative layer
-            'amount' => $bonus,
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
-
-        // Move up the chain
-        $currentUserId = $referrer->id;
-        $level++; // increment layer relative to the new user
     }
-}
+
+    protected function checkUploadEligibility($userId)
+    {
+        $completedLevels = DB::table('referral_transactions')
+            ->where('user_id', $userId)
+            ->distinct('level')
+            ->count('level');
+
+        if ($completedLevels >= 8) {
+            User::where('id', $userId)->update(['can_upload_books' => true]);
+        }
+    }
+
 
 
 

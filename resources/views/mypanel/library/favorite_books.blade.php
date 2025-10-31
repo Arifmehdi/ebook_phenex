@@ -30,7 +30,7 @@
                             <p class="card-text text-muted small mb-2">
                               By: {{ $bookEntry->product->author ?? 'N/A' }}
                             </p>
-                            <a href="{{ asset('storage/product_files/' . $bookEntry->product->file_path) }}" 
+                            <a href="{{ route('user.read.book', $bookEntry->product->id) }}" 
                                target="_blank" 
                                class="btn btn-primary mt-auto">
                               Read Now
