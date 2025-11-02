@@ -7,9 +7,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\ProductCategory;
 use App\Models\Product;
+use App\Models\BlogPost;
+use App\Models\BlogCategory;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+
 
 class LibraryController extends Controller
 {
@@ -232,4 +235,158 @@ class LibraryController extends Controller
         $activeTab = 'invite'; 
         return view('mypanel.library.invite', compact('user','activeTab'));
     }
+
+    // public function showAffiliate()
+    // {
+    //     $user = Auth::user();
+    //     $activeTab = 'affiliate'; 
+    //     return view('mypanel.library.affilaite', compact('user','activeTab'));
+    // }
+
+    public function showAffiliate()
+    {
+        $user = Auth::user();
+        $activeTab = 'affiliate';
+
+        // Users referred by the logged-in user
+        $referrals = \App\Models\User::where('referred_by', $user->id)->get();
+
+        // Referral transactions (if any)
+        $referralCollections = \App\Models\ReferralTransaction::where('from_user_id', $user->id)
+            ->with('user') // assuming relationship defined
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('mypanel.library.affiliate', compact('user', 'activeTab', 'referrals', 'referralCollections'));
+    }
+
+    public function blogpost()
+    {
+        $user = Auth::user();
+        $activeTab = 'blog'; 
+        $data['blogs'] = BlogPost::where('addedby_id', Auth::id())->latest()->paginate(50);
+        return view('mypanel.library.blogpost', compact('user','activeTab'), $data);
+    }
+
+    public function blogCreate()
+    {
+        $user = Auth::user();
+        $categories = BlogCategory::where('active',1)->latest()->get();
+        $activeTab = 'blogCreate'; 
+
+        return view('mypanel.library.blog_create', compact('user', 'activeTab', 'categories'));
+    }
+    
+
+
+    public function blogStore(Request $request)
+    {
+
+        $request->validate([
+            'name_en' => 'required|string|max:255',
+            'description_en' => 'required|string',
+            'category_id' => 'required|exists:blog_categories,id',
+            'featured_image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
+        ]);
+
+        // Handle file upload
+        $imagePath = null;
+        if ($request->hasFile('featured_image')) {
+            $image = $request->file('featured_image');
+            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+            $path = public_path('storage/post_images');
+
+            // Create directory if not exists
+            if (!File::isDirectory($path)) {
+                File::makeDirectory($path, 0777, true, true);
+            }
+
+            $image->move($path, $imageName);
+            // $imagePath = 'storage/post_images/' . $imageName;
+            $imagePath =  $imageName;
+        }
+
+        // Save blog
+        $blog = new BlogPost();
+        $blog->addedby_id = Auth::id();
+        $blog->title = $request->name_en;
+        $blog->description = $request->description_en;
+        $blog->category_id = $request->category_id;
+        $blog->feature_image = $imagePath;
+        $blog->active = 0;
+        $blog->status = 'pending';
+        $blog->save();
+
+        return redirect()->route('user.blogpost')->with('success', 'Blog post created successfully!');
+    }
+
+    public function blogEdit($id)
+    {
+        $user = Auth::user();
+        $activeTab = 'blogEdit'; 
+        $blog = BlogPost::findOrFail($id);
+        $categories = BlogCategory::where('active', 1)->get();
+
+        return view('mypanel.library.blog_edit', compact('user','blog', 'categories','activeTab'));
+    }
+
+    public function blogUpdate(Request $request, $id)
+    {
+        $request->validate([
+            'name_en' => 'required|string|max:255',
+            'description_en' => 'required|string',
+            'category_id' => 'required|exists:blog_categories,id',
+            'featured_image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+        ]);
+
+        $blog = BlogPost::findOrFail($id);
+
+        // Handle image update
+        if ($request->hasFile('featured_image')) {
+            $oldPath = public_path('storage/post_images/'.$blog->feature_image);
+            if (File::exists($oldPath)) {
+                File::delete($oldPath);
+            }
+
+            $image = $request->file('featured_image');
+            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+            $path = public_path('storage/post_images');
+            $image->move($path, $imageName);
+            $blog->feature_image = $imageName;
+        }
+
+        $blog->title = $request->name_en;
+        $blog->description = $request->description_en;
+        $blog->category_id = $request->category_id;
+        $blog->save();
+
+        return redirect()->route('user.blogpost')->with('success', 'Blog updated successfully!');
+    }
+
+
+
+    public function blogdelete($id)
+    {
+        // Find the blog post
+        $blog = BlogPost::findOrFail($id);
+
+        // Delete featured image if exists
+        if ($blog->feature_image) {
+            $imagePath = public_path('storage/post_images/' . $blog->feature_image);
+            if (File::exists($imagePath)) {
+                File::delete($imagePath);
+            }
+        }
+
+        // Delete the blog record
+        $blog->delete();
+
+        // Redirect with success message
+        return redirect()->back()->with('success', 'Blog deleted successfully!');
+    }
+
+    
+
+
+
 }

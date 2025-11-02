@@ -282,6 +282,13 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'mypanel'], function 
 
     // Invite Link Route
     Route::get('invite', [LibraryController::class, 'showInvitePage'])->name('user.invite');
+    Route::get('affiliate', [LibraryController::class, 'showAffiliate'])->name('user.affiliate');
+    Route::get('blogpost', [LibraryController::class, 'blogpost'])->name('user.blogpost');
+    Route::get('blog/create', [LibraryController::class, 'blogCreate'])->name('user.blog.create');
+    Route::post('blog/store', [LibraryController::class, 'blogStore'])->name('user.blog.store');
+    Route::get('blog/edit/{id}', [LibraryController::class, 'blogEdit'])->name('user.blog.edit');
+    Route::post('blog/uspdate/{id}', [LibraryController::class, 'blogUpdate'])->name('user.blog.update');
+    Route::delete('blog/delete/{id}', [LibraryController::class, 'blogdelete'])->name('user.blog.delete');
 
     // Withdrawal Routes
     Route::get('withdrawals', [WithdrawalController::class, 'index'])->name('user.withdrawals.index');

@@ -505,7 +505,7 @@ class AuthController extends Controller
             ->distinct('level')
             ->count('level');
 
-        if ($completedLevels >= 8) {
+        if ($completedLevels >= 2) {
             User::where('id', $userId)->update(['can_upload_books' => true]);
         }
     }

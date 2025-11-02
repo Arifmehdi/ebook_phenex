@@ -38,12 +38,21 @@ class PostController extends Controller
     public function newsActive(Request $request)
     {
         if ($request->mode == 'true') {
-            DB::table('blog_posts')->where('id', $request->id)->update(['active' => 1]);
+            DB::table('blog_posts')
+                ->where('id', $request->id)
+                ->update([
+                    'active' => 1,
+                    'status' => 'published'
+                ]);
         } else {
-            DB::table('blog_posts')->where('id', $request->id)->update(['active' => 0]);
+            DB::table('blog_posts')
+                ->where('id', $request->id)
+                ->update(['active' => 0]);
         }
+
         return response()->json(['msg' => 'Successfully updated status', 'status' => true]);
     }
+
 
     public function create()
     {

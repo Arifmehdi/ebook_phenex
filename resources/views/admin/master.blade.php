@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from adminlte.io/themes/v3/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Dec 2022 15:56:43 GMT -->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -415,7 +414,7 @@
                         <a href="#" class="nav-link {{ session('lsbm') == 'posts'? ' active ' : ''}}">
                             <i class="nav-icon far fa-share-square"></i>
                             <p>
-                                News
+                                Blogs
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
@@ -438,13 +437,13 @@
                             <li class="nav-item">
                                 <a href="{{route('news.index')}}" class="nav-link {{ session('lsbsm') == 'allPosts' ? ' active ' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>All News</p>
+                                    <p>All Blogs</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{route('news.create')}}" class="nav-link {{ session('lsbsm') == 'storePost' ? ' active ' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Create News</p>
+                                    <p>Create Blog</p>
                                 </a>
                             </li>
 
@@ -761,6 +760,5 @@
 @stack('js')
 </body>
 
-<!-- Mirrored from adminlte.io/themes/v3/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Dec 2022 15:56:48 GMT -->
 </html>
 

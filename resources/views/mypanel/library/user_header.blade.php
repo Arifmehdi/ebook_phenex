@@ -39,11 +39,19 @@
               </a>
             </li>
             <li class="list-group-item">
-              <a href="{{ route('user.library.create_book') }}" 
-                 class="tab-link {{ $activeTab=='upload'?'text-success fw-bold':'' }}">
-                 Upload Books
+              <a href="{{ route('user.affiliate') }}" 
+                 class="tab-link {{ $activeTab=='affiliate'?'text-success fw-bold':'' }}">
+                 Affiliate Listing
               </a>
             </li>
+            @if(Auth::user()->can_upload_books)
+            <li class="list-group-item">
+              <a href="{{ route('user.library.create_book') }}" 
+                 class="tab-link {{ $activeTab=='upload'?'text-success fw-bold':'' }}">
+                 Upload Book
+              </a>
+            </li>
+            @endif
             <li class="list-group-item">
               <a href="{{ route('user.library.favorite_books') }}" 
                  class="tab-link {{ $activeTab=='favorite'?'text-success fw-bold':'' }}">
@@ -68,6 +76,12 @@
               <a href="{{ route('user.withdrawals.index') }}" 
                  class="tab-link {{ $activeTab=='withdrawal'?'text-success fw-bold':'' }}">
                  Withdrawal
+              </a>
+            </li>
+            <li class="list-group-item">
+              <a href="{{ route('user.blogpost') }}" 
+                 class="tab-link {{ $activeTab=='blog'?'text-success fw-bold':'' }}">
+                 Blog Post
               </a>
             </li>
             <li class="list-group-item">

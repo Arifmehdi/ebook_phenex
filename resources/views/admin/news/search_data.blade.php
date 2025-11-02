@@ -29,7 +29,18 @@
                 <img  src="{{ route('imagecache', ['template' => 'ppsm', 'filename' => $news->fi()]) }}" alt="post">
             </td>
             <td>
-                <input type="checkbox" name="toogle" data-url="{{route('news.active')}}" value="{{$news->id}}" data-toggle="toggle" data-size="sm" {{$news->active==1 ? 'checked' : '' }} data-on="On"  data-off="Off" data-onstyle="success" data-offstyle="danger">
+            <input type="checkbox" 
+                name="toggle" 
+                data-url="{{ route('news.active') }}" 
+                value="{{ $news->id }}" 
+                data-toggle="toggle" 
+                data-size="sm" 
+                {{ $news->active == 1 ? 'checked' : '' }} 
+                data-on="Active" 
+                data-off="Inactive" 
+                data-onstyle="success" 
+                data-offstyle="danger">
+
             </td>
             <td>{{$news->status}}</td>
 
