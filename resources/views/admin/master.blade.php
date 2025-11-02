@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="{{asset('/')}}admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 
     <link rel="stylesheet" href="{{asset('/')}}admin/plugins/jqvmap/jqvmap.min.css">
-{{--    Summernote--}}
+    {{--    Summernote--}}
     <link rel="stylesheet" href="{{asset('/')}}admin/plugins/summernote/summernote-bs4.min.css">
 
     {{--    Data Table--}}
@@ -196,7 +196,7 @@
                     </li>
 
 
-                    <li class="nav-item {{ session('lsbm') == 'slider'? ' menu-open ' : ''}}">
+                    {{--<li class="nav-item {{ session('lsbm') == 'slider'? ' menu-open ' : ''}}">
                         <a href="#" class="nav-link {{ session('lsbm') == 'slider'? ' active ' : ''}}">
                             <i class="nav-icon fas fa-search-location"></i>
                             <p>
@@ -213,7 +213,7 @@
                             </li>
 
                         </ul>
-                    </li>
+                    </li>--}}
 
                    
 
@@ -450,27 +450,27 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item {{ session('lsbm') == 'galleries' ? ' menu-open ' : '' }}">
-                        <a href="#" class="nav-link {{ session('lsbm') == 'galleries' ? ' active ' : '' }}">
+                    <li class="nav-item {{ session('lsbm') == 'memberships' ? ' menu-open ' : '' }}">
+                        <a href="#" class="nav-link {{ session('lsbm') == 'memberships' ? ' active ' : '' }}">
                             <i class="nav-icon fas fas fa-bell"></i>
                             <p>
-                                Galleries
+                                Memberships
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('galleries.index') }}"
-                                    class="nav-link {{ session('lsbsm') == 'all_gallery' ? ' active ' : '' }}">
+                                <a href="{{ route('memberships.index') }}"
+                                    class="nav-link {{ session('lsbsm') == 'all_membership' ? ' active ' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>All Galleries</p>
+                                    <p>All Memberships</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('galleries.create') }}"
-                                    class="nav-link {{ session('lsbsm') == 'create_gallery' ? ' active ' : '' }}">
+                                <a href="{{ route('memberships.create') }}"
+                                    class="nav-link {{ session('lsbsm') == 'create_membership' ? ' active ' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Create Gallery</p>
+                                    <p>Create Membership</p>
                                 </a>
                             </li>
 

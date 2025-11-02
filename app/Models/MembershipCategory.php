@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class MembershipCategory extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'subscription_fee', 'free_books', 'access_all_books'];
+    protected $fillable = ['name', 'subscription_fee', 'free_books', 'validity_days','access_all_books','active'];
 }

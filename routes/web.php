@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SearchController;
 use App\Http\Controllers\Admin\ShippingMethodController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\MembershipController;
 use App\Http\Controllers\Admin\UserRoleController;
 use App\Http\Controllers\Admin\WebsiteParameterController;
 use Illuminate\Support\Facades\Route;
@@ -345,6 +346,7 @@ Route::middleware(['userRole:admin','auth'])->prefix('admin')->group(function(){
     //FrontSlider
     Route::resource('sliders', FrontSliderController::class);
 
+    Route::resource('memberships', MembershipController::class);
     //galleries
     Route::resource('galleries', GalleryController::class);
     Route::get('image-item-delete/{ImageItemDelete}', [GalleryController::class,'imageItemDelete'])->name('imageItemDelete');

@@ -7,6 +7,7 @@ use App\Models\Author;
 use App\Models\BisesoggoCategory;
 use App\Models\BlogPost;
 use App\Models\BookAppointment;
+use App\Models\MembershipCategory;
 use App\Models\ContactUs;
 use App\Models\Doctor;
 use App\Models\Hospital;
@@ -23,11 +24,11 @@ class HomeController extends Controller
     public function index(){
         menuSubmenu('dashboardM','dashboardSM');
         $users = User::get()->count();
-        $doctors = Doctor::get()->count();
+        $membershipCategory = MembershipCategory::where('active', true)->get()->count();
         $productcount = Product::get()->count();
         $orders = Order::get()->count();
         $products = Product::latest()->take(10)->get();
-        return view('admin.index',compact('users','doctors','products', 'orders', 'productcount'));
+        return view('admin.index',compact('users','membershipCategory','products', 'orders', 'productcount'));
     }
 
 

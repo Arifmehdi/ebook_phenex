@@ -61,20 +61,20 @@
             </div>
         </div>
 
-        {{-- Card: Doctors --}}
+        {{-- Card: membershipCategory --}}
         <div class="col-xl-3 col-md-6">
             <div class="card w3-indigo shadow-sm h-100">
                 <div class="card-body d-flex justify-content-between align-items-end">
                     <div>
-                        <h4 class="text-white mb-1">{{ $doctors }}</h4>
-                        <h6 class="text-white mb-0">All Doctors</h6>
+                        <h4 class="text-white mb-1">{{ $membershipCategory }}</h4>
+                        <h6 class="text-white mb-0">All Membership</h6>
                     </div>
                     <div style="width: 45px; height: 50px;">
                         <canvas id="chart-doctors" height="50"></canvas>
                     </div>
                 </div>
                 <div class="card-footer text-center border-top border-light">
-                    <a href="{{ route('doctors.index') }}" class="text-white">View All</a>
+                    <a href="{{ route('memberships.index') }}" class="text-white">View All</a>
                 </div>
             </div>
         </div>

@@ -168,7 +168,35 @@
                                 <div id="cash-on-delivery-collapse" class="accordion-collapse collapse"
                                     aria-labelledby="cash-on-delivery-heading" data-bs-parent="#payment-accordion">
                                     <div class="accordion-body">
-                                        Make your payment directly into our bkash (personal) account with bkash charge and mention your bkash payment number and amount in the order notes box as the payment reference. Your order will not be shipped until the funds have not been cleared in our account.
+                                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link active" id="bkash-tab" data-bs-toggle="tab" data-bs-target="#bkash" type="button" role="tab" aria-controls="bkash" aria-selected="true">bKash</button>
+                                            </li>
+                                            {{--<li class="nav-item" role="presentation">
+                                                <button class="nav-link" id="bank-tab" data-bs-toggle="tab" data-bs-target="#bank" type="button" role="tab" aria-controls="bank" aria-selected="false">Bank</button>
+                                            </li>--}}
+                                        </ul>
+                                        <div class="tab-content" id="myTabContent">
+                                            <div class="tab-pane fade show active" id="bkash" role="tabpanel" aria-labelledby="bkash-tab">
+                                                <div class="card-body">
+                                                    <p><strong>bKash Number:</strong> 01790552864 (Merchant)</p>
+                                                </div>
+                                            </div>
+                                            {{--<div class="tab-pane fade  " id="bank" role="tabpanel" aria-labelledby="bank-tab">
+                                                <div class="card-body">
+                                                    <p><strong>A/C Number:</strong> </p>
+                                                    <p><strong>A/C Name:</strong> </p>
+                                                </div>
+                                            </div>--}}
+
+                                        </div>
+                                        <div id="online-payment-details" style="display: none;">
+                                            <div class="mb-3">
+                                                <label for="transaction_id" class="form-label">Transaction ID</label>
+                                                <input type="text" class="form-control" id="transaction_id" name="transaction_id">
+                                            </div>
+                                        </div>
+                                        <p class="mt-3">{{ __('Bkash Message') }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -229,22 +257,32 @@ document.addEventListener('DOMContentLoaded', () => {
     // ✅ Enable/disable Proceed button based on conditions
     function toggleProceedButton() {
         const paymentSelected = document.querySelector('.paymentMethodSelect:checked');
-        const emailChecked = emailCheckbox ? emailCheckbox.checked : false;
         
         if (proceedBtn) {
-            proceedBtn.disabled = !(paymentSelected && emailChecked);
+            proceedBtn.disabled = !paymentSelected;
         }
     }
 
     // ✅ Payment method change
     paymentRadios.forEach(radio => {
-        radio.addEventListener('change', toggleProceedButton);
+        radio.addEventListener('change', () => {
+            toggleProceedButton();
+            const onlinePaymentDetails = document.getElementById('online-payment-details');
+            const transactionIdInput = document.getElementById('transaction_id');
+            if (radio.value === 'online' && radio.checked) {
+                onlinePaymentDetails.style.display = 'block';
+                transactionIdInput.required = true;
+            } else {
+                onlinePaymentDetails.style.display = 'none';
+                transactionIdInput.required = false;
+            }
+        });
     });
 
     // ✅ Email checkbox change
-    if (emailCheckbox) {
-        emailCheckbox.addEventListener('change', toggleProceedButton);
-    }
+    // if (emailCheckbox) {
+    //     emailCheckbox.addEventListener('change', toggleProceedButton);
+    // }
 
     // ✅ Shipping toggle (for "Ship to different address" checkbox)
     if (shippingToggle && shippingDetails) {
