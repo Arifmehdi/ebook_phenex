@@ -329,6 +329,8 @@ Route::middleware(['userRole:admin','auth'])->prefix('admin')->group(function(){
 
     //user
     Route::get('users',[UserController::class,'index'])->name('admin.user');
+    Route::post('/admin/user/toggle-approve', [UserController::class, 'toggleApprove'])->name('admin.user.approve.toggle');
+
     Route::get('user/create',[UserController::class,'create'])->name('admin.create-user');
     Route::post('user/create',[UserController::class,'store'])->name('admin.create-user');
     Route::get('user/show/{id}',[UserController::class,'show'])->name('admin.show-user');
@@ -523,7 +525,7 @@ Route::middleware(['userRole:admin','auth'])->prefix('admin')->group(function(){
    
 
     Route::resource('chambers',ChamberController::class);
-Route::get('/doctor/{doctor}/chambers', [ChamberController::class, 'doctorChambers'])->name('doctor.chambers');
+    Route::get('/doctor/{doctor}/chambers', [ChamberController::class, 'doctorChambers'])->name('doctor.chambers');
 
     Route::resource('ambulances',AmbulanceServiceController::class);
     Route::post('/ambulance/active',[AmbulanceServiceController::class,'ambulanceActive'])->name('ambulanceActive');

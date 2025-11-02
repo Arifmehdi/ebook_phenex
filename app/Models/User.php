@@ -38,7 +38,9 @@ class User extends Authenticatable
         'image',
         'membership_category_id',
         'balance',
-        'referred_by'
+        'referred_by',
+        'transaction_id',
+        'is_approve'
     ];
 
     /**

@@ -41,9 +41,9 @@ class MembershipController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'subscription_fee' => 'required|numeric|min:0',
-            'free_books' => 'nullable|integer|min:0',
-            'validity_days' => 'nullable|integer|min:1',
+            'subscription_fee' => 'required|numeric',
+            'free_books' => 'nullable|integer',
+            'validity_days' => 'nullable|integer',
             'access_all_books' => 'nullable|boolean',
             'active' => 'nullable|boolean',
         ]);
@@ -95,9 +95,9 @@ class MembershipController extends Controller
 
         $request->validate([
             'name' => 'required|string|max:255',
-            'subscription_fee' => 'required|numeric|min:0',
-            'free_books' => 'nullable|integer|min:0',
-            'validity_days' => 'nullable|integer|min:1',
+            'subscription_fee' => 'required|numeric',
+            'free_books' => 'nullable|integer',
+            'validity_days' => 'nullable|integer',
         ]);
 
         $membership = MembershipCategory::findOrFail($id);

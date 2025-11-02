@@ -86,6 +86,22 @@ class UserController extends Controller
         return redirect('/admin/user')->with('success','Successfully Password Updated');
     }
 
+    public function toggleApprove(Request $request)
+    {
+        $user = User::find($request->id);
+
+        if (!$user) {
+            return response()->json(['status' => false, 'message' => 'User not found.']);
+        }
+
+        $user->is_approve = $request->status;
+        $user->save();
+
+        return response()->json([
+            'status' => true,
+            'message' => $request->status ? 'User approved successfully!' : 'User deactivated successfully!',
+        ]);
+    }
 
 
 

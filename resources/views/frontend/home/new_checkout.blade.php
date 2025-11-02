@@ -179,7 +179,7 @@
                                         <div class="tab-content" id="myTabContent">
                                             <div class="tab-pane fade show active" id="bkash" role="tabpanel" aria-labelledby="bkash-tab">
                                                 <div class="card-body">
-                                                    <p><strong>bKash Number:</strong> 01790552864 (Merchant)</p>
+                                                    <p><strong>bKash Number:</strong> 017XXXXXXXX (Merchant)</p>
                                                 </div>
                                             </div>
                                             {{--<div class="tab-pane fade  " id="bank" role="tabpanel" aria-labelledby="bank-tab">
@@ -467,6 +467,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
+            if (selected.value === 'online') {
+                const transactionId = document.getElementById('transaction_id')?.value;
+                if (!transactionId) {
+                    Swal.fire('Error', 'Please enter the transaction ID.', 'error');
+                    return;
+                }
+            }
+
             // Set form action dynamically
             checkoutForm.action = selected.value === 'cod' ? codRoute : onlineRoute;
 
@@ -476,7 +484,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 email: email,
                 mobile: mobile,
                 billing_address: billingAddress,
-                payment_method: selected.value
+                payment_method: selected.value,
+                transaction_id: selected.value === 'online' ? document.getElementById('transaction_id')?.value : null,
             };
 
             for (const [key, value] of Object.entries(fieldsToSubmit)) {

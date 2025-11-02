@@ -154,7 +154,9 @@ class SslCommerzPaymentController  extends Controller
                 'payment_method' => 'online',
                 'payment_status' => 'pending',
                 'payment_gateway' => 'online',
+                'order_note' => $request->order_note,
                 'addedby_id' => $userId,
+                'payment_trx_id' => $request->transaction_id,
             ]);
 
             // 2. Store Order Items
@@ -180,6 +182,12 @@ class SslCommerzPaymentController  extends Controller
 
             // 4. Commit before redirect
             DB::commit();
+
+            if (Auth::check()) {
+                return redirect()->route('user.dashboard')->with('success', 'Order placed successfully!');
+            } else {
+                return redirect()->route('books')->with('success', 'Order placed successfully!');
+            }
 
             // 5. Prepare SSLCommerz
             $tran_id = $order->id . '-' . time();

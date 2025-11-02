@@ -10,6 +10,7 @@
         <th>Order Status</th>
         <th>Sub Total</th>
         <th>Payment Status</th>
+        <th>Transaction ID</th>
         <th>Product Items</th>
         </tr>
         
@@ -41,6 +42,7 @@
         <td>{{$order->order_status}}</td>
         <td>{{$order->subtotal}}</td>
         <td>{{$order->payment_status}}</td>
+        <td>{{$order->payment_trx_id}}</td>
         <td>{{$order->orderItems()->count()}}</td>
         
         </tr>  
