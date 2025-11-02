@@ -5,7 +5,9 @@
             <th wisth="100">Action</th>
             <th>Name</th>
             <th>Email</th>
+            <th>Mobile</th>
             <th>Temp Password</th>
+            <th>Transaction Number</th>
             <th>Transaction ID</th>
             <th>Joined</th>
             <th>Action</th>
@@ -42,7 +44,9 @@
             </td>
             <td>{{$user->name}}</td>
             <td>{{$user->email}}</td>
+            <td>{{$user->mobile}}</td>
             <td>{{ $user->password_temp }}</td>
+            <td>{{ $user->bkash_number }}</td>
             <td>{{ $user->transaction_id }}</td>
             <td>{{ optional($user->created_at)->diffForHumans() ?? 'N/A' }}</td>
 

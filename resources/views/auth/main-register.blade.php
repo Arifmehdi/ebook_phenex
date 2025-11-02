@@ -102,6 +102,30 @@
                             <label class="form-label fw-semibold">Select Payment Gateway</label>
                             <div class="d-flex flex-column gap-2">
                                 <div class="form-check form-check-lg">
+                                    <input class="form-check-input" type="radio" name="urm_payment_method" id="bkash" value="bkash">
+                                    <label class="form-check-label" for="bkash">Bkash</label>
+                                </div>
+                                <div class="form-check form-check-lg">
+                                    <input class="form-check-input" type="radio" name="urm_payment_method" id="nagad" value="nagad">
+                                    <label class="form-check-label" for="nagad">Nagad</label>
+                                </div>
+                                <div class="form-check form-check-lg">
+                                    <input class="form-check-input" type="radio" name="urm_payment_method" id="duch_bangla" value="duch_bangla">
+                                    <label class="form-check-label" for="duch_bangla">Duch Bangla</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row g-4 mt-3" id="mobile-banking-inputs" style="display:none;">
+                            <div class="col-12 col-md-6">
+                                <label for="mobile_number" class="form-label fw-semibold">Mobile Banking Number <span class="text-danger">*</span></label>
+                                <input type="text" id="mobile_number" name="mobile_number" class="form-control form-control-lg rounded-3" placeholder="Enter mobile number">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="transaction_id" class="form-label fw-semibold">Transaction ID <span class="text-danger">*</span></label>
+                                <input type="text" id="transaction_id" name="transaction_id" class="form-control form-control-lg rounded-3" placeholder="Enter transaction ID">
+                            </div>
+                                {{--<div class="form-check form-check-lg">
                                     <input class="form-check-input" type="radio" name="urm_payment_method" id="ur-membership-paypal" value="paypal">
                                     <label class="form-check-label" for="ur-membership-paypal">Paypal</label>
                                 </div>
@@ -112,7 +136,7 @@
                                 <div class="form-check form-check-lg">
                                     <input class="form-check-input" type="radio" name="urm_payment_method" id="ur-membership-bank" value="bank">
                                     <label class="form-check-label" for="ur-membership-bank">Bank</label>
-                                </div>
+                                </div>--}}
                             </div>
                         </div>
 
@@ -138,12 +162,13 @@
 </main>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function() {
     const membershipRadios = document.querySelectorAll('.membership-radio');
     const totalContainer = document.getElementById('urm-total_container');
     const paymentGatewayContainer = document.querySelector('.ur_payment_gateway_container');
     const totalInput = document.getElementById('ur-membership-total');
     const stripeContainer = document.querySelector('.stripe-container');
+    const mobileBankingInputs = document.getElementById('mobile-banking-inputs');
 
     function handleMembershipChange() {
         const selected = document.querySelector('.membership-radio:checked');
@@ -155,6 +180,7 @@ document.addEventListener('DOMContentLoaded', function() {
             totalContainer.style.display = 'none';
             paymentGatewayContainer.style.display = 'none';
             stripeContainer.style.display = 'none';
+            mobileBankingInputs.style.display = 'none'; // Hide mobile banking inputs when no membership is selected
             totalInput.value = '';
         }
     }
@@ -164,10 +190,16 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('input[name="urm_payment_method"]').forEach(pg => {
         pg.addEventListener('change', function() {
             stripeContainer.style.display = this.value === 'stripe' ? 'block' : 'none';
+
+            const mobileBankingMethods = ['bkash', 'nagad', 'duch_bangla'];
+            if (mobileBankingMethods.includes(this.value)) {
+                mobileBankingInputs.style.display = 'flex'; // Use flex to keep inputs in one row
+            } else {
+                mobileBankingInputs.style.display = 'none';
+            }
         });
     });
 
     handleMembershipChange();
-});
-</script>
+});</script>
 @endsection

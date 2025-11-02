@@ -17,7 +17,7 @@
 
                         {{-- Name --}}
                         <div class="form-group mb-3">
-                            <label for="name">Name</label>
+                            <label for="name">Membership Name<span class="text-danger">*</span></label>
                             <input type="text" 
                                    class="form-control @error('name') is-invalid @enderror" 
                                    id="name" 
@@ -31,7 +31,7 @@
 
                         {{-- Subscription Fee --}}
                         <div class="form-group mb-3">
-                            <label for="subscription_fee">Subscription Fee (৳)</label>
+                            <label for="subscription_fee">Subscription Fee (৳)<span class="text-danger">*</span></label>
                             <input type="number" 
                                    step="0.01"
                                    class="form-control @error('subscription_fee') is-invalid @enderror" 
@@ -71,6 +71,21 @@
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
+
+                        {{--Layer Count --}}
+                        <div class="form-group mb-3">
+                            <label for="layer_count">Layer Count</label>
+                            <input type="number" 
+                                   class="form-control @error('layer_count') is-invalid @enderror" 
+                                   id="layer_count" 
+                                   name="layer_count" 
+                                   value="{{ old('layer_count', $membership->layer_count) }}" 
+                                   placeholder="Enter Layer Members Numbers">
+                            @error('layer_count')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                        </div>
+
 
                         {{-- Access All Books --}}
                         <div class="form-check mb-3">

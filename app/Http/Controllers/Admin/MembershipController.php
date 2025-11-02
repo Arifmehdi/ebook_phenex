@@ -16,7 +16,7 @@ class MembershipController extends Controller
     public function index()
     {
        menuSubmenu('memberships', 'all_membership');
-       $membershipCategory = MembershipCategory::latest()->paginate(10);
+       $membershipCategory = MembershipCategory::orderBy('subscription_fee')->paginate(10);
        return view('admin.memberships.index',compact('membershipCategory'));
     }
 
@@ -45,14 +45,16 @@ class MembershipController extends Controller
             'free_books' => 'nullable|integer',
             'validity_days' => 'nullable|integer',
             'access_all_books' => 'nullable|boolean',
+            'layer_count' => 'nullable|integer',
             'active' => 'nullable|boolean',
         ]);
 
         MembershipCategory::create([
             'name' => $request->name,
             'subscription_fee' => $request->subscription_fee,
-            'free_books' => $request->free_books ?? 0,
+            'free_books' => $request->free_books ?? null,
             'validity_days' => $request->validity_days,
+            'layer_count' => $request->layer_count,
             'access_all_books' => $request->has('access_all_books'),
             'active' => $request->has('active'),
         ]);
@@ -97,6 +99,7 @@ class MembershipController extends Controller
             'name' => 'required|string|max:255',
             'subscription_fee' => 'required|numeric',
             'free_books' => 'nullable|integer',
+            'layer_count' => 'nullable|integer',
             'validity_days' => 'nullable|integer',
         ]);
 
@@ -105,8 +108,9 @@ class MembershipController extends Controller
         $membership->update([
             'name' => $request->name,
             'subscription_fee' => $request->subscription_fee,
-            'free_books' => $request->free_books ?? 0,
+            'free_books' => $request->free_books ?? null,
             'validity_days' => $request->validity_days,
+            'layer_count' => $request->layer_count,
             'access_all_books' => $request->has('access_all_books'),
             'active' => $request->has('active'),
         ]);

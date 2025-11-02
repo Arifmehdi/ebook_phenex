@@ -21,7 +21,7 @@
 
                                     {{-- Name --}}
                                     <div class="form-group mb-3">
-                                        <label for="name" class="fw-bold">Membership Name</label>
+                                        <label for="name" class="fw-bold">Membership Name <span class="text-danger">*</span></label>
                                         <input type="text"
                                             name="name"
                                             id="name"
@@ -35,7 +35,7 @@
 
                                     {{-- Subscription Fee --}}
                                     <div class="form-group mb-3">
-                                        <label for="subscription_fee" class="fw-bold">Subscription Fee (৳)</label>
+                                        <label for="subscription_fee" class="fw-bold">Subscription Fee (৳)<span class="text-danger">*</span></label>
                                         <input type="number"
                                             name="subscription_fee"
                                             id="subscription_fee"
@@ -72,6 +72,19 @@
                                             value="{{ old('validity_days') }}"
                                             placeholder="Enter number of days">
                                         @error('validity_days')
+                                            <div class="text-danger small">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    {{-- Layer Count --}}
+                                    <div class="form-group mb-3">
+                                        <label for="layer_count" class="fw-bold">Layer Count</label>
+                                        <input type="number"
+                                            name="layer_count"
+                                            id="layer_count"
+                                            class="form-control @error('layer_count') is-invalid @enderror"
+                                            value="{{ old('layer_count') }}"
+                                            placeholder="Enter Layer Members Numbers">
+                                        @error('layer_count')
                                             <div class="text-danger small">{{ $message }}</div>
                                         @enderror
                                     </div>

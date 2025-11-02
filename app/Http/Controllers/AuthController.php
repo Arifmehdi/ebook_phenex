@@ -403,6 +403,8 @@ class AuthController extends Controller
                     'mobile' => $request->number_box_1755579092 ?? null,
                     'membership_category_id' => $membership->id,
                     'referred_by' => $request->referred_by ?? null,
+                    'bkash_number' => $request->mobile_number,
+                    'transaction_id' => $request->transaction_id,
                     'balance' => $userBalance,
                 ]);
 
@@ -434,8 +436,11 @@ class AuthController extends Controller
                 'name'     => $request->name,
                 'email'    => $request->email,
                 'password' => Hash::make($request->password),
+                'mobile' => $request->number_box_1755579092 ?? null,
                 'membership_category_id' => $membership->id,
                 'referred_by' => $request->referred_by ?? null,
+                'bkash_number' => $request->mobile_number,
+                'transaction_id' => $request->transaction_id,
                 'balance' => $userBalance,
             ]);
 

@@ -42,7 +42,7 @@ class SearchController extends Controller
             ->orderBy('name')
             ->paginate(100);
             // $users->appends(['q'=> $q, 'type'=>$type]);
-            $html = view('admin.user.search_data', ['users' => $users]);
+            $html = view('admin.users.search_data', ['users' => $users]);
         }
         elseif($type == 'post')
         {

@@ -9,7 +9,7 @@
             </div>
             <div class="card-body">
                  <div class="table-responsive">
-                    <table class="table table-borderd table-sm">
+                    <table class="table table-bordered table-hover table-sm table-striped">
                         <thead>
                             <tr>
                                 <th>SL</th>
@@ -18,6 +18,7 @@
                                 <th>Subscription Fee</th>
                                 <th>Free Books</th>
                                 <th>Validity Days</th>
+                                <th>Layer Member</th>
                                 <th>Active</th>
                             </tr>
                         </thead>
@@ -40,8 +41,9 @@
                                     <td>{{ $membership->name }}</td>
                                     <td>{{ Str::limit($membership->subscription_fee,50) }}</td>
 
-                                    <td>{{ $membership->free_books }}</td>
-                                    <td>{{ $membership->validity_days }}</td>
+                                    <td>{{ $membership->free_books == null ? 'All' : $membership->free_books}}</td>
+                                    <td>{{ $membership->validity_days == null ? 'Unlimited' : $membership->validity_days }}</td>
+                                    <td>{{ $membership->layer_count }}</td>
                                     <td>
                                         @if ($membership->active)
                                         <span class="badge badge-primary">Active</span>
