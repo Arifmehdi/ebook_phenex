@@ -20,6 +20,7 @@ use App\Models\WebsiteParameter;
 use Illuminate\Http\Request;
 use Alert;
 use App\Models\BisesoggoCategory;
+use App\Models\Publisher;
 use App\Models\BlogCategory;
 use App\Models\BlogPost;
 use App\Models\Doctor;
@@ -113,7 +114,7 @@ public function generes(Request $request, $slug)
 
     public function publisher()
     {
-        $publishers = BisesoggoCategory::whereActive(true)->latest()->get();
+        $publishers = Publisher::whereActive(true)->latest()->get();
         return view('website.publisher', compact('publishers'));
     }
 

@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AmbulanceServiceController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ChamberController;
 use App\Http\Controllers\Admin\DepartmentController;
+use App\Http\Controllers\Admin\PublisherController;
 use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\FrontSliderController;
 use App\Http\Controllers\Admin\GalleryController;
@@ -511,6 +512,8 @@ Route::middleware(['userRole:admin','auth'])->prefix('admin')->group(function(){
 
     //BisesoggoCategory
     Route::resource('departments',DepartmentController::class);
+    Route::resource('publishers',PublisherController::class);
+    Route::post('/publishers/active',[PublisherController::class,'publishersActive'])->name('publishers.active');
     Route::post('/departments/active',[DepartmentController::class,'departmentActive'])->name('departments.active');
     Route::resource('hospitals',HospitalController::class);
     Route::get('get/division',[HospitalController::class,'getDivision'])->name('get.division');

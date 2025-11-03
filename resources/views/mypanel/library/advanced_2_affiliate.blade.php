@@ -22,8 +22,7 @@
             @if(isset($layers) && count($layers) > 0)
               @foreach($layers as $level => $users)
                 <h6 class="fw-bold mb-3 text-success">
-                  Your Referrals (Layer {{ $level }}) — Max: {{ pow($requiredMembers, $level) }}
-
+                  Your Referrals (Layer {{ $level }}) — Max: {{ pow($layerCount, $level) }}
                 </h6>
 
                 @if($users->count() > 0)
@@ -45,7 +44,7 @@
                             <td>{{ $ref->name }}</td>
                             <td>{{ $ref->email }}</td>
                             <td>{{ $ref->mobile }}</td>
-                            <td>{{ optional($ref->created_at)->diffForHumans() ?? 'N/A' }}</td>
+                            <td>{{ optional($ref->created_at)->format('d M Y') ?? 'N/A' }}</td>
                           </tr>
                         @endforeach
                       </tbody>
@@ -81,7 +80,7 @@
                         <td>{{ optional($refCol->user)->name ?? 'Unknown' }}</td>
                         <td>Level {{ $refCol->level }}</td>
                         <td>৳ {{ number_format($refCol->amount, 2) }}</td>
-                        <td>{{ optional($refCol->created_at)->diffForHumans() ?? 'N/A' }}</td>
+                        <td>{{ optional($refCol->created_at)->format('d M Y') ?? 'N/A' }}</td>
                       </tr>
                     @endforeach
                   </tbody>
@@ -94,7 +93,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>

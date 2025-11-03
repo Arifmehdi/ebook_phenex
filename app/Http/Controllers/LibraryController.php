@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\ProductCategory;
 use App\Models\Product;
 use App\Models\BlogPost;
+use App\Models\MembershipCategory;
 use App\Models\BlogCategory;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
@@ -236,6 +237,7 @@ class LibraryController extends Controller
         return view('mypanel.library.invite', compact('user','activeTab'));
     }
 
+    // simple affiliate 
     // public function showAffiliate()
     // {
     //     $user = Auth::user();
@@ -243,22 +245,112 @@ class LibraryController extends Controller
     //     return view('mypanel.library.affilaite', compact('user','activeTab'));
     // }
 
-    public function showAffiliate()
-    {
-        $user = Auth::user();
-        $activeTab = 'affiliate';
 
-        // Users referred by the logged-in user
-        $referrals = \App\Models\User::where('referred_by', $user->id)->get();
+    // advance 02 code 
+    // public function showAffiliate()
+    // {
+    //     $user = Auth::user();
+    //     $activeTab = 'affiliate';
 
-        // Referral transactions (if any)
-        $referralCollections = \App\Models\ReferralTransaction::where('from_user_id', $user->id)
-            ->with('user') // assuming relationship defined
-            ->orderBy('created_at', 'desc')
-            ->get();
+    //     // Get layer count from membership category
+    //     $membership = \App\Models\MembershipCategory::find($user->membership_category_id);
+    //     $layerCount = $membership ? $membership->layer_count : 1;
 
-        return view('mypanel.library.affiliate', compact('user', 'activeTab', 'referrals', 'referralCollections'));
+    //     // Build layer-wise referrals
+    //     $layers = [];
+    //     $currentLevelIds = [$user->id]; // start with the logged-in user
+
+    //     for ($level = 1; $level <= $layerCount; $level++) {
+    //         // Get users referred by the current layer of users
+    //         $nextLevelUsers = \App\Models\User::whereIn('referred_by', $currentLevelIds)->get();
+
+    //         if ($nextLevelUsers->isEmpty()) break;
+
+    //         // Exponential limit (2^1, 2^2, etc. depending on layerCount)
+    //         $power = pow($layerCount, $level);
+
+    //         // Take up to the power count
+    //         $layers[$level] = $nextLevelUsers->take($power);
+
+    //         // Prepare for next loop
+    //         $currentLevelIds = $nextLevelUsers->pluck('id')->toArray();
+    //     }
+
+    //     // Referral transactions (if any)
+    //     $referralCollections = \App\Models\ReferralTransaction::where('from_user_id', $user->id)
+    //         ->with('user')
+    //         ->orderBy('created_at', 'desc')
+    //         ->get();
+
+    //     return view('mypanel.library.affiliate', compact(
+    //         'user', 'activeTab', 'layers', 'referralCollections', 'layerCount'
+    //     ));
+    // }
+
+public function showAffiliate()
+{
+    $user = Auth::user();
+    $activeTab = 'affiliate';
+
+    // Membership info
+    $membership = MembershipCategory::find($user->membership_category_id);
+    $requiredMembers = $membership ? $membership->layer_count : 2; // e.g., 2, 3, 5
+
+    // Get all direct referrals
+    $directReferrals = \App\Models\User::where('referred_by', $user->id)
+        ->orderBy('created_at')
+        ->get();
+
+    $layers = [];
+    $offset = 0; // start from first direct referral
+    $maxLayer = 3; // or more if needed
+
+    for ($level = 1; $level <= $maxLayer; $level++) {
+        $count = pow($requiredMembers, $level); // number of members in this layer
+        $layers[$level] = $directReferrals->slice($offset, $count);
+        $offset += $count;
+        if ($offset >= $directReferrals->count()) {
+            break; // no more users to assign
+        }
     }
+
+    // Referral earnings
+    $referralCollections = \App\Models\ReferralTransaction::where('from_user_id', $user->id)
+        ->with('user')
+        ->orderBy('created_at', 'desc')
+        ->get();
+
+    return view('mypanel.library.affiliate', compact(
+        'user',
+        'activeTab',
+        'layers',
+        'requiredMembers',
+        'referralCollections'
+    ));
+}
+
+
+
+
+
+
+    // advanced affiliate 
+    // public function showAffiliate()
+    // {
+    //     $user = Auth::user();
+    //     $activeTab = 'affiliate';
+
+    //     // Users referred by the logged-in user
+    //     $referrals = \App\Models\User::where('referred_by', $user->id)->get();
+
+    //     // Referral transactions (if any)
+    //     $referralCollections = \App\Models\ReferralTransaction::where('from_user_id', $user->id)
+    //         ->with('user') // assuming relationship defined
+    //         ->orderBy('created_at', 'desc')
+    //         ->get();
+
+    //     return view('mypanel.library.affiliate', compact('user', 'activeTab', 'referrals', 'referralCollections'));
+    // }
 
     public function blogpost()
     {

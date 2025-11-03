@@ -245,8 +245,8 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item {{ session('lsbm') == 'departments'? ' menu-open ' : ''}}">
-                        <a href="#" class="nav-link {{ session('lsbm') == 'departments'? ' active ' : ''}}">
+                    <li class="nav-item {{ session('lsbm') == 'publishers'? ' menu-open ' : ''}}">
+                        <a href="#" class="nav-link {{ session('lsbm') == 'publishers'? ' active ' : ''}}">
                             <i class="nav-icon fas fa-passport"></i>
                             <p>
                                 Publisher
@@ -255,13 +255,13 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{route('departments.index')}}" class="nav-link {{ session('lsbsm') == 'alldepartments' ? ' active ' : '' }}">
+                                <a href="{{route('publishers.index')}}" class="nav-link {{ session('lsbsm') == 'allPublishers' ? ' active ' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>All Publishers</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{route('departments.create')}}" class="nav-link {{ session('lsbsm') == 'createdepartments' ? ' active ' : '' }}">
+                                <a href="{{route('publishers.create')}}" class="nav-link {{ session('lsbsm') == 'createPublishers' ? ' active ' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Create Publisher</p>
                                 </a>
