@@ -140,7 +140,7 @@
                     <div class="col-sm-6">
                         <div class="card card-widget">
                             <div class="card-header with-border">
-                                <h3 class="card-title">Pharmacy E-Commerce Logo  
+                                <h3 class="card-title">Ebook Logo  
                                     <span class="text-danger">&nbsp;&nbsp;Better Size: (140x158px)</span>
                                 </h3>
                             </div>
@@ -168,7 +168,7 @@
                         </div>
 
                     </div>
-                    <div class="col-sm-6">
+                    {{--<div class="col-sm-6">
                         <div class="card card-widget">
                             <div class="card-header with-border">
                                 <h3 class="card-title">Shasthoseba Fundtion Logo
@@ -196,13 +196,13 @@
                             </div>
                         </div>
 
-                    </div>
+                    </div>--}}
 
                 </div>
 
 
 
-                <div class="row">
+                {{--<div class="row">
                     <div class="card">
                         <div class="card-header">
                              Services Images 
@@ -361,7 +361,7 @@
                         </div>
                     </div>
                    
-                </div>
+                </div>--}}
 
                 
                 

@@ -114,7 +114,40 @@
                                            class="form-control" placeholder="Enter discount">
                                 </div>
 
-                               
+                               {{-- Author Dropdown --}}
+                                <div class="form-group">
+                                    <label for="author_id">Author <span class="text-danger">*</span></label>
+                                    <select name="author_id" class="form-control" required>
+                                        <option value="">-- Select Author --</option>
+                                        @foreach($authors as $author)
+                                            <option value="{{ $author->id }}" 
+                                                {{ old('author_id', $product->author_id) == $author->id ? 'selected' : '' }}>
+                                                {{ $author->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    @error('author_id')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+
+                                {{-- Publisher Dropdown --}}
+                                <div class="form-group">
+                                    <label for="publisher_id">Publisher <span class="text-danger">*</span></label>
+                                    <select name="publisher_id" class="form-control" required>
+                                        <option value="">-- Select Publisher --</option>
+                                        @foreach($publishers as $publisher)
+                                            <option value="{{ $publisher->id }}" 
+                                                {{ old('publisher_id', $product->publisher_id) == $publisher->id ? 'selected' : '' }}>
+                                                {{ $publisher->name_en ?? $publisher->name_bn }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    @error('publisher_id')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+
 
 
                             </div>

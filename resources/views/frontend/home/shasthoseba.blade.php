@@ -1,5 +1,5 @@
 @extends('frontend.layouts.ecommercemaster')
-@section('title', "Shop Shasthoseba")
+@section('title', "Shop - Boier Adda")
 
 
 @push('css')

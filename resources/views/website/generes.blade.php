@@ -1,5 +1,5 @@
 @extends('frontend.layouts.ecommercemaster')
-@section('title', "Genres - Ebook")
+@section('title', "Genres - Boier Adda")
 
 @section('content')
 <div class="container py-5" >

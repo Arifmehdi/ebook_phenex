@@ -1,5 +1,5 @@
 @extends('frontend.layouts.ecommercemaster')
-@section('title', "Sign Up - Ebook")
+@section('title', "Sign Up - Boier Adda")
 
 @section('content')
 <main id="main" class="site-main py-5" style="background: linear-gradient(to right, #f7f9fc, #e9eff5); min-height: 100vh;">

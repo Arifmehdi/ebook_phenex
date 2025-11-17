@@ -1,6 +1,6 @@
 @extends('frontend.layouts.ecommercemaster')
 
-@section('title', "Genres - Ebook")
+@section('title', "Genres - Boier Adda")
 
 @section('content')
 <div id="content" class="site-content py-4 " style="background-color: #F4F4F4;">

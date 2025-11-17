@@ -1,5 +1,5 @@
 @extends('frontend.layouts.ecommercemaster')
-@section('title', "All Publishers - Ebook")
+@section('title', "All Publishers - Boier Adda")
 
 @section('content')
 <main id="main" class="site-main">

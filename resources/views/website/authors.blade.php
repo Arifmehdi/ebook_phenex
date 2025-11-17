@@ -1,5 +1,5 @@
 @extends('frontend.layouts.ecommercemaster')
-@section('title', "All Publishers - Ebook")
+@section('title', "All Publishers - Boier Adda")
 
 @section('content')
 <div class="content-wrap d-flex flex-column min-vh-100"> <!-- Full height container -->

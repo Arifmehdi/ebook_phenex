@@ -3,8 +3,10 @@
         <tr>
             <th scope="col" width="30">SL</th>
             <th scope="col" width="60">Action</th>
-            <th scope="col">Product Name</th>
-            <th scope="col">Product Stock</th>
+            <th scope="col">Book Name</th>
+            <th scope="col">Publisher</th>
+            <th scope="col">Author</th>
+            <th scope="col">Stock</th>
             <th scope="col">Product Price</th>
             <th scope="col">Image</th>
             <th scope="col">Status</th>
@@ -35,8 +37,9 @@
                     </div>
                 </td>
                
-
                 <td>{{ Str::limit($product->name_en, 30) }}</td>
+                <td>{{ $product->publisher?->name_en ?? 'N/A' }}</td>
+                <td>{{ $product->author?->name ?? 'N/A' }}</td>
                 <td>{{ $product->stock ? $product->stock : 'N/A' }}</td>
                 <td>{{ $product->price }}</td>
                 <td>

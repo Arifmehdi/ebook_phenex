@@ -171,7 +171,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item {{ session('lsbm') == 'roles'? ' menu-open ' : ''}}">
+                    {{--<li class="nav-item {{ session('lsbm') == 'roles'? ' menu-open ' : ''}}">
                         <a href="#" class="nav-link {{ session('lsbm') == 'roles'? ' active ' : ''}}">
                             <i class="nav-icon fas fa-diagnoses"></i>
                             <p>
@@ -193,7 +193,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
+                    </li>--}}
 
 
                     {{--<li class="nav-item {{ session('lsbm') == 'slider'? ' menu-open ' : ''}}">
@@ -217,7 +217,7 @@
 
                    
 
-                    <li class="nav-item {{ session('lsbm') == 'menupage' ? ' menu-open ' : ''}}">
+                    {{--<li class="nav-item {{ session('lsbm') == 'menupage' ? ' menu-open ' : ''}}">
                         <a href="#" class="nav-link {{ session('lsbm') == 'menus' ? ' active ' : ''}}">
                             <i class="nav-icon fas fa-bezier-curve"></i>
                             <p>
@@ -243,7 +243,7 @@
                             </li>
 
                         </ul>
-                    </li>
+                    </li>--}}
 
                     <li class="nav-item {{ session('lsbm') == 'publishers'? ' menu-open ' : ''}}">
                         <a href="#" class="nav-link {{ session('lsbm') == 'publishers'? ' active ' : ''}}">
@@ -264,6 +264,31 @@
                                 <a href="{{route('publishers.create')}}" class="nav-link {{ session('lsbsm') == 'createPublishers' ? ' active ' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Create Publisher</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item {{ session('lsbm') == 'authors'? ' menu-open ' : ''}}">
+                        <a href="#" class="nav-link {{ session('lsbm') == 'authors'? ' active ' : ''}}">
+                            <i class="nav-icon fas fa-passport"></i>
+                            <p>
+                                Authors
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('authors.index')}}" class="nav-link {{ session('lsbsm') == 'allAuthors' ? ' active ' : '' }}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>All Authors</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('authors.create')}}" class="nav-link {{ session('lsbsm') == 'createAuthors' ? ' active ' : '' }}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Create Author</p>
                                 </a>
                             </li>
 
@@ -483,7 +508,7 @@
                         <a href="#" class="nav-link {{ session('lsbm') == 'product'? ' active ' : ''}}">
                             <i class="nav-icon fas fa-shopping-cart"></i>
                             <p>
-                                Products
+                                Books
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
@@ -491,13 +516,13 @@
                             <li class="nav-item">
                                 <a href="{{ route('admin.productCategoriesAll') }}" class="nav-link {{ session('lsbsm') == 'productCategoriesAll' ? ' active ' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Categories All</p>
+                                    <p>Genres All</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('admin.productsAll') }}" class="nav-link {{ session('lsbsm') == 'productsAll' ? ' active ' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Products All</p>
+                                    <p>Books All</p>
                                 </a>
                             </li>
 
@@ -510,7 +535,7 @@
                         <a href="#" class="nav-link {{ session('lsbm') == 'order' ? 'active' : '' }}">
                             <i class="nav-icon fas fa-shopping-bag"></i>
                             <p>
-                            Orders
+                            Book Orders
                             <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
@@ -524,7 +549,7 @@
                         </ul>
                     </li>
 
-                   <li class="nav-item {{ session('lsbm') == 'method' ? 'menu-open' : '' }}">
+                   {{--<li class="nav-item {{ session('lsbm') == 'method' ? 'menu-open' : '' }}">
                         <a href="#" class="nav-link {{ session('lsbm') == 'order' ? 'active' : '' }}">
                             <i class="nav-icon fas fa-shopping-bag"></i>
                             <p>
@@ -540,7 +565,7 @@
                             </a>
                             </li>
                         </ul>
-                    </li>
+                    </li>--}}
                    
                    
 

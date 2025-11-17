@@ -10,6 +10,8 @@ use App\Models\Media;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Payment;
+use App\Models\Author;
+use App\Models\Publisher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\{
     Storage, File, DB, Cache, Auth, Validator
@@ -232,7 +234,7 @@ class ProductController extends Controller
         menuSubmenu('product', 'productsAll');
 
         // Fetch latest products with pagination (30 per page)
-        $data['products'] = Product::latest()->paginate(30);
+        $data['products'] = Product::with(['publisher', 'author'])->latest()->paginate(30);
 
         // Return the products list view with data
         return view('admin.products.productsAll', $data);
@@ -255,7 +257,9 @@ class ProductController extends Controller
 
         // Fetch paginated media items for media selection (20 per page)
         $data['medias'] = Media::latest()->paginate(20);
-
+        // Fetch authors and publishers
+        $data['authors'] = Author::where('active', 1)->get();
+        $data['publishers'] = Publisher::where('active', 1)->get();
         // Return the create product view with categories and medias data
         return view('admin.products.productCreate', $data);
     }
@@ -290,6 +294,8 @@ class ProductController extends Controller
 
         // Initialize new product instance
         $product = new Product();
+        $product->author_id  = $request->author_id ?? null;
+        $product->publisher_id  = $request->publisher_id ?? null;
         $product->name_en = $request->name_en;
         $product->name_bn = $request->name_bn ?? null;
         $product->sku = $request->sku ?? null;
@@ -413,6 +419,9 @@ class ProductController extends Controller
             'product'    => $product,
             'categories' => ProductCategory::latest()->get(),
             'medias'     => Media::latest()->paginate(20),
+            // Fetch authors and publishers
+            'authors' => Author::where('active', 1)->get(),
+            'publishers' => Publisher::where('active', 1)->get(),
             // Explode tags string into array or null if no tags
             'ots'        => $product->tags ? explode(', ', $product->tags) : null,
         ];
@@ -449,6 +458,8 @@ class ProductController extends Controller
       
 
         // Update product attributes with request data
+        $product->author_id  = $request->author_id ?? null;
+        $product->publisher_id  = $request->publisher_id ?? null;
         $product->name_en = $request->name_en;
         $product->name_bn = $request->name_bn ?? null;
         $product->sku = $request->sku ?? null;

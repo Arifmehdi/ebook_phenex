@@ -9,10 +9,15 @@
         <div class="header-column">
           <div class="header-row">
             <div class="header-logo">
-              <a href="{{ url('/') }}" class="d-flex align-items-center justify-content-center" style="text-decoration: none;">
-                <h2 class="ebook-title">eBook</h2>
+              <a href="{{ url('/') }}">  
+                <img alt="{{$ws->website_title ?? ''}}" width="110" height="80" src="{{ route('imagecache', [ 'template'=>'original','filename' => $ws->logo() ]) }}">
               </a>
             </div>
+            {{-- <div class="header-logo">
+              <a href="{{ url('/') }}" class="d-flex align-items-center justify-content-center" style="text-decoration: none;">
+                <h2 class="ebook-title">eBook 2</h2>
+              </a>
+            </div> --}}
           </div>
         </div>
 

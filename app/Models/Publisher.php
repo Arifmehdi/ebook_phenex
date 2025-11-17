@@ -14,4 +14,9 @@ class Publisher extends Model
         return $this->image ? : 'fi.jpg';
     }
 
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'publisher_id');
+    }
+
 }

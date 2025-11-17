@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
 
-<!-- Mirrored from ebook.bdwheelchaircricket.com/generes/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Sep 2025 05:31:26 GMT -->
+<!-- Mirrored from ebook.bdwheelchaircricket.com/product-category/poetry/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Sep 2025 05:33:50 GMT -->
 <!-- Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
@@ -9,16 +9,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
-    <title>Generes &#8211; Boier Adda</title>
+    <title>{{$slug}} &#8211; Boier Adda</title>
     <meta name='robots' content='max-image-preview:large' />
     <style>
     img:is([sizes="auto"i], [sizes^="auto,"i]) {
         contain-intrinsic-size: 3000px 1500px
     }
     </style>
-    <link rel="alternate" type="application/rss+xml" title="eBook &raquo; Feed" href="../feed/index.html" />
+    <link rel="alternate" type="application/rss+xml" title="eBook &raquo; Feed" href="../../feed/index.html" />
     <link rel="alternate" type="application/rss+xml" title="eBook &raquo; Comments Feed"
-        href="../comments/feed/index.html" />
+        href="../../comments/feed/index.html" />
+    <link rel="alternate" type="application/rss+xml" title="eBook &raquo; Poetry Category Feed"
+        href="feed/index.html" />
     <script>
     window._wpemojiSettings = {
         "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/16.0.1\/72x72\/",
@@ -67,7 +69,7 @@
                         n(e, "\ud83c\udde8\ud83c\uddf6", "\ud83c\udde8\u200b\ud83c\uddf6") && !n(e,
                             "\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f",
                             "\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f"
-                        );
+                            );
                 case "emoji":
                     return !a(e, "\ud83e\udedf")
             }
@@ -143,7 +145,7 @@
     }((window, document), window._wpemojiSettings);
     </script>
     <link rel='stylesheet' id='astra-theme-css-css'
-        href='../wp-content/themes/astra/assets/css/minified/main.mine060.css?ver=4.11.9' media='all' />
+        href='../../wp-content/themes/astra/assets/css/minified/main.mine060.css?ver=4.11.9' media='all' />
     <style id='astra-theme-css-inline-css'>
     :root {
         --ast-post-nav-space: 0;
@@ -624,81 +626,6 @@
         }
     }
 
-    .ast-page-builder-template .hentry {
-        margin: 0;
-    }
-
-    .ast-page-builder-template .site-content>.ast-container {
-        max-width: 100%;
-        padding: 0;
-    }
-
-    .ast-page-builder-template .site .site-content #primary {
-        padding: 0;
-        margin: 0;
-    }
-
-    .ast-page-builder-template .no-results {
-        text-align: center;
-        margin: 4em auto;
-    }
-
-    .ast-page-builder-template .ast-pagination {
-        padding: 2em;
-    }
-
-    .ast-page-builder-template .entry-header.ast-no-title.ast-no-thumbnail {
-        margin-top: 0;
-    }
-
-    .ast-page-builder-template .entry-header.ast-header-without-markup {
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-
-    .ast-page-builder-template .entry-header.ast-no-title.ast-no-meta {
-        margin-bottom: 0;
-    }
-
-    .ast-page-builder-template.single .post-navigation {
-        padding-bottom: 2em;
-    }
-
-    .ast-page-builder-template.single-post .site-content>.ast-container {
-        max-width: 100%;
-    }
-
-    .ast-page-builder-template .entry-header {
-        margin-top: 2em;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .ast-page-builder-template .ast-archive-description {
-        margin: 2em auto 0;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .ast-page-builder-template .ast-row {
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    .single.ast-page-builder-template .entry-header+.entry-content,
-    .single.ast-page-builder-template .ast-single-entry-banner+.site-content article .entry-content {
-        margin-bottom: 2em;
-    }
-
-    @media(min-width: 921px) {
-
-        .ast-page-builder-template.archive.ast-right-sidebar .ast-row article,
-        .ast-page-builder-template.archive.ast-left-sidebar .ast-row article {
-            padding-left: 0;
-            padding-right: 0;
-        }
-    }
-
     input[type="text"],
     input[type="number"],
     input[type="email"],
@@ -813,25 +740,6 @@
 
     .wp-block-buttons.aligncenter {
         justify-content: center;
-    }
-
-    @media (max-width:921px) {
-
-        .ast-theme-transparent-header #primary,
-        .ast-theme-transparent-header #secondary {
-            padding: 0;
-        }
-    }
-
-    @media (max-width:921px) {
-        .ast-plain-container.ast-no-sidebar #primary {
-            padding: 0;
-        }
-    }
-
-    .ast-plain-container.ast-no-sidebar #primary {
-        margin-top: 0;
-        margin-bottom: 0;
     }
 
     .wp-block-button.is-style-outline .wp-block-button__link {
@@ -1527,8 +1435,99 @@
         }
     }
 
-    .entry-content :where(h1, h2, h3, h4, h5, h6) {
-        clear: none;
+    .ast-blog-layout-4-grid .ast-article-post {
+        width: 33.33%;
+        margin-bottom: 2em;
+        border-bottom: 0;
+        background-color: transparent;
+    }
+
+    .ast-blog-layout-4-grid .ast-article-inner .wp-post-image {
+        width: 100%;
+    }
+
+    .ast-article-inner {
+        padding: 1.5em;
+    }
+
+    .ast-blog-layout-4-grid .ast-row {
+        display: flex;
+        flex-wrap: wrap;
+        flex-flow: row wrap;
+        align-items: stretch;
+    }
+
+    .ast-separate-container .ast-blog-layout-4-grid .ast-article-post {
+        padding: 0 1em 0;
+    }
+
+    .ast-separate-container.ast-desktop .ast-blog-layout-4-grid .ast-row {
+        margin-left: -1em;
+        margin-right: -1em;
+    }
+
+    .ast-blog-layout-4-grid .ast-article-inner {
+        box-shadow: 0px 6px 15px -2px rgba(16, 24, 40, 0.05);
+    }
+
+    .ast-separate-container .ast-blog-layout-4-grid .ast-article-inner,
+    .ast-plain-container .ast-blog-layout-4-grid .ast-article-inner {
+        height: 100%;
+    }
+
+    .ast-row .blog-layout-4 .post-content,
+    .blog-layout-4 .post-thumb {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .ast-article-post.remove-featured-img-padding .blog-layout-4 .post-content .ast-blog-featured-section:first-child .post-thumb-img-content {
+        margin-top: -1.5em;
+    }
+
+    .ast-article-post.remove-featured-img-padding .blog-layout-4 .post-content .ast-blog-featured-section .post-thumb-img-content {
+        margin-left: -1.5em;
+        margin-right: -1.5em;
+    }
+
+    @media (max-width:921px) {
+        .ast-blog-layout-4-grid .ast-article-post {
+            width: 100%;
+        }
+    }
+
+    .ast-blog-layout-6-grid .ast-blog-featured-section:before {
+        content: "";
+    }
+
+    .ast-article-post .post-thumb-img-content img {
+        aspect-ratio: 16/9;
+        width: 100%;
+    }
+
+    .ast-article-post .post-thumb-img-content {
+        overflow: hidden;
+    }
+
+    .ast-article-post .post-thumb-img-content img {
+        transform: scale(1);
+        transition: transform .5s ease;
+    }
+
+    .ast-article-post:hover .post-thumb-img-content img {
+        transform: scale(1.1);
+    }
+
+    .cat-links.badge a,
+    .tags-links.badge a {
+        padding: 4px 8px;
+        border-radius: 3px;
+        font-weight: 400;
+    }
+
+    .cat-links.underline a,
+    .tags-links.underline a {
+        text-decoration: underline;
     }
 
     @media (min-width:922px) {
@@ -2059,125 +2058,6 @@
         --ast-border-color: var(--ast-global-color-7);
     }
 
-    .ast-single-entry-banner {
-        -js-display: flex;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        position: relative;
-        background: var(--ast-title-layout-bg);
-    }
-
-    .ast-single-entry-banner[data-banner-layout="layout-1"] {
-        max-width: 1200px;
-        background: inherit;
-        padding: 20px 0;
-    }
-
-    .ast-single-entry-banner[data-banner-width-type="custom"] {
-        margin: 0 auto;
-        width: 100%;
-    }
-
-    .ast-single-entry-banner+.site-content .entry-header {
-        margin-bottom: 0;
-    }
-
-    .site .ast-author-avatar {
-        --ast-author-avatar-size: ;
-    }
-
-    a.ast-underline-text {
-        text-decoration: underline;
-    }
-
-    .ast-container>.ast-terms-link {
-        position: relative;
-        display: block;
-    }
-
-    a.ast-button.ast-badge-tax {
-        padding: 4px 8px;
-        border-radius: 3px;
-        font-size: inherit;
-    }
-
-    header.entry-header .entry-title {
-        font-weight: 600;
-        font-size: 32px;
-        font-size: 2rem;
-    }
-
-    header.entry-header>*:not(:last-child) {
-        margin-bottom: 10px;
-    }
-
-    header.entry-header .post-thumb-img-content {
-        text-align: center;
-    }
-
-    header.entry-header .post-thumb img,
-    .ast-single-post-featured-section.post-thumb img {
-        aspect-ratio: 16/9;
-        width: 100%;
-        height: 100%;
-    }
-
-    .ast-archive-entry-banner {
-        -js-display: flex;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        position: relative;
-        background: var(--ast-title-layout-bg);
-    }
-
-    .ast-archive-entry-banner[data-banner-width-type="custom"] {
-        margin: 0 auto;
-        width: 100%;
-    }
-
-    .ast-archive-entry-banner[data-banner-layout="layout-1"] {
-        background: inherit;
-        padding: 20px 0;
-        text-align: left;
-    }
-
-    body.archive .ast-archive-description {
-        max-width: 1200px;
-        width: 100%;
-        text-align: left;
-        padding-top: 3em;
-        padding-right: 3em;
-        padding-bottom: 3em;
-        padding-left: 3em;
-    }
-
-    body.archive .ast-archive-description .ast-archive-title,
-    body.archive .ast-archive-description .ast-archive-title * {
-        font-weight: 600;
-        font-size: 32px;
-        font-size: 2rem;
-    }
-
-    body.archive .ast-archive-description>*:not(:last-child) {
-        margin-bottom: 10px;
-    }
-
-    @media (max-width:921px) {
-        body.archive .ast-archive-description {
-            text-align: left;
-        }
-    }
-
-    @media (max-width:544px) {
-        body.archive .ast-archive-description {
-            text-align: left;
-        }
-    }
-
     .ast-breadcrumbs .trail-browse,
     .ast-breadcrumbs .trail-items,
     .ast-breadcrumbs .trail-items li {
@@ -2492,41 +2372,6 @@
 
     .ast-footer-row-inline .footer-widget-area.widget-area.site-footer-focus-item {
         width: 100%;
-    }
-
-    .elementor-widget-heading .elementor-heading-title {
-        margin: 0;
-    }
-
-    .elementor-page .ast-menu-toggle {
-        color: unset !important;
-        background: unset !important;
-    }
-
-    .elementor-post.elementor-grid-item.hentry {
-        margin-bottom: 0;
-    }
-
-    .woocommerce div.product .elementor-element.elementor-products-grid .related.products ul.products li.product,
-    .elementor-element .elementor-wc-products .woocommerce[class*='columns-'] ul.products li.product {
-        width: auto;
-        margin: 0;
-        float: none;
-    }
-
-    .elementor-toc__list-wrapper {
-        margin: 0;
-    }
-
-    body .elementor hr {
-        background-color: #ccc;
-        margin: 0;
-    }
-
-    .ast-left-sidebar .elementor-section.elementor-section-stretched,
-    .ast-right-sidebar .elementor-section.elementor-section-stretched {
-        max-width: 100%;
-        left: 0 !important;
     }
 
     .elementor-posts-container [CLASS*="ast-width-"] {
@@ -3116,9 +2961,10 @@
     }
     </style>
     <link rel='stylesheet' id='hfe-widgets-style-css'
-        href='../wp-content/plugins/header-footer-elementor/inc/widgets-css/frontend8dff.css?ver=2.4.9' media='all' />
+        href='../../wp-content/plugins/header-footer-elementor/inc/widgets-css/frontend8dff.css?ver=2.4.9'
+        media='all' />
     <link rel='stylesheet' id='premium-addons-css'
-        href='../wp-content/plugins/premium-addons-for-elementor/assets/frontend/min-css/premium-addons.mine952.css?ver=4.11.30'
+        href='../../wp-content/plugins/premium-addons-for-elementor/assets/frontend/min-css/premium-addons.mine952.css?ver=4.11.30'
         media='all' />
     <style id='wp-emoji-styles-inline-css'>
     img.wp-smiley,
@@ -3134,6 +2980,8 @@
         padding: 0 !important;
     }
     </style>
+    <link rel='stylesheet' id='wp-block-library-css'
+        href='../../wp-includes/css/dist/block-library/style.min6c2d.css?ver=6.8.2' media='all' />
     <style id='bp-login-form-style-inline-css'>
     .widget_bp_core_login_widget .bp-login-widget-user-avatar {
         float: left
@@ -4290,17 +4138,17 @@
     }
     </style>
     <link rel='stylesheet' id='user-registration-general-css'
-        href='../wp-content/plugins/user-registration/assets/css/user-registration474a.css?ver=4.4.0' media='all' />
+        href='../../wp-content/plugins/user-registration/assets/css/user-registration474a.css?ver=4.4.0' media='all' />
     <link rel='stylesheet' id='usp_style-css'
-        href='../wp-content/plugins/user-submitted-posts/resources/usp195d.css?ver=20250329' media='all' />
+        href='../../wp-content/plugins/user-submitted-posts/resources/usp195d.css?ver=20250329' media='all' />
     <link rel='stylesheet' id='woocommerce-layout-css'
-        href='../wp-content/themes/astra/assets/css/minified/compatibility/woocommerce/woocommerce-layout-grid.mine060.css?ver=4.11.9'
+        href='../../wp-content/themes/astra/assets/css/minified/compatibility/woocommerce/woocommerce-layout-grid.mine060.css?ver=4.11.9'
         media='all' />
     <link rel='stylesheet' id='woocommerce-smallscreen-css'
-        href='../wp-content/themes/astra/assets/css/minified/compatibility/woocommerce/woocommerce-smallscreen-grid.mine060.css?ver=4.11.9'
+        href='../../wp-content/themes/astra/assets/css/minified/compatibility/woocommerce/woocommerce-smallscreen-grid.mine060.css?ver=4.11.9'
         media='only screen and (max-width: 921px)' />
     <link rel='stylesheet' id='woocommerce-general-css'
-        href='../wp-content/themes/astra/assets/css/minified/compatibility/woocommerce/woocommerce-grid.mine060.css?ver=4.11.9'
+        href='../../wp-content/themes/astra/assets/css/minified/compatibility/woocommerce/woocommerce-grid.mine060.css?ver=4.11.9'
         media='all' />
     <style id='woocommerce-general-inline-css'>
     .woocommerce .woocommerce-result-count,
@@ -4558,6 +4406,10 @@
         .woocommerce.tablet-columns-3 ul.products:not(.elementor-grid) {
             grid-template-columns: repeat(3, minmax(0, 1fr));
         }
+
+        .woocommerce[class*="tablet-columns-"] .site-main div.product .related.products ul.products li.product {
+            width: 100%;
+        }
     }
 
     @media (max-width:544px) {
@@ -4643,6 +4495,12 @@
         .woocommerce-page #content div.product .woocommerce-tabs ul.tabs li {
             display: block;
             margin-right: 0;
+        }
+    }
+
+    @media (min-width:922px) {
+        .ast-woo-shop-archive .site-content>.ast-container {
+            max-width: 1240px;
         }
     }
 
@@ -4910,87 +4768,75 @@
         margin-top: 2px;
     }
     </style>
-    <link rel='stylesheet' id='astra-wc-dokan-compatibility-css'
-        href='../wp-content/themes/astra/assets/css/minified/compatibility/woocommerce/dokan-compatibility.mine060.css?ver=4.11.9'
-        media='all' />
     <style id='woocommerce-inline-inline-css'>
     .woocommerce form .form-row .required {
         visibility: visible;
     }
     </style>
     <link rel='stylesheet' id='bdpg-frontend-css'
-        href='../wp-content/plugins/bangladeshi-payment-gateways/assets/public/css/bdpg-public459e.css?ver=3.0.4'
+        href='../../wp-content/plugins/bangladeshi-payment-gateways/assets/public/css/bdpg-public459e.css?ver=3.0.4'
         media='all' />
     <link rel='stylesheet' id='hfe-style-css'
-        href='../wp-content/plugins/header-footer-elementor/assets/css/header-footer-elementor8dff.css?ver=2.4.9'
+        href='../../wp-content/plugins/header-footer-elementor/assets/css/header-footer-elementor8dff.css?ver=2.4.9'
         media='all' />
     <link rel='stylesheet' id='elementor-frontend-css'
-        href='../wp-content/plugins/elementor/assets/css/frontend.min94b7.css?ver=3.31.3' media='all' />
+        href='../../wp-content/plugins/elementor/assets/css/frontend.min94b7.css?ver=3.31.3' media='all' />
     <link rel='stylesheet' id='elementor-post-6-css'
-        href='../wp-content/uploads/elementor/css/post-62859.css?ver=1758601933' media='all' />
-    <link rel='stylesheet' id='widget-heading-css'
-        href='../wp-content/plugins/elementor/assets/css/widget-heading.min94b7.css?ver=3.31.3' media='all' />
-    <link rel='stylesheet' id='pa-glass-css'
-        href='../wp-content/plugins/premium-addons-for-elementor/assets/frontend/min-css/liquid-glass.mine952.css?ver=4.11.30'
-        media='all' />
-    <link rel='stylesheet' id='pa-slick-css'
-        href='../wp-content/plugins/premium-addons-for-elementor/assets/frontend/min-css/slick.mine952.css?ver=4.11.30'
-        media='all' />
-    <link rel='stylesheet' id='elementor-post-26-css'
-        href='../wp-content/uploads/elementor/css/post-262041.css?ver=1758605416' media='all' />
+        href='../../wp-content/uploads/elementor/css/post-62859.css?ver=1758601933' media='all' />
     <link rel='stylesheet' id='eael-general-css'
-        href='../wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/css/view/general.mina086.css?ver=6.3.0'
+        href='../../wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/css/view/general.mina086.css?ver=6.3.0'
         media='all' />
     <link rel='stylesheet' id='eael-9-css'
-        href='../wp-content/uploads/essential-addons-elementor/eael-95575.css?ver=1755070645' media='all' />
+        href='../../wp-content/uploads/essential-addons-elementor/eael-9187d.css?ver=1755069003' media='all' />
     <link rel='stylesheet' id='elementor-post-9-css'
-        href='../wp-content/uploads/elementor/css/post-9b83c.css?ver=1758601938' media='all' />
+        href='../../wp-content/uploads/elementor/css/post-9b83c.css?ver=1758601938' media='all' />
     <link rel='stylesheet' id='brands-styles-css'
-        href='../wp-content/plugins/woocommerce/assets/css/brands523e.css?ver=10.1.2' media='all' />
-    <link rel='stylesheet' id='dashicons-css' href='../wp-includes/css/dashicons.min6c2d.css?ver=6.8.2' media='all' />
+        href='../../wp-content/plugins/woocommerce/assets/css/brands523e.css?ver=10.1.2' media='all' />
+    <link rel='stylesheet' id='dashicons-css' href='../../wp-includes/css/dashicons.min6c2d.css?ver=6.8.2'
+        media='all' />
     <link rel='stylesheet' id='hfe-elementor-icons-css'
-        href='../wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min705c.css?ver=5.34.0'
+        href='../../wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min705c.css?ver=5.34.0'
         media='all' />
     <link rel='stylesheet' id='hfe-icons-list-css'
-        href='../wp-content/plugins/elementor/assets/css/widget-icon-list.min44b4.css?ver=3.24.3' media='all' />
+        href='../../wp-content/plugins/elementor/assets/css/widget-icon-list.min44b4.css?ver=3.24.3' media='all' />
     <link rel='stylesheet' id='hfe-social-icons-css'
-        href='../wp-content/plugins/elementor/assets/css/widget-social-icons.min2401.css?ver=3.24.0' media='all' />
+        href='../../wp-content/plugins/elementor/assets/css/widget-social-icons.min2401.css?ver=3.24.0' media='all' />
     <link rel='stylesheet' id='hfe-social-share-icons-brands-css'
-        href='../wp-content/plugins/elementor/assets/lib/font-awesome/css/brands52d5.css?ver=5.15.3' media='all' />
+        href='../../wp-content/plugins/elementor/assets/lib/font-awesome/css/brands52d5.css?ver=5.15.3' media='all' />
     <link rel='stylesheet' id='hfe-social-share-icons-fontawesome-css'
-        href='../wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome52d5.css?ver=5.15.3' media='all' />
+        href='../../wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome52d5.css?ver=5.15.3'
+        media='all' />
     <link rel='stylesheet' id='hfe-nav-menu-icons-css'
-        href='../wp-content/plugins/elementor/assets/lib/font-awesome/css/solid52d5.css?ver=5.15.3' media='all' />
+        href='../../wp-content/plugins/elementor/assets/lib/font-awesome/css/solid52d5.css?ver=5.15.3' media='all' />
     <link rel='stylesheet' id='ekit-widget-styles-css'
-        href='../wp-content/plugins/elementskit-lite/widgets/init/assets/css/widget-stylesa7a0.css?ver=3.6.1'
+        href='../../wp-content/plugins/elementskit-lite/widgets/init/assets/css/widget-stylesa7a0.css?ver=3.6.1'
         media='all' />
     <link rel='stylesheet' id='ekit-responsive-css'
-        href='../wp-content/plugins/elementskit-lite/widgets/init/assets/css/responsivea7a0.css?ver=3.6.1'
+        href='../../wp-content/plugins/elementskit-lite/widgets/init/assets/css/responsivea7a0.css?ver=3.6.1'
         media='all' />
     <link rel='stylesheet' id='wpr-text-animations-css-css'
-        href='../wp-content/plugins/royal-elementor-addons/assets/css/lib/animations/text-animations.min75d8.css?ver=1.7.1031'
+        href='../../wp-content/plugins/royal-elementor-addons/assets/css/lib/animations/text-animations.min75d8.css?ver=1.7.1031'
         media='all' />
     <link rel='stylesheet' id='wpr-addons-css-css'
-        href='../wp-content/plugins/royal-elementor-addons/assets/css/frontend.min75d8.css?ver=1.7.1031' media='all' />
+        href='../../wp-content/plugins/royal-elementor-addons/assets/css/frontend.min75d8.css?ver=1.7.1031'
+        media='all' />
     <link rel='stylesheet' id='font-awesome-5-all-css'
-        href='../wp-content/plugins/elementor/assets/lib/font-awesome/css/all.mine952.css?ver=4.11.30' media='all' />
+        href='../../wp-content/plugins/elementor/assets/lib/font-awesome/css/all.mine952.css?ver=4.11.30' media='all' />
     <link rel='stylesheet' id='elementor-gf-local-roboto-css'
-        href='../wp-content/uploads/elementor/google-fonts/css/robotoca2c.css?ver=1754981363' media='all' />
+        href='../../wp-content/uploads/elementor/google-fonts/css/robotoca2c.css?ver=1754981363' media='all' />
     <link rel='stylesheet' id='elementor-gf-local-robotoslab-css'
-        href='../wp-content/uploads/elementor/google-fonts/css/robotoslabeb0f.css?ver=1754982358' media='all' />
-    <link rel='stylesheet' id='elementor-gf-local-marcellus-css'
-        href='../wp-content/uploads/elementor/google-fonts/css/marcellus4db1.css?ver=1754996991' media='all' />
+        href='../../wp-content/uploads/elementor/google-fonts/css/robotoslabeb0f.css?ver=1754982358' media='all' />
     <link rel='stylesheet' id='elementor-gf-local-marcellussc-css'
-        href='../wp-content/uploads/elementor/google-fonts/css/marcellussc072a.css?ver=1754982821' media='all' />
+        href='../../wp-content/uploads/elementor/google-fonts/css/marcellussc072a.css?ver=1754982821' media='all' />
     <!--[if IE]>
 <script src="https://ebook.bdwheelchaircricket.com/wp-content/themes/astra/assets/js/minified/flexibility.min.js?ver=4.11.9" id="astra-flexibility-js"></script>
 <script id="astra-flexibility-js-after">
 flexibility(document.documentElement);
 </script>
 <![endif]-->
-    <script data-cfasync="false" src="../wp-includes/js/jquery/jquery.minf43b.js?ver=3.7.1" id="jquery-core-js">
+    <script data-cfasync="false" src="../../wp-includes/js/jquery/jquery.minf43b.js?ver=3.7.1" id="jquery-core-js">
     </script>
-    <script data-cfasync="false" src="../wp-includes/js/jquery/jquery-migrate.min5589.js?ver=3.4.1"
+    <script data-cfasync="false" src="../../wp-includes/js/jquery/jquery-migrate.min5589.js?ver=3.4.1"
         id="jquery-migrate-js"></script>
     <script id="jquery-js-after">
     ! function($) {
@@ -5022,11 +4868,11 @@ flexibility(document.documentElement);
         });
     }(jQuery);
     </script>
-    <script src="../wp-content/plugins/user-submitted-posts/resources/jquery.chosen195d.js?ver=20250329"
+    <script src="../../wp-content/plugins/user-submitted-posts/resources/jquery.chosen195d.js?ver=20250329"
         id="usp_chosen-js"></script>
-    <script src="../wp-content/plugins/user-submitted-posts/resources/jquery.cookie195d.js?ver=20250329"
+    <script src="../../wp-content/plugins/user-submitted-posts/resources/jquery.cookie195d.js?ver=20250329"
         id="usp_cookie-js"></script>
-    <script src="../wp-content/plugins/user-submitted-posts/resources/jquery.parsley.min195d.js?ver=20250329"
+    <script src="../../wp-content/plugins/user-submitted-posts/resources/jquery.parsley.min195d.js?ver=20250329"
         id="usp_parsley-js"></script>
     <script id="usp_core-js-before">
     var usp_custom_field = "usp_custom_field";
@@ -5044,10 +4890,10 @@ flexibility(document.documentElement);
     var challenge_nonce = "28720b71b3";
     var ajax_url = "index.html\/\/ebook.bdwheelchaircricket.com\/wp-admin\/admin-ajax.php";
     </script>
-    <script src="../wp-content/plugins/user-submitted-posts/resources/jquery.usp.core195d.js?ver=20250329"
+    <script src="../../wp-content/plugins/user-submitted-posts/resources/jquery.usp.core195d.js?ver=20250329"
         id="usp_core-js"></script>
     <script
-        src="../wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.mina876.js?ver=2.7.0-wc.10.1.2"
+        src="../../wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.mina876.js?ver=2.7.0-wc.10.1.2"
         id="jquery-blockui-js" defer data-wp-strategy="defer"></script>
     <script id="wc-add-to-cart-js-extra">
     var wc_add_to_cart_params = {
@@ -5059,9 +4905,9 @@ flexibility(document.documentElement);
         "cart_redirect_after_add": "no"
     };
     </script>
-    <script src="../wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min523e.js?ver=10.1.2"
+    <script src="../../wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min523e.js?ver=10.1.2"
         id="wc-add-to-cart-js" defer data-wp-strategy="defer"></script>
-    <script src="../wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min2d4a.js?ver=2.1.4-wc.10.1.2"
+    <script src="../../wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min2d4a.js?ver=2.1.4-wc.10.1.2"
         id="js-cookie-js" defer data-wp-strategy="defer"></script>
     <script id="woocommerce-js-extra">
     var woocommerce_params = {
@@ -5071,24 +4917,18 @@ flexibility(document.documentElement);
         "i18n_password_hide": "Hide password"
     };
     </script>
-    <script src="../wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min523e.js?ver=10.1.2"
+    <script src="../../wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min523e.js?ver=10.1.2"
         id="woocommerce-js" defer data-wp-strategy="defer"></script>
-    <script src="../wp-content/plugins/bangladeshi-payment-gateways/assets/public/js/bdpg-public459e.js?ver=3.0.4"
+    <script src="../../wp-content/plugins/bangladeshi-payment-gateways/assets/public/js/bdpg-public459e.js?ver=3.0.4"
         id="bdpg-frontend-js"></script>
-    <link rel="https://api.w.org/" href="../wp-json/index.html" />
-    <link rel="alternate" title="JSON" type="application/json" href="../wp-json/wp/v2/pages/26.json" />
-    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc0db0.php?rsd" />
+    <link rel="https://api.w.org/" href="../../wp-json/index.html" />
+    <link rel="alternate" title="JSON" type="application/json" href="../../wp-json/wp/v2/product_cat/46.json" />
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc0db0.php?rsd" />
     <meta name="generator" content="WordPress 6.8.2" />
     <meta name="generator" content="WooCommerce 10.1.2" />
-    <link rel="canonical" href="index.html" />
-    <link rel='shortlink' href='../index88b9.html?p=26' />
-    <link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed"
-        href="../wp-json/oembed/1.0/embed619c.json?url=https%3A%2F%2Febook.bdwheelchaircricket.com%2Fgeneres%2F" />
-    <link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed"
-        href="../wp-json/oembed/1.0/embedb7ed?url=https%3A%2F%2Febook.bdwheelchaircricket.com%2Fgeneres%2F&amp;format=xml" />
 
     <script type="text/javascript">
-    var ajaxurl = '../wp-admin/admin-ajax.html';
+    var ajaxurl = '../../wp-admin/admin-ajax.html';
     </script>
 
     <style id="essential-blocks-global-styles">
@@ -5224,8 +5064,8 @@ flexibility(document.documentElement);
     </style>
 </head>
 
-<body itemtype='https://schema.org/WebPage' itemscope='itemscope'
-    class="bp-nouveau wp-singular page-template-default page page-id-26 wp-theme-astra theme-astra user-registration-page woocommerce-no-js ehf-header ehf-template-astra ehf-stylesheet-astra ast-desktop ast-page-builder-template ast-no-sidebar astra-4.11.9 ast-single-post ast-inherit-site-logo-transparent ast-hfb-header elementor-default elementor-kit-6 elementor-page elementor-page-26">
+<body
+    class="bp-nouveau archive tax-product_cat term-poetry term-46 wp-theme-astra theme-astra user-registration-page woocommerce woocommerce-page woocommerce-no-js ehf-header ehf-template-astra ehf-stylesheet-astra ast-desktop ast-plain-container ast-no-sidebar astra-4.11.9 columns-4 tablet-columns-3 mobile-columns-2 ast-woo-shop-archive ast-inherit-site-logo-transparent ast-hfb-header elementor-default elementor-kit-6">
 
     <a class="skip-link screen-reader-text" href="#content" title="Skip to content">
         Skip to content</a>
@@ -5236,92 +5076,101 @@ flexibility(document.documentElement);
         <div id="content" class="site-content">
             <div class="ast-container">
                 <div id="primary" class="content-area primary">
+
+
                     <main id="main" class="site-main">
-                        <article class="post-26 page type-page status-publish ast-article-single" id="post-26"
-                            itemtype="https://schema.org/CreativeWork" itemscope="itemscope">
-                            <header class="entry-header ast-no-thumbnail ast-no-title ast-header-without-markup">
-                            </header> <!-- .entry-header -->
-                            <div class="entry-content clear" itemprop="text">
-                                <div data-elementor-type="wp-page" data-elementor-id="26"
-                                    class="elementor elementor-26">
-                                    <div class="elementor-element elementor-element-caf2033 e-flex e-con-boxed wpr-particle-no wpr-jarallax-no wpr-parallax-no wpr-sticky-section-no e-con e-parent"
-                                        data-id="caf2033" data-element_type="container">
-                                        <div class="e-con-inner">
-                                            <div class="elementor-element elementor-element-43307ae elementor-widget elementor-widget-heading"
-                                                data-id="43307ae" data-element_type="widget"
-                                                data-widget_type="heading.default">
-                                                <h2 class="elementor-heading-title elementor-size-default">Genres</h2>
-                                            </div>
-                                            <div class="elementor-element elementor-element-5569b45 elementor-widget elementor-widget-text-editor"
-                                                data-id="5569b45" data-element_type="widget"
-                                                data-widget_type="text-editor.default">
-                                                <p>Choose Your Book from our large number of  Category and read book 
-                                                </p>
-                                            </div>
+                        <div class="ast-woocommerce-container">
+                            <nav class="woocommerce-breadcrumb" aria-label="Breadcrumb"><a
+                                    href="../../index.html">Home</a>&nbsp;&#47;&nbsp;{{ ucfirst($slug) }}</nav>
+                            <header class="woocommerce-products-header">
+                                <h1 class="woocommerce-products-header__title page-title">{{ ucfirst($slug) }}</h1>
+
+                            </header>
+                            <div class="woocommerce-notices-wrapper"></div>
+                            <p class="woocommerce-result-count" role="alert" aria-relevant="all">
+                                Showing the single result</p>
+                            <form class="woocommerce-ordering" method="get">
+                                <select name="orderby" class="orderby" aria-label="Shop order">
+                                    <option value="menu_order" selected='selected'>Default sorting</option>
+                                    <option value="popularity">Sort by popularity</option>
+                                    <option value="rating">Sort by average rating</option>
+                                    <option value="date">Sort by latest</option>
+                                    <option value="price">Sort by price: low to high</option>
+                                    <option value="price-desc">Sort by price: high to low</option>
+                                </select>
+                                <input type="hidden" name="paged" value="1" />
+                            </form>
+                            <ul class="products columns-4">
+                                @foreach( $products as $product)
+                                <li
+                                    class="ast-grid-common-col ast-full-width ast-article-post remove-featured-img-padding desktop-align-left tablet-align-left mobile-align-left product type-product post-380 status-publish first instock product_cat-poetry product_tag-mohakal-publications has-post-thumbnail shipping-taxable purchasable product-type-simple">
+                                    <div class="astra-shop-thumbnail-wrap"><a
+                                            href="{{ route('productDetails', $product->slug) }}"
+                                            class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img
+                                                fetchpriority="high" width="200" height="300"
+                                                src="{{ route('imagecache', ['template' => 'pnism', 'filename' => $product->fi()]) }}"
+                                                class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
+                                                alt="{{ $product->name_en }}" decoding="async" /></a><a
+                                            href="index2210.html?add-to-cart=380" data-quantity="1"
+                                            class="ast-on-card-button ast-select-options-trigger product_type_simple add_to_cart_button ajax_add_to_cart"
+                                            data-product_id="380" data-product_sku=""
+                                            aria-label="Add to cart: &ldquo;{{ $product->name_en }}&rdquo;" rel="nofollow">
+                                            <span class="ast-card-action-tooltip"> Add to cart </span> <span
+                                                class="ahfb-svg-iconset"> <span class="ast-icon icon-bag"><svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                                        id="ast-bag-icon-svg" x="0px" y="0px" width="100" height="100"
+                                                        viewBox="826 826 140 140"
+                                                        enable-background="new 826 826 140 140" xml:space="preserve">
+                                                        <path
+                                                            d="M960.758,934.509l2.632,23.541c0.15,1.403-0.25,2.657-1.203,3.761c-0.953,1.053-2.156,1.579-3.61,1.579H833.424  c-1.454,0-2.657-0.526-3.61-1.579c-0.952-1.104-1.354-2.357-1.203-3.761l2.632-23.541H960.758z M953.763,871.405l6.468,58.29H831.77  l6.468-58.29c0.15-1.203,0.677-2.218,1.58-3.045c0.903-0.827,1.981-1.241,3.234-1.241h19.254v9.627c0,2.658,0.94,4.927,2.82,6.807  s4.149,2.82,6.807,2.82c2.658,0,4.926-0.94,6.807-2.82s2.821-4.149,2.821-6.807v-9.627h28.882v9.627  c0,2.658,0.939,4.927,2.819,6.807c1.881,1.88,4.149,2.82,6.807,2.82s4.927-0.94,6.808-2.82c1.879-1.88,2.82-4.149,2.82-6.807v-9.627  h19.253c1.255,0,2.332,0.414,3.235,1.241C953.086,869.187,953.612,870.202,953.763,871.405z M924.881,857.492v19.254  c0,1.304-0.476,2.432-1.429,3.385s-2.08,1.429-3.385,1.429c-1.303,0-2.432-0.477-3.384-1.429c-0.953-0.953-1.43-2.081-1.43-3.385  v-19.254c0-5.315-1.881-9.853-5.641-13.613c-3.76-3.761-8.298-5.641-13.613-5.641s-9.853,1.88-13.613,5.641  c-3.761,3.76-5.641,8.298-5.641,13.613v19.254c0,1.304-0.476,2.432-1.429,3.385c-0.953,0.953-2.081,1.429-3.385,1.429  c-1.303,0-2.432-0.477-3.384-1.429c-0.953-0.953-1.429-2.081-1.429-3.385v-19.254c0-7.973,2.821-14.779,8.461-20.42  c5.641-5.641,12.448-8.461,20.42-8.461c7.973,0,14.779,2.82,20.42,8.461C922.062,842.712,924.881,849.519,924.881,857.492z" />
+                                                    </svg></span> </span> </a></div>
+                                    <div class="astra-shop-summary-wrap"> 
+
+                                        @foreach ($product->categories as $key => $category)
+                                        <span class="ast-woo-product-category">
+                                            {{ $category->name_en }} 
+                                        </span>@if(!$loop->last), @endif
+                                        @endforeach
+
+                                        <a href="{{ route('productDetails', $product->slug) }}"
+                                            class="ast-loop-product__link">
+                                            <h2 class="woocommerce-loop-product__title">{{ $product->name_en }}</h2>
+                                        </a>
+                                        <div class="review-rating">
+                                            <div class="star-rating"><span style="width:0%">Rated <strong
+                                                        class="rating">0</strong> out of 5</span></div>
                                         </div>
+								<div class="mb-1">
+									@if($product->discount > 0.00)
+										<span class="text-muted text-decoration-line-through me-2 w3-small">
+											{{ number_format($product->price, 2) }} ৳
+										</span>
+									@endif
+									<span class="fw-bold text-primary w3-small">
+										{{ number_format($product->final_price, 2) }} ৳
+									</span>
+								</div>
+                                        <a href="index2210.html?add-to-cart=380"
+                                            aria-describedby="woocommerce_loop_add_to_cart_link_describedby_380"
+                                            data-quantity="1"
+                                            class="button product_type_simple add_to_cart_button ajax_add_to_cart"
+                                            data-product_id="380" data-product_sku=""
+                                            aria-label="Add to cart: &ldquo;{{ $product->name_en }}&rdquo;" rel="nofollow"
+                                            data-success_message="&ldquo;{{ $product->name_en }}&rdquo; has been added to your cart"
+                                            role="button">Add to cart</a> <span
+                                            id="woocommerce_loop_add_to_cart_link_describedby_380"
+                                            class="screen-reader-text">
+                                        </span>
                                     </div>
-                                    <div class="elementor-element elementor-element-55095fa1 e-flex e-con-boxed wpr-particle-no wpr-jarallax-no wpr-parallax-no wpr-sticky-section-no e-con e-parent"
-                                        data-id="55095fa1" data-element_type="container">
-                                        <div class="e-con-inner">
-                                            <div class="elementor-element elementor-element-45bae6f2 premium-woo-cats__even premium-woo-cats__content-below premium-woo-cats__img-zoomin elementor-widget elementor-widget-premium-woo-categories"
-                                                data-id="45bae6f2" data-element_type="widget"
-                                                data-settings="{&quot;layout&quot;:&quot;even&quot;,&quot;columns&quot;:&quot;16.667%&quot;,&quot;columns_tablet&quot;:&quot;50%&quot;,&quot;columns_mobile&quot;:&quot;100%&quot;}"
-                                                data-widget_type="premium-woo-categories.default">
-                                                <div class="elementor-widget-container">
+                                </li>
+                                @endforeach
+                            </ul>
+                        </div> <!-- .ast-woocommerce-container -->
+                    </main> <!-- #main -->
 
-                                                    <div class="premium-woo-cats__container">
 
-                                                        <div class="premium-woo-cats__list-wrap">
-
-                                                            <ul class="products columns-">
-                                                                @foreach( $categories as $category)
-                                                                <li class="product-category product first">
-                                                                    <a href="{{ route('slug.generes', $category->slug) }}"
-                                                                        target="_blank">
-                                                                        <div class="premium-woo-cats__category">
-                                                                            <div class="premium-woo-cats__img-wrap"><img
-                                                                                    fetchpriority="high"
-                                                                                    decoding="async" width="240"
-                                                                                    height="240"
-                                                                                    src="{{ asset('storage/product_categories_images/' . $category->image) }} "
-                                                                                    class="attachment-medium size-medium wp-image-373"
-                                                                                    alt=""
-                                                                                    srcset="{{ asset('storage/product_categories_images/' . $category->image) }}"
-                                                                                    sizes="(max-width: 240px) 100vw, 240px" />
-                                                                                <div
-                                                                                    class="premium-woo-cats__img-overlay">
-                                                                                </div>
-                                                                            </div>
-                                                                            <div
-                                                                                class="premium-woo-cats__content-wrap premium-con-lq__glass2">
-                                                                                <h1
-                                                                                    class="woocommerce-loop-category__title">
-                                                                                    <span>{{ $category->name_en }} </span>
-                                                                                </h1>
-
-                                                                                <p class="premium-woo-cats__count">{{ $category->products()->count() }}
-                                                                                    Product</p>
-
-                                                                            </div>
-                                                                        </div>
-                                                                    </a>
-                                                                </li>
-                                                                @endforeach
-                                                            </ul>
-
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!-- .entry-content .clear -->
-                        </article><!-- #post-## -->
-                    </main><!-- #main -->
-                </div><!-- #primary -->
+                </div> <!-- #primary -->
             </div> <!-- ast-container -->
         </div><!-- #content -->
         <footer class="site-footer" id="colophon" itemtype="https://schema.org/WPFooter" itemscope="itemscope"
@@ -5356,6 +5205,27 @@ flexibility(document.documentElement);
                 <path d="M57.5,38.193l12.5,12.5l12.5-12.5l-2.5-2.5l-10,10l-10-10L57.5,38.193z" />
             </svg></span> <span class="screen-reader-text">Scroll to Top</span>
     </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https:\/\/schema.org\/",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "name": "Home",
+                "@id": "https:\/\/ebook.bdwheelchaircricket.com"
+            }
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "name": "Poetry",
+                "@id": "https:\/\/ebook.bdwheelchaircricket.com\/product-category\/poetry\/"
+            }
+        }]
+    }
+    </script>
     <script>
     const lazyloadRunObserver = () => {
         const lazyloadBackgrounds = document.querySelectorAll(`.e-con.e-parent:not(.e-lazyloaded)`);
@@ -5392,12 +5262,14 @@ flexibility(document.documentElement);
     })();
     </script>
     <link rel='stylesheet' id='wc-blocks-style-css'
-        href='../wp-content/plugins/woocommerce/assets/client/blocks/wc-blocksde44.css?ver=wc-10.1.2' media='all' />
+        href='../../wp-content/plugins/woocommerce/assets/client/blocks/wc-blocksde44.css?ver=wc-10.1.2' media='all' />
+    <link rel='stylesheet' id='widget-heading-css'
+        href='../../wp-content/plugins/elementor/assets/css/widget-heading.min94b7.css?ver=3.31.3' media='all' />
     <link rel='stylesheet' id='elementor-icons-css'
-        href='../wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min2778.css?ver=5.43.0'
+        href='../../wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min2778.css?ver=5.43.0'
         media='all' />
     <link rel='stylesheet' id='elementor-icons-ekiticons-css'
-        href='../wp-content/plugins/elementskit-lite/modules/elementskit-icon-pack/assets/css/ekiticonsa7a0.css?ver=3.6.1'
+        href='../../wp-content/plugins/elementskit-lite/modules/elementskit-icon-pack/assets/css/ekiticonsa7a0.css?ver=3.6.1'
         media='all' />
     <script id="essential-blocks-blocks-localize-js-extra">
     var eb_conditional_localize = [];
@@ -5421,7 +5293,7 @@ flexibility(document.documentElement);
         "wc_currency_symbol": "\u09f3\u00a0"
     };
     </script>
-    <script src="../wp-content/plugins/essential-blocks/assets/js/eb-blocks-localized363.js?ver=31d6cfe0d16ae931b73c"
+    <script src="../../wp-content/plugins/essential-blocks/assets/js/eb-blocks-localized363.js?ver=31d6cfe0d16ae931b73c"
         id="essential-blocks-blocks-localize-js"></script>
     <script id="astra-theme-js-js-extra">
     var astra = {
@@ -5434,13 +5306,132 @@ flexibility(document.documentElement);
         "is_dark_palette": ""
     };
     </script>
-    <script src="../wp-content/themes/astra/assets/js/minified/frontend.mine060.js?ver=4.11.9" id="astra-theme-js-js">
+    <script src="../../wp-content/themes/astra/assets/js/minified/frontend.mine060.js?ver=4.11.9"
+        id="astra-theme-js-js"></script>
+    <script id="eael-general-js-extra">
+    var localize = {
+        "ajaxurl": "https:\/\/ebook.bdwheelchaircricket.com\/wp-admin\/admin-ajax.php",
+        "nonce": "7d90e452ca",
+        "i18n": {
+            "added": "Added ",
+            "compare": "Compare",
+            "loading": "Loading..."
+        },
+        "eael_translate_text": {
+            "required_text": "is a required field",
+            "invalid_text": "Invalid",
+            "billing_text": "Billing",
+            "shipping_text": "Shipping",
+            "fg_mfp_counter_text": "of"
+        },
+        "page_permalink": "https:\/\/ebook.bdwheelchaircricket.com\/product\/%e0%a7%a9%e0%a7%ac%e0%a6%b6%e0%a7%87-%e0%a6%9c%e0%a7%81%e0%a6%b2%e0%a6%be%e0%a6%87%e0%a6%af%e0%a6%bc%e0%a7%87%e0%a6%b0-%e0%a6%9b%e0%a6%a1%e0%a6%bc%e0%a6%be\/",
+        "cart_redirectition": "no",
+        "cart_page_url": "https:\/\/ebook.bdwheelchaircricket.com\/34-2\/",
+        "el_breakpoints": {
+            "mobile": {
+                "label": "Mobile Portrait",
+                "value": 767,
+                "default_value": 767,
+                "direction": "max",
+                "is_enabled": true
+            },
+            "mobile_extra": {
+                "label": "Mobile Landscape",
+                "value": 880,
+                "default_value": 880,
+                "direction": "max",
+                "is_enabled": false
+            },
+            "tablet": {
+                "label": "Tablet Portrait",
+                "value": 1024,
+                "default_value": 1024,
+                "direction": "max",
+                "is_enabled": true
+            },
+            "tablet_extra": {
+                "label": "Tablet Landscape",
+                "value": 1200,
+                "default_value": 1200,
+                "direction": "max",
+                "is_enabled": false
+            },
+            "laptop": {
+                "label": "Laptop",
+                "value": 1366,
+                "default_value": 1366,
+                "direction": "max",
+                "is_enabled": false
+            },
+            "widescreen": {
+                "label": "Widescreen",
+                "value": 2400,
+                "default_value": 2400,
+                "direction": "min",
+                "is_enabled": false
+            }
+        }
+    };
     </script>
-    <script src="../wp-content/plugins/elementor/assets/js/webpack.runtime.min94b7.js?ver=3.31.3"
+    <script
+        src="../../wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/js/view/general.mina086.js?ver=6.3.0"
+        id="eael-general-js"></script>
+    <script src="../../wp-content/uploads/essential-addons-elementor/eael-9187d.js?ver=1755069003" id="eael-9-js">
+    </script>
+    <script src="../../wp-content/plugins/royal-elementor-addons/assets/js/lib/particles/particles7c45.js?ver=3.0.6"
+        id="wpr-particles-js"></script>
+    <script src="../../wp-content/plugins/royal-elementor-addons/assets/js/lib/jarallax/jarallax.minf184.js?ver=1.12.7"
+        id="wpr-jarallax-js"></script>
+    <script src="../../wp-content/plugins/royal-elementor-addons/assets/js/lib/parallax/parallax.min5152.js?ver=1.0"
+        id="wpr-parallax-hover-js"></script>
+    <script src="../../wp-content/plugins/elementskit-lite/libs/framework/assets/js/frontend-scripta7a0.js?ver=3.6.1"
+        id="elementskit-framework-js-frontend-js"></script>
+    <script id="elementskit-framework-js-frontend-js-after">
+    var elementskit = {
+        resturl: 'https://ebook.bdwheelchaircricket.com/wp-json/elementskit/v1/',
+    }
+    </script>
+    <script src="../../wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scriptsa7a0.js?ver=3.6.1"
+        id="ekit-widget-scripts-js"></script>
+    <script src="../../wp-content/plugins/woocommerce/assets/js/sourcebuster/sourcebuster.min523e.js?ver=10.1.2"
+        id="sourcebuster-js-js"></script>
+    <script id="wc-order-attribution-js-extra">
+    var wc_order_attribution = {
+        "params": {
+            "lifetime": 1.0000000000000000818030539140313095458623138256371021270751953125e-5,
+            "session": 30,
+            "base64": false,
+            "ajaxurl": "https:\/\/ebook.bdwheelchaircricket.com\/wp-admin\/admin-ajax.php",
+            "prefix": "wc_order_attribution_",
+            "allowTracking": true
+        },
+        "fields": {
+            "source_type": "current.typ",
+            "referrer": "current_add.rf",
+            "utm_campaign": "current.cmp",
+            "utm_source": "current.src",
+            "utm_medium": "current.mdm",
+            "utm_content": "current.cnt",
+            "utm_id": "current.id",
+            "utm_term": "current.trm",
+            "utm_source_platform": "current.plt",
+            "utm_creative_format": "current.fmt",
+            "utm_marketing_tactic": "current.tct",
+            "session_entry": "current_add.ep",
+            "session_start_time": "current_add.fd",
+            "session_pages": "session.pgs",
+            "session_count": "udata.vst",
+            "user_agent": "udata.uag"
+        }
+    };
+    </script>
+    <script src="../../wp-content/plugins/woocommerce/assets/js/frontend/order-attribution.min523e.js?ver=10.1.2"
+        id="wc-order-attribution-js"></script>
+    <script src="../../wp-content/plugins/elementor/assets/js/webpack.runtime.min94b7.js?ver=3.31.3"
         id="elementor-webpack-runtime-js"></script>
-    <script src="../wp-content/plugins/elementor/assets/js/frontend-modules.min94b7.js?ver=3.31.3"
+    <script src="../../wp-content/plugins/elementor/assets/js/frontend-modules.min94b7.js?ver=3.31.3"
         id="elementor-frontend-modules-js"></script>
-    <script src="../wp-includes/js/jquery/ui/core.minb37e.js?ver=1.13.3" id="jquery-ui-core-js"></script>
+    <script src="../../wp-includes/js/jquery/ui/core.minb37e.js?ver=1.13.3" id="jquery-ui-core-js"></script>
     <script id="elementor-frontend-js-before">
     var elementorFrontendConfig = {
         "environmentMode": {
@@ -5548,7 +5539,6 @@ flexibility(document.documentElement);
         },
         "swiperClass": "swiper",
         "settings": {
-            "page": [],
             "editorPreferences": []
         },
         "kit": {
@@ -5562,148 +5552,20 @@ flexibility(document.documentElement);
             "lightbox_description_src": "description"
         },
         "post": {
-            "id": 26,
-            "title": "Generes%20%E2%80%93%20eBook",
-            "excerpt": "",
-            "featuredImage": false
+            "id": 0,
+            "title": "Poetry &#8211; eBook",
+            "excerpt": ""
         }
     };
     </script>
-    <script src="../wp-content/plugins/elementor/assets/js/frontend.min94b7.js?ver=3.31.3" id="elementor-frontend-js">
-    </script>
-    <script
-        src="../wp-content/plugins/premium-addons-for-elementor/assets/frontend/min-js/isotope.mine952.js?ver=4.11.30"
-        id="isotope-js-js"></script>
-    <script src="../wp-content/plugins/premium-addons-for-elementor/assets/frontend/min-js/slick.mine952.js?ver=4.11.30"
-        id="pa-slick-js"></script>
-    <script src="../wp-includes/js/imagesloaded.minbb93.js?ver=5.0.0" id="imagesloaded-js"></script>
-    <script
-        src="../wp-content/plugins/premium-addons-for-elementor/assets/frontend/min-js/premium-woo-categories.mine952.js?ver=4.11.30"
-        id="premium-woo-cats-js"></script>
-    <script id="eael-general-js-extra">
-    var localize = {
-        "ajaxurl": "https:\/\/ebook.bdwheelchaircricket.com\/wp-admin\/admin-ajax.php",
-        "nonce": "7d90e452ca",
-        "i18n": {
-            "added": "Added ",
-            "compare": "Compare",
-            "loading": "Loading..."
-        },
-        "eael_translate_text": {
-            "required_text": "is a required field",
-            "invalid_text": "Invalid",
-            "billing_text": "Billing",
-            "shipping_text": "Shipping",
-            "fg_mfp_counter_text": "of"
-        },
-        "page_permalink": "https:\/\/ebook.bdwheelchaircricket.com\/generes\/",
-        "cart_redirectition": "no",
-        "cart_page_url": "https:\/\/ebook.bdwheelchaircricket.com\/34-2\/",
-        "el_breakpoints": {
-            "mobile": {
-                "label": "Mobile Portrait",
-                "value": 767,
-                "default_value": 767,
-                "direction": "max",
-                "is_enabled": true
-            },
-            "mobile_extra": {
-                "label": "Mobile Landscape",
-                "value": 880,
-                "default_value": 880,
-                "direction": "max",
-                "is_enabled": false
-            },
-            "tablet": {
-                "label": "Tablet Portrait",
-                "value": 1024,
-                "default_value": 1024,
-                "direction": "max",
-                "is_enabled": true
-            },
-            "tablet_extra": {
-                "label": "Tablet Landscape",
-                "value": 1200,
-                "default_value": 1200,
-                "direction": "max",
-                "is_enabled": false
-            },
-            "laptop": {
-                "label": "Laptop",
-                "value": 1366,
-                "default_value": 1366,
-                "direction": "max",
-                "is_enabled": false
-            },
-            "widescreen": {
-                "label": "Widescreen",
-                "value": 2400,
-                "default_value": 2400,
-                "direction": "min",
-                "is_enabled": false
-            }
-        }
-    };
-    </script>
-    <script
-        src="../wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/js/view/general.mina086.js?ver=6.3.0"
-        id="eael-general-js"></script>
-    <script src="../wp-content/uploads/essential-addons-elementor/eael-95575.js?ver=1755070645" id="eael-9-js"></script>
-    <script src="../wp-content/plugins/royal-elementor-addons/assets/js/lib/particles/particles7c45.js?ver=3.0.6"
-        id="wpr-particles-js"></script>
-    <script src="../wp-content/plugins/royal-elementor-addons/assets/js/lib/jarallax/jarallax.minf184.js?ver=1.12.7"
-        id="wpr-jarallax-js"></script>
-    <script src="../wp-content/plugins/royal-elementor-addons/assets/js/lib/parallax/parallax.min5152.js?ver=1.0"
-        id="wpr-parallax-hover-js"></script>
-    <script src="../wp-content/plugins/elementskit-lite/libs/framework/assets/js/frontend-scripta7a0.js?ver=3.6.1"
-        id="elementskit-framework-js-frontend-js"></script>
-    <script id="elementskit-framework-js-frontend-js-after">
-    var elementskit = {
-        resturl: 'https://ebook.bdwheelchaircricket.com/wp-json/elementskit/v1/',
-    }
-    </script>
-    <script src="../wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scriptsa7a0.js?ver=3.6.1"
-        id="ekit-widget-scripts-js"></script>
-    <script src="../wp-content/plugins/woocommerce/assets/js/sourcebuster/sourcebuster.min523e.js?ver=10.1.2"
-        id="sourcebuster-js-js"></script>
-    <script id="wc-order-attribution-js-extra">
-    var wc_order_attribution = {
-        "params": {
-            "lifetime": 1.0000000000000000818030539140313095458623138256371021270751953125e-5,
-            "session": 30,
-            "base64": false,
-            "ajaxurl": "https:\/\/ebook.bdwheelchaircricket.com\/wp-admin\/admin-ajax.php",
-            "prefix": "wc_order_attribution_",
-            "allowTracking": true
-        },
-        "fields": {
-            "source_type": "current.typ",
-            "referrer": "current_add.rf",
-            "utm_campaign": "current.cmp",
-            "utm_source": "current.src",
-            "utm_medium": "current.mdm",
-            "utm_content": "current.cnt",
-            "utm_id": "current.id",
-            "utm_term": "current.trm",
-            "utm_source_platform": "current.plt",
-            "utm_creative_format": "current.fmt",
-            "utm_marketing_tactic": "current.tct",
-            "session_entry": "current_add.ep",
-            "session_start_time": "current_add.fd",
-            "session_pages": "session.pgs",
-            "session_count": "udata.vst",
-            "user_agent": "udata.uag"
-        }
-    };
-    </script>
-    <script src="../wp-content/plugins/woocommerce/assets/js/frontend/order-attribution.min523e.js?ver=10.1.2"
-        id="wc-order-attribution-js"></script>
-    <script src="../wp-content/plugins/header-footer-elementor/inc/js/frontend8dff.js?ver=2.4.9"
+    <script src="../../wp-content/plugins/elementor/assets/js/frontend.min94b7.js?ver=3.31.3"
+        id="elementor-frontend-js"></script>
+    <script src="../../wp-content/plugins/header-footer-elementor/inc/js/frontend8dff.js?ver=2.4.9"
         id="hfe-frontend-js-js"></script>
     <script
-        src="../wp-content/plugins/royal-elementor-addons/assets/js/lib/perfect-scrollbar/perfect-scrollbar.min70b1.js?ver=0.4.9"
+        src="../../wp-content/plugins/royal-elementor-addons/assets/js/lib/perfect-scrollbar/perfect-scrollbar.min70b1.js?ver=0.4.9"
         id="wpr-perfect-scroll-js-js"></script>
-    <script src="../wp-content/plugins/elementskit-lite/widgets/init/assets/js/animate-circle.mina7a0.js?ver=3.6.1"
+    <script src="../../wp-content/plugins/elementskit-lite/widgets/init/assets/js/animate-circle.mina7a0.js?ver=3.6.1"
         id="animate-circle-js"></script>
     <script id="elementskit-elementor-js-extra">
     var ekit_config = {
@@ -5711,9 +5573,9 @@ flexibility(document.documentElement);
         "nonce": "44645d0c25"
     };
     </script>
-    <script src="../wp-content/plugins/elementskit-lite/widgets/init/assets/js/elementora7a0.js?ver=3.6.1"
+    <script src="../../wp-content/plugins/elementskit-lite/widgets/init/assets/js/elementora7a0.js?ver=3.6.1"
         id="elementskit-elementor-js"></script>
-    <script src="../../cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min7c45.js?ver=3.0.6" id="dompurify-js">
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min7c45.js?ver=3.0.6" id="dompurify-js">
     </script>
     <script id="wpr-addons-js-js-extra">
     var WprConfig = {
@@ -5723,9 +5585,9 @@ flexibility(document.documentElement);
         "addedToCartText": "was added to cart",
         "viewCart": "View Cart",
         "comparePageID": "",
-        "comparePageURL": "https:\/\/ebook.bdwheelchaircricket.com\/generes\/",
+        "comparePageURL": "https:\/\/ebook.bdwheelchaircricket.com\/product\/%e0%a7%a9%e0%a7%ac%e0%a6%b6%e0%a7%87-%e0%a6%9c%e0%a7%81%e0%a6%b2%e0%a6%be%e0%a6%87%e0%a6%af%e0%a6%bc%e0%a7%87%e0%a6%b0-%e0%a6%9b%e0%a6%a1%e0%a6%bc%e0%a6%be\/",
         "wishlistPageID": "",
-        "wishlistPageURL": "https:\/\/ebook.bdwheelchaircricket.com\/generes\/",
+        "wishlistPageURL": "https:\/\/ebook.bdwheelchaircricket.com\/product\/%e0%a7%a9%e0%a7%ac%e0%a6%b6%e0%a7%87-%e0%a6%9c%e0%a7%81%e0%a6%b2%e0%a6%be%e0%a6%87%e0%a6%af%e0%a6%bc%e0%a7%87%e0%a6%b0-%e0%a6%9b%e0%a6%a1%e0%a6%bc%e0%a6%be\/",
         "chooseQuantityText": "Please select the required number of items.",
         "site_key": "",
         "is_admin": "",
@@ -5736,14 +5598,14 @@ flexibility(document.documentElement);
         "woo_shop_ppp": "9",
         "woo_shop_cat_ppp": "9",
         "woo_shop_tag_ppp": "9",
-        "is_product_category": "",
+        "is_product_category": "1",
         "is_product_tag": ""
     };
     </script>
     <script data-cfasync="false"
-        src="../wp-content/plugins/royal-elementor-addons/assets/js/frontend.min75d8.js?ver=1.7.1031"
+        src="../../wp-content/plugins/royal-elementor-addons/assets/js/frontend.min75d8.js?ver=1.7.1031"
         id="wpr-addons-js-js"></script>
-    <script src="../wp-content/plugins/royal-elementor-addons/assets/js/modal-popups.min75d8.js?ver=1.7.1031"
+    <script src="../../wp-content/plugins/royal-elementor-addons/assets/js/modal-popups.min75d8.js?ver=1.7.1031"
         id="wpr-modal-popups-js-js"></script>
     <script>
     /(trident|msie)/i.test(navigator.userAgent) && document.getElementById && window.addEventListener && window
@@ -5754,5 +5616,7 @@ flexibility(document.documentElement);
         }, !1);
     </script>
 </body>
+
+<!-- Mirrored from ebook.bdwheelchaircricket.com/product-category/poetry/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Sep 2025 05:33:54 GMT -->
 
 </html>

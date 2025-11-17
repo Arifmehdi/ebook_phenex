@@ -12,6 +12,8 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = [
+        'author_id',
+        'publisher_id',
         'name_en',
         'name_bn',
         'sku',
@@ -95,6 +97,15 @@ class Product extends Model
     }
 
  
+    // ===== Author & Publisher Relations =====
+    public function author()
+    {
+        return $this->belongsTo(Author::class, 'author_id'); // product belongs to an author
+    }
 
+    public function publisher()
+    {
+        return $this->belongsTo(Publisher::class, 'publisher_id'); // product belongs to a publisher
+    }
    
 }
